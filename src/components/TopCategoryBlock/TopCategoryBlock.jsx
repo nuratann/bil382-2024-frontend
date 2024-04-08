@@ -1,4 +1,4 @@
-import TopCategoryCard from "./TopCategoryCard";
+import TopCategoryCard from "../TopCategoryCard/TopCategoryCard";
 
 function TopCategoryBlock() {
     const topCategoryCards = Array.from({ length: 8 }, (_, index) => <TopCategoryCard key={index} />);

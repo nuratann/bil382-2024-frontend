@@ -1,25 +1,22 @@
-import Header from "./Header.jsx"
-import Navbar from "./Navbar.jsx"
-import MainBlock from "./MainBlock.jsx"
-import DiscountBlock from "./DiscountBlock.jsx"
-import TopCategoryBlock from "./TopCategoryBlock.jsx"
-import RecomendationBlock from "./RecomendationBlock.jsx"
-import Subscribe from "./Subscribe.jsx"
+import React from 'react';
+import HomePage from './pages/HomePage/HomePage.jsx'
+import { ChakraProvider } from '@chakra-ui/react'
+import {Route, Routes, BrowserRouter} from 'react-router-dom';
+import ProductCard from './components/ProductCard/ProductCard.jsx';
 
 function App() {
-
   return (
-    <>
-      <Header />
-      <Navbar />
-      <MainBlock /> 
-      <DiscountBlock/>
-      <TopCategoryBlock/>
-      <TopCategoryBlock/>
-      <RecomendationBlock/>
-      <Subscribe/>
-    </>
+    <ChakraProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/test' element={<ProductCard/>} />
+        </Routes>
+      </BrowserRouter>
+    </ChakraProvider>
+
   )
+
 }
 
-export default App
+export default App;

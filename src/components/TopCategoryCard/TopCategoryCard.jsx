@@ -1,4 +1,4 @@
-import blendorImg from "./assets/blender.png"
+import blendorImg from "../../assets/blender.png"
 
 function TopCategoryCard() {
     return(

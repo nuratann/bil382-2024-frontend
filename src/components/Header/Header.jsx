@@ -1,5 +1,5 @@
-import IconBuyers from "./assets/icon.png"
-import flag from "./assets/rus-flag.png"
+import IconBuyers from '../../assets/icon.png'
+import flag from "../../assets/rus-flag.png"
 
 function Header() {
     return (

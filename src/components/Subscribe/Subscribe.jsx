@@ -2,6 +2,7 @@
 
 function Subscribe() {
     return(
+        <>
         <div className="subscribe">
             <h4>Подпишись на рассылки</h4>
             <p>Получай прямо на почту, выгодные предложения</p>
@@ -14,6 +15,7 @@ function Subscribe() {
             </div>
             
         </div>
+        </>
     );
 }
 

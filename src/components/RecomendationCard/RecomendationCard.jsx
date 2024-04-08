@@ -1,4 +1,4 @@
-import walletImg from "./assets/wallet.png"
+import walletImg from "../../assets/wallet.png"
 
 function RecomendationCard() {
     return(

@@ -1,4 +1,4 @@
-import DiscountCard from "./DiscountCard";
+import DiscountCard from "../DiscountCard/DiscountCard";
 
 function DiscountBlock() {
     const discountCards = Array.from({ length: 5 }, (_, index) => <DiscountCard key={index} />);

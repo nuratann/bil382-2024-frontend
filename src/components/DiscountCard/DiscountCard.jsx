@@ -1,4 +1,4 @@
-import LaptopPhoto from "./assets/discountLaptop.png"
+import LaptopPhoto from "../../assets/discountLaptop.png"
 
 function DiscountCard() {
     return(
