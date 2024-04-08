@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styles from './ProductCard.module.scss'
-import { Box, Image, Button, Text, Flex, Center} from '@chakra-ui/react'
+import { Box, Image, Button, Text, Flex, Center, Icon} from '@chakra-ui/react'
 import { StarIcon, ChatIcon } from '@chakra-ui/icons'
 // import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink} from '@chakra-ui/react'
@@ -36,7 +36,7 @@ const ProductCard = (props) => {
                         src={props.imageUrl}
                         alt={props.imageAlt}          
                     />
-                    <Box 
+                    <Icon 
                         as={(props.isFavorite||isHovered)?AiFillHeart:AiOutlineHeart} 
                         boxSize={6} 
                         position="absolute" top={4} right={4} zIndex={2} 

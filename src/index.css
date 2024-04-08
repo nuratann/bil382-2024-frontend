@@ -16,43 +16,6 @@
   margin: 0 auto;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  margin-left: 120px;
-}
-
-.search-input {
-  box-sizing: border-box;
-  border: 3px solid #0D6EFD;
-  border-radius: 6px 0 0 6px;
-  height: 40px;
-  width: 415px;
-  padding-left: 12px;
-  color: rgb(97, 97, 97);
-  font-size: 16px;
-  margin: 0;
-}
-
-.search-select {
-  border: 3px solid #0D6EFD;
-  border-right-width: 0;
-  border-left-width: 0;
-  height: 40px;
-  width: 167px;
-  outline: none;
-}
-
-.search-button {
-  border: 3px solid #0D6EFD;
-  border-radius: 0 6px 6px 0;
-  background-color: #0D6EFD;
-  height: 40px;
-  width: 104px;
-  font-weight: bold;
-  color: white;
-}
-
 .user-links {
   display: flex;
   align-items: center;
