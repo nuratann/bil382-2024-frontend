@@ -13,6 +13,7 @@ function RecomendationBlock() {
             seller='KUDO bishkek'
             description='Грунт-эмаль 3 в 1 по ржавчине KUDO высокопрочная ...'
             date='11 апреля'
+            isFavorite={false}
         />);
     return(
         <div className="recomendation">
