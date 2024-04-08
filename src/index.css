@@ -408,25 +408,6 @@
   margin: 0;
 }
 
-/*Recomendation block*/
-.recomendation {
-  width: 1182px;
-  height: 760px;
-  margin: 0 auto;
-}
-
-.recomendation h3 {
-  margin: 40px 0 60px 0;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.recomendation-cards {
-  width: 1184px;
-  height: 620px;
-  display: flex;
-  flex-wrap: wrap;
-}
 /*Recomendation card*/
 .recomendation-card {
   width: 220px;

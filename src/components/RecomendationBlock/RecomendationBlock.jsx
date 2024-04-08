@@ -1,4 +1,6 @@
 import ProductCard from "../ProductCard/ProductCard";
+import styles from './RecomendationBlock.module.scss'
+import {Flex} from '@chakra-ui/react'
 
 function RecomendationBlock() {
     const recomendationCards = Array.from({ length: 10 }, (_, index) => 
@@ -16,12 +18,14 @@ function RecomendationBlock() {
             isFavorite={false}
         />);
     return(
-        <div className="recomendation">
-            <h3>Рекомендации</h3>
-                <div className="recomendation-cards">
-                    {recomendationCards}
-                </div>
-        </div>
+        <>                
+        <Flex 
+            flexWrap={'wrap'}
+            m={8}
+            justifyContent={'center'}>
+            {recomendationCards}
+        </Flex>
+        </>
     );
 }
 
