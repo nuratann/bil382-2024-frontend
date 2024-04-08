@@ -82,7 +82,7 @@ const ProductCard = (props) => {
                 </Flex>
                 {/* кнопка купить с датой доставки */}
                 </Box>
-                <Button w={'100%'} bg={'blue.400'} color={'white'}>{props.date}</Button>
+                <Button w={'100%'} bg={'brand.blue'} color={'white'}>{props.date}</Button>
             </Box>
         </>
     )
