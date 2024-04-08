@@ -35,8 +35,10 @@ const SearchLine = () => {
                             onClick={onOpen}
                             rightIcon={isChoosen ? <></> : <ChevronDownIcon />}
                             bg={isChoosen ? 'brand.blue' : 'brand.gray'}
-                            _hover={isChoosen ? { bg: 'brand.blue' } : {}}
-                            _focus={isChoosen ? { bg: 'brand.blue' } : {}}
+                            color={isChoosen ? 'white':'brand.text'}
+                            _hover={isChoosen ? { bg: 'brand.blue'} : {bg: 'brand.gray', color: 'brand.hovertext'}}
+                            _focus={isChoosen ? { bg: 'brand.blue' } : {bg: 'brand.gray'}}
+                            
                         >
                             {choosenCat}
                         </Button>
@@ -44,7 +46,7 @@ const SearchLine = () => {
 
                             {isChoosen ?
                                 <SmallCloseIcon
-                                    color={'gray.500'}
+                                    color={'brand.text'}
                                     rounded={'full'}
                                     bg={'white'}
                                     me={2}

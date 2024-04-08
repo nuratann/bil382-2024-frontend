@@ -6,8 +6,8 @@ const theme = extendTheme({
     brand: {
       blue: " #005BFF",
       gray: "#F5F7FA",
-      text: "#99d5ff",
-      300: "#66c2ff",
+      text: "#627383",
+      hovertext: "#0050E0",
       400: "#33adff",
       500: "#007fff",
       600: "#0066cc",
