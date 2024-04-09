@@ -15,17 +15,15 @@ function MainBlock() {
     };
     return (
         <div className="main-container">
-            <div className="category-sidebar">
-                {/* Содержимое вашего блока категорий */}
+            {/* <div className="category-sidebar">
                 {Array.from({ length: 9 }, (_, index) => (
                     <div key={index} className="category-item">
                         <select>
                             <option value="category">Category {index + 1}</option>
-                            {/* Добавьте другие опции для вашего select по необходимости */}
                         </select>
                     </div>
                 ))}
-            </div>
+            </div> */}
             <Slider className='mainSlider' {...settings}>
                 <div className='oneAd'>
                     <img src='https://mir-s3-cdn-cf.behance.net/project_modules/1400/6c5cbd49579303.58b886a0487a0.jpg' alt='Реклама'/>
