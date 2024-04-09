@@ -24,7 +24,7 @@ const SearchLine = () => {
         "Игры и консоли", "Автомобили"]
     return (
         <>
-            <Flex bg={'brand.blue'} mx={8} rounded={10} p={0.5} alignItems={'center'} w={'70%'}>
+            <Flex bg={'brand.blue'} ms={4} me={8} rounded={10} p={0.5} alignItems={'center'} w={'70%'} maxH={'48px'}>
                 <HStack w={'100%'} bg={'white'} rounded={8} p={0.5}>
                     <Flex
                         rounded={'lg'}

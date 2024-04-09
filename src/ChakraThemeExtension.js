@@ -8,7 +8,7 @@ const theme = extendTheme({
       gray: "#F5F7FA",
       text: "#627383",
       hovertext: "#0050E0",
-      400: "#33adff",
+      hoverblue: "#1A6CFF",
       500: "#007fff",
       600: "#0066cc",
       700: "#004d99",
