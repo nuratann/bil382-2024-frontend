@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, VStack, Icon, Text } from '@chakra-ui/react'
 
-const IconWithTitle = ({ icon, text, count }) => {
+const IconWithTitle = ({ icon, text, count, isAuthentificated }) => {
+    console.log(isAuthentificated)
     return (
         <>
             <VStack
@@ -15,11 +16,13 @@ const IconWithTitle = ({ icon, text, count }) => {
                 >
                 <Icon as={icon} boxSize={5} mx={2} mt={3} />
                 <Text fontSize={11} fontWeight={'semibold'}>{text}</Text>
+                
+                {isAuthentificated?
                 <Box
                     boxSize={4}
                     position="absolute" top={0.25} right={0.25} zIndex={2}
                     color={'white'}
-                    bg={'red'}
+                    bg={'brand.red'}
                     textAlign={'center'}
                     rounded={'full'}
                     fontSize={9}
@@ -27,6 +30,7 @@ const IconWithTitle = ({ icon, text, count }) => {
                 >
                     <Text>{count}</Text>
                 </Box>
+                :<></>}
             </VStack>
         </>
     )

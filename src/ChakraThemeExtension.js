@@ -9,7 +9,7 @@ const theme = extendTheme({
       text: "#627383",
       hovertext: "#0050E0",
       hoverblue: "#1A6CFF",
-      500: "#007fff",
+      red: "#F91155",
       600: "#0066cc",
       700: "#004d99",
       800: "#003366",

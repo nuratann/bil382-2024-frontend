@@ -12,7 +12,7 @@ import {
     PopoverAnchor,
 } from '@chakra-ui/react'
 
-const IconTitleDropMenu = ({ icon, text, count, username }) => {
+const IconTitleDropMenu = ({ icon, text, count, username, isAuthentificated }) => {
     const [isOnTrigger, setOnTrigger] = useState(false);
     const [isOnMenu, setOnMenu] = useState(false);
     const menuItems = [
@@ -27,7 +27,7 @@ const IconTitleDropMenu = ({ icon, text, count, username }) => {
     return (
         <>
 
-            <Popover isLazy={true} isOpen={isOnTrigger||isOnMenu}>
+            <Popover isLazy={true} isOpen={isOnTrigger || isOnMenu}>
                 <PopoverTrigger>
                     <VStack
                         align={'center'}
@@ -40,12 +40,13 @@ const IconTitleDropMenu = ({ icon, text, count, username }) => {
                         onMouseLeave={() => setOnTrigger(false)}
                         _hover={{ color: 'brand.hoverblue' }}>
                         <Icon as={icon} boxSize={5} mx={2} mt={3} />
-                        <Text fontSize={11} fontWeight={'semibold'}>{text}</Text>
+                        <Text fontSize={11} fontWeight={'semibold'}>{isAuthentificated?text:"Войти"}</Text>
+                        {isAuthentificated?
                         <Box
                             boxSize={4}
                             position="absolute" top={0.25} right={0.25} zIndex={2}
                             color={'white'}
-                            bg={'red'}
+                            bg={'brand.red'}
                             textAlign={'center'}
                             rounded={'full'}
                             fontSize={9}
@@ -53,27 +54,48 @@ const IconTitleDropMenu = ({ icon, text, count, username }) => {
                         >
                             <Text>{count}</Text>
                         </Box>
+                        :
+                        <></>}
+                        
                     </VStack>
                 </PopoverTrigger>
-                <PopoverContent 
+                <PopoverContent
                     onMouseEnter={() => setOnMenu(true)}
                     onMouseLeave={() => setOnMenu(false)}
                 >
                     <PopoverArrow />
                     <PopoverBody>
-                        <VStack alignItems={'start'} spacing={1}>
-                            {menuItems.map((item, index) => (
-                                <Button
-                                    key={index}
-                                    bg={'white'}
-                                    textAlign={'left'}
-                                    justifyContent={'flex-start'}
-                                    w={'100%'}
-                                >
-                                    {item.text}
-                                </Button>
-                            ))}
+                        {isAuthentificated?
+                            <VStack alignItems={'start'} spacing={1}>
+                                {menuItems.map((item, index) => (
+                                    <Button
+                                        key={index}
+                                        bg={'white'}
+                                        textAlign={'left'}
+                                        justifyContent={'flex-start'}
+                                        w={'100%'}
+                                    >
+                                        {item.text}
+                                    </Button>
+                                ))}
                         </VStack>
+                        :
+                            <VStack spacing={2} textAlign={'center'}>
+                                <Text fontSize={14} fontWeight={'semibold'} color={'brand.text'}>
+                                    Войдите, чтобы делать покупки, отслеживать заказы и пользоваться персональными скидками и баллами.
+                                    После входа вы сможете создать аккаунт юрлица.
+                                </Text>
+                                <Button
+                                        bg={'brand.blue'}
+                                        w={'90%'}
+                                        color={'white'}
+                                        fontSize={14}
+                                >
+                                        Войти или зарегистрироваться
+                                </Button>
+                        </VStack>
+                        }
+                        
                     </PopoverBody>
                 </PopoverContent>
             </Popover>

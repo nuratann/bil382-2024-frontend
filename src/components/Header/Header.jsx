@@ -9,7 +9,7 @@ import Catalog from './Catalog';
 import IconTitleDropMenu from './IconTitleDropMenu';
 
 function Header() {
-    
+    const isAuthentificated = true;
     return (
         <>
             <Flex justifyContent={'center'} w={'100%'}>
@@ -22,10 +22,11 @@ function Header() {
                             icon={BsEmojiSmile}
                             text={'Nuratan'}
                             count={6}
+                            isAuthentificated={isAuthentificated}
                         />
-                        <IconWithTitle icon={BsBoxSeam} text={'Заказы'} count={3} />
-                        <IconWithTitle icon={BsHeart} text={'Избранное'} count={2} />
-                        <IconWithTitle icon={BsBasket3} text={'Корзина'} count={1} />
+                        <IconWithTitle icon={BsBoxSeam} text={'Заказы'} count={3} isAuthentificated={isAuthentificated}/>
+                        <IconWithTitle icon={BsHeart} text={'Избранное'} count={2} isAuthentificated={isAuthentificated}/>
+                        <IconWithTitle icon={BsBasket3} text={'Корзина'} count={1} isAuthentificated={isAuthentificated}/>
                     </Flex>
                 </Flex>
             </Flex>
