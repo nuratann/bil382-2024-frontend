@@ -1,8 +1,10 @@
 import React from 'react'
 import { Box, VStack, Icon, Text } from '@chakra-ui/react'
+import useUserStore from '../../stores/useUserStore'
 
-const IconWithTitle = ({ icon, text, count, isAuthentificated }) => {
-    console.log(isAuthentificated)
+const IconWithTitle = ({ icon, text, index}) => {
+    const isAuth = useUserStore((state) => state.isAuth)
+    const notifications = useUserStore((state)=>state.notifications[index])
     return (
         <>
             <VStack
@@ -17,7 +19,7 @@ const IconWithTitle = ({ icon, text, count, isAuthentificated }) => {
                 <Icon as={icon} boxSize={5} mx={2} mt={3} />
                 <Text fontSize={11} fontWeight={'semibold'}>{text}</Text>
                 
-                {isAuthentificated?
+                {isAuth&&notifications!=0?
                 <Box
                     boxSize={4}
                     position="absolute" top={0.25} right={0.25} zIndex={2}
@@ -28,7 +30,7 @@ const IconWithTitle = ({ icon, text, count, isAuthentificated }) => {
                     fontSize={9}
                     pt={'1.5px'}
                 >
-                    <Text>{count}</Text>
+                    <Text>{notifications}</Text>
                 </Box>
                 :<></>}
             </VStack>
