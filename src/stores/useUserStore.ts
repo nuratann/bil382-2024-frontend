@@ -18,6 +18,7 @@ enum Gender {
 type UserActions = {
     updateFirstName: (firstName: User['firstName']) => void
     updateLastName: (lastName: User['lastName']) => void
+    updateEmail: (email: User['email']) => void
 }
 
 const useUserStore = create<User & UserActions>((set) => ({
@@ -29,4 +30,5 @@ const useUserStore = create<User & UserActions>((set) => ({
     gender: Gender.hz,
     updateFirstName: (firstName) => set(() => ({ firstName: firstName })),
     updateLastName: (lastName) => set(() => ({ lastName: lastName })),
+    updateEmail: (email) => set(() => ({ email: email })),
   })) 
