@@ -57,6 +57,10 @@ type UserActions = {
     reset: () => void
 }
 
+type Faketypeforcommit = {
+    
+}
+
 const useUserStore = create<User & UserActions>()(
     devtools(
         persist(
