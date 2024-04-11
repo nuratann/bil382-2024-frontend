@@ -12,6 +12,7 @@ import {
     PopoverCloseButton,
     PopoverAnchor,
 } from '@chakra-ui/react'
+import RegAndAuthModal from '../RegAndAuthModal/RegAndAuthModal'
 
 const IconTitleDropMenu = ({ icon }) => {
     const isAuth = useUserStore((state) => state.isAuth)
@@ -100,7 +101,7 @@ const IconTitleDropMenu = ({ icon }) => {
                                     Войдите, чтобы делать покупки, отслеживать заказы и пользоваться персональными скидками и баллами.
                                     После входа вы сможете создать аккаунт юрлица.
                                 </Text>
-                                <Button
+                                {/* <Button
                                         bg={'brand.blue'}
                                         w={'90%'}
                                         color={'white'}
@@ -108,7 +109,8 @@ const IconTitleDropMenu = ({ icon }) => {
                                         onClick={(e) => fetchUser()}
                                 >
                                         Войти или зарегистрироваться
-                                </Button>
+                                </Button> */}
+                                <RegAndAuthModal/>
                         </VStack>
                         }
                         
