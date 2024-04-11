@@ -4,7 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import {Route, Routes, BrowserRouter} from 'react-router-dom';
 import SearchLine from './components/SearchLine/SearchLine.jsx';
 import theme from './ChakraThemeExtension.js'
-import RegModal from './components/RegModal/RegModal.jsx';
+import RegAndAuthModal from './components/RegAndAuthModal/RegAndAuthModal.jsx';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/test' element={<RegModal/>} />
+          <Route path='/test' element={<RegAndAuthModal/>} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
