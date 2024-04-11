@@ -20,6 +20,7 @@ function HomePage(){
     return(
         <>
             <Breadcrumb items={productPageBreadcrumbItems}/>
+            <ProductHeader/>
             {/* <Header />
             <Navbar />
             <Carousel /> 
