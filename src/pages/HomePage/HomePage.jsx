@@ -6,6 +6,8 @@ import DiscountBlock from '../../components/DiscountBlock/DiscountBlock'
 import TopCategoryBlock from '../../components/TopCategoryBlock/TopCategoryBlock'
 import RecomendationBlock from '../../components/RecomendationBlock/RecomendationBlock'
 import Subscribe from '../../components/Subscribe/Subscribe'
+import Footer from '../../components/Footer/Footer'
+
 
 function HomePage(){
 
@@ -14,10 +16,11 @@ function HomePage(){
             <Header />
             <Navbar />
             <Carousel /> 
-      <DiscountBlock/>
-      <TopCategoryBlock/>
-      <RecomendationBlock/>
-      <Subscribe/> 
+            <DiscountBlock/>
+            <TopCategoryBlock/>
+            <RecomendationBlock/>
+            <Subscribe/>
+            <Footer/>
         </>
     )
 }
