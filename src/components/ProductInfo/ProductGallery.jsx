@@ -64,7 +64,7 @@ const ProductGallery = ({ images }) => {
         onNext={handleNext}
         onPrevious={handlePrevious}
       />
-    </Box>
+    </Box> 
   );
 };
 

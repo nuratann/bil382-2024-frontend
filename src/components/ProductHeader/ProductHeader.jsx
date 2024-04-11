@@ -17,7 +17,7 @@ const ProductHeader = () => {
   const productCode = "265648848";
 
   return (
-    <Box as="header" p={5}>
+    <Box p="16px" w={"80%"} m={"0 auto"}>
       <Text fontSize="2xl" fontWeight="semibold" mb={2}>{productName}</Text>
       <Flex align="center">
         <Link fontWeight={'medium'} fontSize="sm" color="blue" onClick={handleReviewClick} display="flex" alignItems="center">

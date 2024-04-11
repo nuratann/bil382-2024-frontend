@@ -1,10 +1,15 @@
+import React from 'react';
+import { Flex} from '@chakra-ui/react'
+import Header from '../../components/Header/Header';
+import Navbar from '../../components/Navbar/Navbar';
 import Breadcrumb from '../../components/ProductHeader/Breadcrumb/Breadcrumb'
 import ProductHeader from '../../components/ProductHeader/ProductHeader'
-import ProductGallery from '../../components/ProductGallery/ProductGallery'
+import ProductGallery from '../../components/ProductInfo/ProductGallery'
+import ProductInfo from '../../components/ProductInfo/ProductInfo';
 
 
 
-function HomePage(){
+function ProductPage(){
     const productPageBreadcrumbItems = [
         { text: 'Главная', href: '/' },
         { text: 'Категории', href: '/categories' },
@@ -19,11 +24,15 @@ function HomePage(){
         <>
             <Header />
             <Navbar />
-            <Breadcrumb items={productPageBreadcrumbItems}/>
-            <ProductHeader/>
-            <ProductGallery images={imageUrls}/>
+            <Breadcrumb items={productPageBreadcrumbItems} />
+            <ProductHeader />
+            <Flex w={"80%"} m={"0 auto"}>
+                <ProductGallery images={imageUrls} />
+                <ProductInfo />
+            </Flex>
+            
         </>
     )
 }
 
-export default HomePage;
+export default ProductPage;

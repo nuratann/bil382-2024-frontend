@@ -4,13 +4,14 @@ import { ChakraProvider } from '@chakra-ui/react'
 import {Route, Routes, BrowserRouter} from 'react-router-dom';
 import SearchLine from './components/SearchLine/SearchLine.jsx';
 import theme from './ChakraThemeExtension.js'
+import ProductPage from './pages/ProductPage/ProductPage.jsx'
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<ProductPage />} />
           <Route path='/test' element={<SearchLine/>} />
         </Routes>
       </BrowserRouter>
