@@ -24,7 +24,7 @@ const OAuthBlock = () => {
             <ModalFooter as={VStack}>
                 <Flex alignItems={'center'} whiteSpace="nowrap" my={3} w={'100%'}>
                     <Divider sx={styles.divider} />
-                    <Text pb={1}>or continue with</Text>
+                    <Text pb={1}>или</Text>
                     <Divider sx={styles.divider} />
                 </Flex>
 
