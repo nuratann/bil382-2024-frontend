@@ -19,7 +19,7 @@ const ProductGallery = ({ images }) => {
   };
 
   return (
-    <Box p={"20px"}>
+    <Box >
       <HStack spacing={4}>
         <VStack spacing={2} width="56px" height="500px" overflowY="auto">
           {images.map((image, index) => (

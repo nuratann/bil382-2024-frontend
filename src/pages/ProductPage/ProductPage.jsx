@@ -6,6 +6,7 @@ import Breadcrumb from '../../components/ProductHeader/Breadcrumb/Breadcrumb'
 import ProductHeader from '../../components/ProductHeader/ProductHeader'
 import ProductGallery from '../../components/ProductInfo/ProductGallery'
 import ProductInfo from '../../components/ProductInfo/ProductInfo';
+import ProductActions from '../../components/ProductActions/ProductActions';
 
 
 
@@ -29,6 +30,7 @@ function ProductPage(){
             <Flex w={"80%"} m={"0 auto"}>
                 <ProductGallery images={imageUrls} />
                 <ProductInfo />
+                <ProductActions />
             </Flex>
             
         </>
