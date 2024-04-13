@@ -7,6 +7,7 @@ import IconWithTitle from './IconWithTitle';
 import { BsBoxSeam, BsBasket3, BsHeart, BsEmojiSmile } from "react-icons/bs";
 import Catalog from './Catalog';
 import IconTitleDropMenu from './IconTitleDropMenu';
+import { Link } from 'react-router-dom';
 
 function Header() {
     const isAuthentificated = true;
@@ -14,7 +15,7 @@ function Header() {
         <>
             <Flex justifyContent={'center'} w={'100%'}>
                 <Flex px={4} py={2} alignItems={'center'} w={'80%'}>
-                    <Text fontFamily={'"Tilt Neon", sans-serif;'} fontSize={36} mx={4}>Buyers</Text>
+                    <Link to='/'><Text fontFamily={'"Tilt Neon", sans-serif;'} fontSize={36} mx={4}>Buyers</Text></Link>
                     <Catalog />
                     <SearchLine />
                     <Flex>
