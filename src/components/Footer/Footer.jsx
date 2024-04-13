@@ -1,48 +1,111 @@
-import React from 'react';
-import { Box, Flex, Text, Link, Heading, useBreakpointValue } from '@chakra-ui/react';
+import React from "react";
+import { Link as RouterLink } from 'react-router-dom'; // Import RouterLink from react-router-dom
+import {Route, Routes, BrowserRouter} from 'react-router-dom';
+import { Box, Stack, Text, Link as ChakraLink } from "@chakra-ui/react";
 
-const FooterColumn = ({ title, links }) => (
-  <Flex direction="column" gap={2}>
-    <Heading fontSize="md" fontWeight="semibold" marginBottom={2}>
-      {title}
-    </Heading>
-    {links.map((link, index) => (
-      <Link key={index} href="#" fontSize="sm" color="gray.600" mb={2}>
-        {link}
-      </Link>
-    ))}
-  </Flex>
+const footerLinks = [
+    {
+        title: "Buyers маркетплейс",
+        links: [
+            "О нас",
+            "Вакансии",
+            "Стать курьером",
+            "Бренд buyers",
+            "Реквизиты",
+            "Пользовательское соглашение",
+        ],
+    },
+    {
+        title: "Зарабатывать с Buyers",
+        links: [
+            "Стать продавцом",
+            "Стать поставщиком",
+            "Стать портнером",
+            "Открыть пункт выдачи",
+        ],
+    },
+    {
+        title: "Покупать как компания",
+        links: [
+            "Добавить компанию",
+            "Мои компании",
+            "Подарочные сертификаты",
+        ],
+    },
+    {
+        title: "Помощь",
+        links: [
+            "Как сделать заказ",
+            "Оплата",
+            "Доставка",
+            "Возврат товаров",
+            "Контакты",
+            "Безопасность",
+        ],
+    },
+];
+
+const FooterLinkColumn = ({ title, links }) => (
+    <Stack spacing={2}>
+        <Text
+            fontWeight="bold"
+            style={{
+                color: "#070707",
+                fontSize: "16px",
+                fontWeight: "500",
+                marginBottom: "8px",
+            }}
+        >
+            {title}
+        </Text>{" "}
+        <Stack spacing={1}>
+            {links.map((link, index) => (
+                <ChakraLink
+                    key={index}
+                    as={link === "Пользовательское соглашение" ? RouterLink : "a"}
+                    to={link === "Пользовательское соглашение" ? "/agreement" : "#"}                    color="gray.600"
+                    _hover={{ textDecoration: "none", color: "blue" }}
+                >
+                    {link}
+                </ChakraLink>
+            ))}
+        </Stack>
+    </Stack>
 );
 
 function Footer() {
-  const columns = [
-    {
-      title: "О нас",
-      links: ["О нас", "Найти офис", "Категории", "Условия"],
-    },
-    {
-      title: "Подробнее",
-      links: ["Служба поддержки", "Отменить товар", "Отправка", "Связаться с нами"],
-    },
-    {
-      title: "Для пользователей",
-      links: ["Войти", "Регистрация", "Настройки", "Мои заказы"],
-    },
-  ];
-
-  const isMobile = useBreakpointValue({ base: true, md: false });
-
-  return (
-    <Box as="footer" bg="white" py={isMobile ? 0 : 20} px={{ base: 10, md: 20 }}>
-      <Box maxW="611px" mx="auto" py={8} px={{ base: 0, md: 4 }}>
-        <Flex direction={isMobile ? 'column' : 'row'} gap={isMobile ? 0 : 20}>
-          {columns.map((column, index) => (
-            <FooterColumn key={index} title={column.title} links={column.links} />
-          ))}
-        </Flex>
-      </Box>
-    </Box>
-  );
+    return (
+        <Box
+            as="footer" // Explicitly set role as footer
+            bg="white"
+            borderTop="1px solid"
+            borderColor="gray.200"
+            py={8}
+            px={{ base: 4, md: 8 }}
+        >
+            <Stack
+                spacing={8}
+                direction={{ base: "column", md: "row" }}
+                justifyContent="center"
+                maxW="1200px"
+                mx="auto"
+            >
+                {footerLinks.map((column, index) => (
+                    <FooterLinkColumn
+                        key={index}
+                        {...column}
+                        style={{
+                            color: "rgba(0, 26, 52, .6)",
+                            fontSize: "14px",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                        }}
+                    />
+                ))}
+            </Stack>
+        </Box>
+    );
 }
 
 export default Footer;

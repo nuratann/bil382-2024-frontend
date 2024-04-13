@@ -1,50 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react';
+
 import {
     Menu,
     MenuButton,
     MenuList,
-    MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
     Button
-  } from '@chakra-ui/react'
-import {HamburgerIcon} from '@chakra-ui/icons'
-
+} from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import Main_catalog from '../../components/Catalog_category_list/Main_catalog.jsx'
+import Main_catalog_html from "../Catalog_category_list/Main_catalog_html.jsx";
 
 const Catalog = () => {
-    return (
-        <>
-            <Menu isLazy>
-                <MenuButton 
-                    as={Button}  
-                    pe={8}                      
-                    ms={4} 
-                    me={2} 
-                    height={'48px'}
-                    display={'flex'} 
-                    alignItems={'center'}
-                    bg={'brand.blue'}
-                    color={'white'}
-                    _hover={{bg:'brand.hoverblue'}}
-                    leftIcon={
-                        <HamburgerIcon 
-                            me={1} 
-                            boxSize={6} 
-                        />}
-                >
-                    Каталог
-                </MenuButton>
-                <MenuList>
-                    {/* MenuItems are not rendered unless Menu is open */}
-                    <MenuItem>New Window</MenuItem>
-                    <MenuItem>Open Closed Tab</MenuItem>
-                    <MenuItem>Open File</MenuItem>
-                </MenuList>
-            </Menu>
-        </>
-    )
-}
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-export default Catalog
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    return (
+        <Menu isLazy>
+            <MenuButton
+                as={Button}
+                pe={8}
+                ms={4}
+                me={2}
+                height={'48px'}
+                width={'250px'}
+                display={'flex'}
+                alignItems={'center'}
+                bg={'brand.blue'}
+                color={'white'}
+                _hover={{ bg: 'brand.hoverblue' }}
+                leftIcon={<HamburgerIcon me={1} boxSize={6} />}
+                onClick={toggleMenu}
+            >
+                Каталог
+            </MenuButton>
+            <MenuList>
+                {isMenuOpen ? <Main_catalog /> : null}
+            </MenuList>
+        </Menu>
+    );
+};
+
+export default Catalog;
