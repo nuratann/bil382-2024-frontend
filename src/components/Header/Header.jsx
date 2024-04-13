@@ -21,12 +21,10 @@ function Header() {
                         <IconTitleDropMenu
                             icon={BsEmojiSmile}
                             text={'Nuratan'}
-                            count={6}
-                            isAuthentificated={isAuthentificated}
                         />
-                        <IconWithTitle icon={BsBoxSeam} text={'Заказы'} count={3} isAuthentificated={isAuthentificated}/>
-                        <IconWithTitle icon={BsHeart} text={'Избранное'} count={2} isAuthentificated={isAuthentificated}/>
-                        <IconWithTitle icon={BsBasket3} text={'Корзина'} count={1} isAuthentificated={isAuthentificated}/>
+                        <IconWithTitle icon={BsBoxSeam} text={'Заказы'} index={1}/>
+                        <IconWithTitle icon={BsHeart} text={'Избранное'} index={2}/>
+                        <IconWithTitle icon={BsBasket3} text={'Корзина'} index={3}/>
                     </Flex>
                 </Flex>
             </Flex>
