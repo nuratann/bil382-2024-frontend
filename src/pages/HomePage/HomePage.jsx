@@ -8,6 +8,7 @@ import RecomendationBlock from '../../components/RecomendationBlock/Recomendatio
 import Subscribe from '../../components/Subscribe/Subscribe'
 
 function HomePage(){
+
     return(
         <>
             <Header />
@@ -16,7 +17,7 @@ function HomePage(){
       <DiscountBlock/>
       <TopCategoryBlock/>
       <RecomendationBlock/>
-      <Subscribe/>
+      <Subscribe/> 
         </>
     )
 }

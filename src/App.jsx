@@ -5,14 +5,16 @@ import {Route, Routes, BrowserRouter} from 'react-router-dom';
 import SearchLine from './components/SearchLine/SearchLine.jsx';
 import theme from './ChakraThemeExtension.js'
 import RegAndAuthModal from './components/RegAndAuthModal/RegAndAuthModal.jsx';
+import ProductPage from './pages/ProductPage/ProductPage.jsx'
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/test' element={<RegAndAuthModal/>} />
+          <Route path='/'             element={<HomePage />} />
+          <Route path='/test'         element={<RegAndAuthModal/>} />
+          <Route path='/test_product' element={<ProductPage/>}/>
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
