@@ -16,7 +16,7 @@ import RegAndAuthModal from '../RegAndAuthModal/RegAndAuthModal'
 
 const IconTitleDropMenu = ({ icon }) => {
     const isAuth = useUserStore((state) => state.isAuth)
-    const username = useUserStore((state) => state.login)
+    const username = useUserStore((state) => state.username)
     const notifications = useUserStore((state)=>state.notifications[0])
     const updateIsAuth = useUserStore((state) => state.updateIsAuth)
     const fetchUser = useUserStore((state)=>state.fetchUser)
