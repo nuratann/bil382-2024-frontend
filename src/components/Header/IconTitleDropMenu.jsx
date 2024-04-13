@@ -15,12 +15,10 @@ import {
 import RegAndAuthModal from '../RegAndAuthModal/RegAndAuthModal'
 
 const IconTitleDropMenu = ({ icon }) => {
-    const isAuth = useUserStore((state) => state.isAuth)
-    const username = useUserStore((state) => state.username)
-    const notifications = useUserStore((state)=>state.notifications[0])
-    const updateIsAuth = useUserStore((state) => state.updateIsAuth)
-    const fetchUser = useUserStore((state)=>state.fetchUser)
+    const user = useUserStore((state) => state.user)
     const reset = useUserStore((state) => state.reset)
+    const notifications = user.notifications[0]
+    const isAuth = user.isAuth
     const [isOnTrigger, setOnTrigger] = useState(false);
     const [isOnMenu, setOnMenu] = useState(false);
     const menuItems = [
@@ -47,7 +45,7 @@ const IconTitleDropMenu = ({ icon }) => {
                         onMouseLeave={() => setOnTrigger(false)}
                         _hover={{ color: 'brand.hoverblue' }}>
                         <Icon as={icon} boxSize={5} mx={2} mt={3} />
-                        <Text fontSize={11} fontWeight={'semibold'}>{isAuth?username:"Войти"}</Text>
+                        <Text fontSize={11} fontWeight={'semibold'}>{isAuth?user.username:"Войти"}</Text>
                         {isAuth&&notifications!=0?
                         <Box
                             boxSize={4}

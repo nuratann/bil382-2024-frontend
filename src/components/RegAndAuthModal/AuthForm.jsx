@@ -19,7 +19,7 @@ import { FormControl, FormLabel, FormHelperText } from '@chakra-ui/react';
 
 
 const AuthForm = () => {
-    const authUser = useUserStore((state) => state.authUser)
+    const signIn = useUserStore((state) => state.signIn)
     const initialValues = {
         usernameOrEmail: '',
         password: '',
@@ -32,7 +32,8 @@ const AuthForm = () => {
     });
 
     const handleSubmit = (values, { setSubmitting }) => {
-        authUser(values.usernameOrEmail,values.password)
+        signIn(values.usernameOrEmail,values.password)
+        console.log(useUserStore())
         setSubmitting(false);
     };
     const [show, setShow] = React.useState(false)
@@ -59,7 +60,7 @@ const AuthForm = () => {
                             <Field name="usernameOrEmail">
                                 {({ field }) => (
                                     <FormControl isInvalid={!!field.error}>
-                                        <Input {...field} id="usernameOrEmail" placeholder='логин или email' sx={styles.input} />
+                                        <Input {...field} id="usernameOrEmail" placeholder='логин или email' sx={styles.input} autoComplete='off' />
                                         <ErrorMessage name="usernameOrEmail" component={FormHelperText} color="red" />
                                     </FormControl>
                                 )}
@@ -83,7 +84,7 @@ const AuthForm = () => {
                                                 </Button>
                                             </InputRightElement>
                                         </InputGroup>
-                                        <ErrorMessage name="password" component={FormHelperText} color="red" />
+                                        <ErrorMessage name="password" component={FormHelperText} color="red" autoComplete='off'/>
                                     </FormControl>
                                 )}
                             </Field>

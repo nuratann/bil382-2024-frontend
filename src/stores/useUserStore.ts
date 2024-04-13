@@ -2,39 +2,38 @@ import { create } from "zustand";
 import { persist, devtools } from 'zustand/middleware'
 import UserService from '@/api/UserService'
 import AuthService from "@/api/AuthService";
-import {User, initialUserState} from '@/types/User'
+import {User, UserRegistrationDTO, initialUserState} from '@/types/User'
+import RegService from "@/api/RegService";
 
-type UserActions = {
-    updateFirstName: (firstName: User['firstName']) => void
-    updateLastName: (lastName: User['lastName']) => void
-    updateEmail: (email: User['email']) => void
+type UserStore = {
+    user: User
     updateIsAuth: (isAuth: User['isAuth']) => void
-    fetchUser: (accessToken:string) => Promise<void>;
-    authUser: (username:string, password: string) => Promise<void>,
+    signIn: (username:string, password: string) => Promise<void>,
+    signUp: (user:UserRegistrationDTO) => Promise<string>
     reset: () => void
 }
 
-const useUserStore = create<User & UserActions>()(
+const useUserStore = create<UserStore>()(
     devtools(
         persist(
             (set, get) => ({
-                ...initialUserState,
-                updateFirstName: (firstName) => set(() => ({ firstName: firstName })),
-                updateLastName: (lastName) => set(() => ({ lastName: lastName })),
-                updateEmail: (email) => set(() => ({ email: email })),
-                updateIsAuth: (isAuth) => set(() => ({ isAuth: isAuth })),
-                fetchUser: async (accessToken) => {
-                    const user = await UserService.getUser(accessToken)
-                    set(user)
-                },
-                authUser: async (username, password) => {
+                user: initialUserState,
+                updateIsAuth: (isAuth) => set(() => ({ user: {...get().user,isAuth:isAuth} })),
+                signIn: async (username, password) => {
                     const authData = await AuthService.getJWT(username, password);
-                    console.log(authData)
-                    const user = await UserService.getUser(authData.access_token);    
-                    console.log(user)                
-                    set(user); set(()=>({isAuth:true}))
+                    const user = await UserService.getUser(authData.access_token);
+                    set(()=>({user:{...user,authData,isAuth:true,notifications:initialUserState.notifications}}));
                 },
-                reset: () => set(initialUserState),
+                signUp: async (user) => {
+                    const response = await RegService.register(user);
+                    if ('conflictField' in response){
+                        return response.conflictField
+                    }else{ 
+                        set(()=>({user:{...response,isAuth:true,notifications:initialUserState.notifications}}));
+                        return 'ok'
+                    }
+                },
+                reset: () => set(()=>({user:{...initialUserState}})),
             }),
             {
                 name: 'userStore'

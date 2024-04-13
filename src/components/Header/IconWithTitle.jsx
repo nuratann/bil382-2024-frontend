@@ -3,8 +3,10 @@ import { Box, VStack, Icon, Text } from '@chakra-ui/react'
 import useUserStore from '../../stores/useUserStore'
 
 const IconWithTitle = ({ icon, text, index}) => {
-    const isAuth = useUserStore((state) => state.isAuth)
-    const notifications = useUserStore((state)=>state.notifications[index])
+    const user = useUserStore((state) => state.user)
+    const reset = useUserStore((state) => state.reset)
+    const notifications = user.notifications[index]
+    const isAuth = user.isAuth
     return (
         <>
             <VStack

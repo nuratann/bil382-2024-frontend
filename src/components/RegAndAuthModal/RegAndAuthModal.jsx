@@ -26,8 +26,8 @@ const RegAndAuthModal = () => {
             </Button>
 
             <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent rounded={'3xl'}>
+                <ModalOverlay/>
+                <ModalContent rounded={'3xl'} >
                 <Tabs>
                     <TabList >
                         <Tab roundedTopStart={'3xl'}>Вход</Tab>

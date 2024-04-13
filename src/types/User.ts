@@ -9,8 +9,19 @@ export type User = {
     phone: string
     gender: string
     notifications: Int16Array
+    authData: JSON
 }
 
+export type UserRegistrationDTO = {
+    username:string
+    firstName:string
+    lastName:string
+    birthDay:string
+    email:string
+    phone:string
+    gender:string
+    password:string
+}
 
 export const initialUserState: User = {
     isAuth: false,
@@ -23,4 +34,5 @@ export const initialUserState: User = {
     phone: "",
     gender: "",
     notifications: new Int16Array(4),
+    authData: null
 }
