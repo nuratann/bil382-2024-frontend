@@ -20,7 +20,11 @@ const Search = () => {
     const searchState = useSearchStore((state) => state)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const searchRef = useRef(null);
+    
+    //почему я не использую onOpen, onClose? визуальный баг при закрытии модального окна поиска, вот почему
     const [inputWidth, setInputWidth] = useState('auto');
+    
+    const [isInput, setInput] = useState(false)
     const [modalPosition, setModalPosition] = useState({ top: 0, left: 0, height: 40 });
 
     const updateInputWidth = () => {
@@ -48,10 +52,17 @@ const Search = () => {
 
     return (
         <>
-            <SearchLine inputClick={onOpen} searchRef={searchRef}/>
+            <SearchLine inputClick={()=>{onOpen();setInput(true);}} searchRef={searchRef} zindex={isInput?2000:1}/>
             <Modal 
                 isOpen={isOpen} 
-                onClose={onClose} 
+                onClose={()=>{
+                        onClose();
+                        //таймаут чтобы модалка успела закрыться перед тем как строка поиска сменит zIndex
+                        setTimeout(() => {
+                            setInput(false);
+                          }, 100);                        
+                    }
+                } 
                 trapFocus={false}
                 scrollBehavior={'inside'}
             >
@@ -62,7 +73,6 @@ const Search = () => {
                     position="fixed"
                     top={modalPosition.top}
                     left={modalPosition.left}
-                    zIndex={1}
                     rounded={10}
                     p={2}
                 >

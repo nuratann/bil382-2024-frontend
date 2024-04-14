@@ -34,7 +34,7 @@ const SearchLine = (props) => {
                 w={'70%'} 
                 maxH={'48px'} 
                 ref={props.searchRef}
-                zIndex={2000}
+                zIndex={props.zindex}
             >
                 <HStack w={'100%'} bg={'white'} rounded={8} p={0.5}>
                     <Flex
