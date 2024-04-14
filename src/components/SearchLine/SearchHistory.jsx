@@ -36,7 +36,7 @@ const SearchHistory = () => {
                             <Icon as={BiHistory} boxSize={6} color={'gray.500'} me={2}/>
                             <Text >{query}</Text>
                         </Flex>
-                        <Icon key={index} as={CloseIcon} boxSize={4} color={'gray.500'} onClick={(e)=>{deleteHistory(index)}}/>
+                        <Icon key={index} as={CloseIcon} boxSize={3} color={'gray.300'} onClick={(e)=>{deleteHistory(index)}}/>
                     </Flex>
                 ))}
             </VStack>

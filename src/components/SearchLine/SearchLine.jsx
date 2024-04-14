@@ -73,8 +73,9 @@ const SearchLine = (props) => {
                             }
                         </Flex>
                     </Flex>
-
+                    
                     <Input 
+                        rounded={0}
                         placeholder='Искать на Buyers' 
                         variant='unstyled' 
                         onClick={props.inputClick} 
@@ -87,6 +88,19 @@ const SearchLine = (props) => {
                             }
                         }
                         onChange={(e)=>{searchState.updateQuery(e.target.value)}}/>
+                        {searchState.query!==''?
+                            <SmallCloseIcon
+                                    color={'brand.text'}
+                                    rounded={'full'}
+                                    bg={'white'}
+                                    me={2}
+                                    _hover={{ bg: 'gray.300' }}
+                                    onClick={() => { searchState.updateQuery(""); }}
+                                />
+                            :
+                            <></>
+                        }
+                        
                 </HStack>
 
                 <Icon 

@@ -15,7 +15,7 @@ function Header() {
         <>
             <Flex justifyContent={'center'} w={'100%'}>
                 <Flex px={4} py={2} alignItems={'center'} w={'80%'}>
-                    <Link to='/'><Text color={'brand.blue'} fontFamily={'"Tilt Neon", sans-serif;'} fontSize={36} mx={4}>Buyers</Text></Link>
+                    <Link to='/'><Text color={'brand.blue'} fontFamily={'"Tilt Neon", sans-serif;'} fontSize={36} me={4}>Buyers</Text></Link>
                     <Catalog />
                     <Search />
                     <Flex>
