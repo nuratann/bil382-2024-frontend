@@ -6,16 +6,14 @@ import { BiHistory } from "react-icons/bi";
 
 const SearchHistory = () => {
     const history = useSearchStore((state) => state.history)
-    const c = useSearchStore((state) => state.choosenCat)
-    console.log(history)
-    console.log(c)
+    const deleteHistory = useSearchStore((state) => state.deleteHistory)
     return (
     <>
         {history.length != 0 ?
             <>
             <Flex justify={'space-between'} px={2}>
                 <Text fontWeight={'bold'} fontSize={24} fontFamily={'Montserrat; sans-serif'}>История</Text>
-                <Button >Очистить</Button>
+                <Button onClick={()=>{deleteHistory(-1)}}>Очистить</Button>
             </Flex>
             <VStack spacing={0} divider={<Divider/>} mt={2}>
                 {history.map((query, index) => (
@@ -38,7 +36,7 @@ const SearchHistory = () => {
                             <Icon as={BiHistory} boxSize={6} color={'gray.500'} me={2}/>
                             <Text >{query}</Text>
                         </Flex>
-                        <Icon as={CloseIcon} boxSize={4} color={'gray.500'}/>
+                        <Icon key={index} as={CloseIcon} boxSize={4} color={'gray.500'} onClick={(e)=>{deleteHistory(index)}}/>
                     </Flex>
                 ))}
             </VStack>

@@ -8,6 +8,8 @@ type SearchStore = {
     isChoosen: boolean,
     updateQuery: (new_query: string) => void,
     updateChoosen: (category: string) => void,
+    updateHistory: (query: string) => void,
+    deleteHistory: (index: number) => void,
     reset: () => void
 }
 
@@ -24,6 +26,18 @@ const useSearchStore = create<SearchStore>()(
                     set({choosenCat:category})
                     category==='Везде'?set({isChoosen:false}):set({isChoosen:true});                    
                 },
+                updateHistory: (query) => {
+                    set((state) => ({ history: [query, ...state.history] }))
+                },
+                deleteHistory: (index)=>{
+                    set((state) => {
+                        if (index === -1) {return { history: [] };
+                    } else {
+                      const updatedHistory = [...state.history];
+                      updatedHistory.splice(index, 1);
+                      return { history: updatedHistory };
+                    }
+                  })},
                 reset: () => set(()=>({history: []})),
             }),
             {

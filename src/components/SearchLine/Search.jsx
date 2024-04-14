@@ -20,7 +20,7 @@ const Search = () => {
     const searchState = useSearchStore((state) => state)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const searchRef = useRef(null);
-    
+
     //почему я не использую onOpen, onClose? визуальный баг при закрытии модального окна поиска, вот почему
     const [inputWidth, setInputWidth] = useState('auto');
     
@@ -81,13 +81,13 @@ const Search = () => {
                         p={0}
                         sx={{
                             '&::-webkit-scrollbar': {
-                              width: '16px',
+                              width: '10px',
                               borderRadius: '8px',
-                              backgroundColor: `rgba(0, 0, 0, 0.05)`,
+                              backgroundColor: `rgba(0, 0, 0, 0.3)`,
                             },
                             '&::-webkit-scrollbar-thumb': {
                               borderRadius: '8px',
-                              backgroundColor: `rgba(0, 0, 0, 0.05)`,
+                              backgroundColor: `rgba(0, 0, 0, 0.3)`,
                             },
                           }}
                     >

@@ -22,6 +22,10 @@ const SearchLine = (props) => {
         "Товары для курения и акссесуары", "Билеты, отели, туры", "Одежда", "Дом и сад", "Красота и здоровье", "Спорт и отдых", "Продукты питания",
         "Товары для животных", "Туризм, рыбалка, охота", "Мебель", "Аксессуары", "Музыка и видео", "Товары для взрослых", "Цифровые товары",
         "Игры и консоли", "Автомобили"]
+
+    const onSearch = (query) => {
+        searchState.updateHistory(searchState.query)
+    }
     return (
         <>
             <Flex 
@@ -75,10 +79,24 @@ const SearchLine = (props) => {
                         variant='unstyled' 
                         onClick={props.inputClick} 
                         value={searchState.query} 
+                        onKeyDown={
+                            (e)=>{
+                                if (e.key === 'Enter') {
+                                    onSearch();
+                                }
+                            }
+                        }
                         onChange={(e)=>{searchState.updateQuery(e.target.value)}}/>
                 </HStack>
 
-                <Icon as={AiOutlineSearch} boxSize={6} mx={6} color={'white'} _hover={{ cursor: 'pointer' }} />
+                <Icon 
+                    as={AiOutlineSearch} 
+                    boxSize={6} 
+                    mx={6} 
+                    color={'white'} 
+                    _hover={{ cursor: 'pointer' }} 
+                    onClick={onSearch}
+                />
             </Flex>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay  backdropFilter='blur(5px)'/>
