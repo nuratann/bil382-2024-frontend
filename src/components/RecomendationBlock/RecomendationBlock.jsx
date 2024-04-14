@@ -21,7 +21,6 @@ function RecomendationBlock() {
         <>                
         <Flex 
             flexWrap={'wrap'}
-            m={8}
             justifyContent={'center'}>
             {recomendationCards}
         </Flex>
