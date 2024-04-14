@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDisclosure } from '@chakra-ui/react'
-import { Box, Input, Icon, Flex, Button, HStack, SimpleGrid, IconButton} from '@chakra-ui/react'
+import { Box, Input, Icon, Flex, Button, HStack, SimpleGrid, IconButton } from '@chakra-ui/react'
 import {
     Modal,
     ModalOverlay,
@@ -13,7 +13,7 @@ import {
 import { AiOutlineSearch } from "react-icons/ai";
 import { ChevronDownIcon, SmallCloseIcon } from "@chakra-ui/icons"
 
-const SearchLine = () => {
+const SearchLine = (props) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [choosenCat, setChoosen] = useState('Везде')
     const [isChoosen, setIsChoosen] = useState(false)
@@ -24,7 +24,18 @@ const SearchLine = () => {
         "Игры и консоли", "Автомобили"]
     return (
         <>
-            <Flex bg={'brand.blue'} ms={4} me={8} rounded={10} p={0.5} alignItems={'center'} w={'70%'} maxH={'48px'}>
+            <Flex 
+                bg={'brand.blue'} 
+                ms={4} 
+                me={8} 
+                rounded={10} 
+                p={0.5} 
+                alignItems={'center'} 
+                w={'70%'} 
+                maxH={'48px'} 
+                ref={props.searchRef}
+                zIndex={2000}
+            >
                 <HStack w={'100%'} bg={'white'} rounded={8} p={0.5}>
                     <Flex
                         rounded={'lg'}
@@ -32,13 +43,13 @@ const SearchLine = () => {
                         _hover={isChoosen ? { bg: 'brand.blue' } : {}}
                     >
                         <Button
-                            onClick={onOpen}
+                            onClick={isOpen?onClose:onOpen}
                             rightIcon={isChoosen ? <></> : <ChevronDownIcon />}
                             bg={isChoosen ? 'brand.blue' : 'brand.gray'}
-                            color={isChoosen ? 'white':'brand.text'}
-                            _hover={isChoosen ? { bg: 'brand.blue'} : {bg: 'brand.gray', color: 'brand.hovertext'}}
-                            _focus={isChoosen ? { bg: 'brand.blue' } : {bg: 'brand.gray'}}
-                            
+                            color={isChoosen ? 'white' : 'brand.text'}
+                            _hover={isChoosen ? { bg: 'brand.blue' } : { bg: 'brand.gray', color: 'brand.hovertext' }}
+                            _focus={isChoosen ? { bg: 'brand.blue' } : { bg: 'brand.gray' }}
+
                         >
                             {choosenCat}
                         </Button>
@@ -59,10 +70,16 @@ const SearchLine = () => {
                         </Flex>
                     </Flex>
 
-                    <Input placeholder='Искать на Buyers' variant='unstyled' />
+                    <Input 
+                        placeholder='Искать на Buyers' 
+                        variant='unstyled' 
+                        onClick={props.inputClick} 
+                        ref={props.inputRef} 
+                        value={props.value} 
+                        onChange={(e)=>{props.onChange(e.target.value)}}/>
                 </HStack>
 
-                <Icon as={AiOutlineSearch} boxSize={6} mx={6} color={'white'} _hover={{cursor: 'pointer'}}/>
+                <Icon as={AiOutlineSearch} boxSize={6} mx={6} color={'white'} _hover={{ cursor: 'pointer' }} />
             </Flex>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />

@@ -1,7 +1,7 @@
 import React from 'react'
 import IconBuyers from '../../assets/icon.png'
 import flag from "../../assets/rus-flag.png"
-import SearchLine from '../SearchLine/SearchLine';
+import Search from '../SearchLine/Search';
 import { Flex, Icon, Text } from '@chakra-ui/react'
 import IconWithTitle from './IconWithTitle';
 import { BsBoxSeam, BsBasket3, BsHeart, BsEmojiSmile } from "react-icons/bs";
@@ -17,7 +17,7 @@ function Header() {
                 <Flex px={4} py={2} alignItems={'center'} w={'80%'}>
                     <Link to='/'><Text fontFamily={'"Tilt Neon", sans-serif;'} fontSize={36} mx={4}>Buyers</Text></Link>
                     <Catalog />
-                    <SearchLine />
+                    <Search />
                     <Flex>
                         <IconTitleDropMenu
                             icon={BsEmojiSmile}
