@@ -86,7 +86,7 @@ const Search = () => {
                             <>
                                 <SearchHistory/>
                                 <Text fontWeight={'bold'} fontSize={24} p={2} fontFamily={'Montserrat; sans-serif'}>Рекомендуем для вас</Text>
-                                <RecommendationBlock/>
+                                <RecommendationBlock  gridColumns={3}/>
                             </>                            
                             :
                             <></>

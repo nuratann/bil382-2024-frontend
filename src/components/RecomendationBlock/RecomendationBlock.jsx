@@ -18,10 +18,13 @@ function RecomendationBlock() {
             isFavorite={false}
         />);
     return(
-        <>                
+        <>     
+                   
         <Flex 
             flexWrap={'wrap'}
-            justifyContent={'center'}>
+            justify={'space-between'}
+        >
+
             {recomendationCards}
         </Flex>
         </>
