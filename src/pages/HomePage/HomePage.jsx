@@ -16,7 +16,7 @@ function HomePage(){
             <Carousel /> 
       <DiscountBlock/>
       <TopCategoryBlock/>
-      <RecomendationBlock/>
+      <RecomendationBlock count={20}/>
       <Subscribe/> 
         </>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex} from '@chakra-ui/react'
+import { Flex, Box, Heading, Container} from '@chakra-ui/react'
 import Header from '../../components/Header/Header';
 import Navbar from '../../components/Navbar/Navbar';
 import Breadcrumb from '../../components/ProductHeader/Breadcrumb/Breadcrumb'
@@ -7,7 +7,9 @@ import ProductHeader from '../../components/ProductHeader/ProductHeader'
 import ProductGallery from '../../components/ProductInfo/ProductGallery'
 import ProductInfo from '../../components/ProductInfo/ProductInfo';
 import ProductActions from '../../components/ProductActions/ProductActions';
-
+import StoreInfoBlock from '../../components/StoreInfoBlock/StoreInfoBlock';
+import RecomendationBlock from '../../components/RecomendationBlock/RecomendationBlock';
+import ProductDescriptionBlock from '../../components/ProductDescriptionBlock/ProductDescriptionBlock';
 
 
 function ProductPage(){
@@ -21,6 +23,16 @@ function ProductPage(){
         "https://ir-3.ozone.ru/s3/multimedia-b/wc1000/6064306271.jpg",
         "https://ir-3.ozone.ru/s3/multimedia-e/wc1000/6064306274.jpg"
       ];
+      const exampleCharacteristics = [
+        { label: 'Состав кофе', value: 'Арабика/Робуста' },
+        { label: 'Степень обжарки', value: 'Средняя' },
+        { label: 'Интенсивность вкуса', value: 'Средний' },
+        { label: 'Состав кофе', value: 'Арабика/Робуста' },
+        { label: 'Степень обжарки', value: 'Средняя' },
+        { label: 'Интенсивность вкуса', value: 'Средний' },
+        // Добавьте дополнительные характеристики...
+      ];
+      const exampleDescription = 'Кофе хареный зерновой JAMADJI 1 кг - отличный подарок для мужчин и женщин на 14 и 23 февраля...';
     return(
         <>
             <Header />
@@ -32,6 +44,18 @@ function ProductPage(){
                 <ProductInfo />
                 <ProductActions />
             </Flex>
+            <Container maxWidth="80vw">
+                <StoreInfoBlock />
+                <Heading fontSize={"2xl"}>Похожие товары</Heading>
+            </Container>
+            <RecomendationBlock count={5}/>            
+            <Container maxWidth="80vw">
+                <ProductDescriptionBlock 
+                description={exampleDescription}
+                characteristics={exampleCharacteristics}/>
+            </Container>
+
+
             
         </>
     )

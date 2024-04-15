@@ -2,8 +2,8 @@ import ProductCard from "../ProductCard/ProductCard";
 import styles from './RecomendationBlock.module.scss'
 import {Flex} from '@chakra-ui/react'
 
-function RecomendationBlock() {
-    const recomendationCards = Array.from({ length: 10 }, (_, index) => 
+function RecomendationBlock({count}) {
+    const recomendationCards = Array.from({ length: count }, (_, index) => 
         <ProductCard 
             key={index} 
             imageUrl='https://cdn.leroymerlin.ru/lmru/image/upload/f_auto/q_auto/dpr_1.0/c_pad/w_1000/h_1000/v1711535077/lmcode/pqAx59XDzkmBgWH_oBNxcg/86858614_01.png'
