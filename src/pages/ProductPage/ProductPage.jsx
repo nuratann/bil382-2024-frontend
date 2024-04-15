@@ -47,16 +47,11 @@ function ProductPage(){
             <Container maxWidth="80vw">
                 <StoreInfoBlock />
                 <Heading fontSize={"2xl"}>Похожие товары</Heading>
-            </Container>
-            <RecomendationBlock count={5}/>            
-            <Container maxWidth="80vw">
+                <RecomendationBlock count={5}/>    
                 <ProductDescriptionBlock 
                 description={exampleDescription}
                 characteristics={exampleCharacteristics}/>
-            </Container>
-
-
-            
+            </Container>    
         </>
     )
 }

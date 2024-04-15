@@ -6,6 +6,7 @@ import DiscountBlock from '../../components/DiscountBlock/DiscountBlock'
 import TopCategoryBlock from '../../components/TopCategoryBlock/TopCategoryBlock'
 import RecomendationBlock from '../../components/RecomendationBlock/RecomendationBlock'
 import Subscribe from '../../components/Subscribe/Subscribe'
+import {Center, Flex,Text} from '@chakra-ui/react'
 
 function HomePage(){
 
@@ -14,10 +15,18 @@ function HomePage(){
             <Header />
             <Navbar />
             <Carousel /> 
-      <DiscountBlock/>
-      <TopCategoryBlock/>
-      <RecomendationBlock count={20}/>
-      <Subscribe/> 
+      {/* <DiscountBlock/>
+      <TopCategoryBlock/> */}
+      <Flex justify={'center'} w={'100%'} mt={4}>
+        <Flex justify={'center'} w={'80%'} >
+        <RecomendationBlock gridColumns={5} count={50}/>
+        </Flex>
+        </Flex>
+      
+      {/* <Subscribe/>  */}
+      <Flex mt={8} justify={'center'} align={'center'} bg={'brand.blue'} roundedTop={'lg'}>
+        <Text color={'white'} fontSize={48} fontFamily={'"Tilt Neon", sans-serif;'}>Footer</Text>
+      </Flex>
         </>
     )
 }
