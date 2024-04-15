@@ -26,7 +26,7 @@ const RegAndAuthModal = () => {
             </Button>
 
             <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay/>
+                <ModalOverlay  backdropFilter='blur(5px)'/>
                 <ModalContent rounded={'3xl'} >
                 <Tabs>
                     <TabList >

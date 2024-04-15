@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styles from './ProductCard.module.scss'
-import { Box, Image, Button, Text, Flex, Center, Icon} from '@chakra-ui/react'
+import { Box, Image, Button, Text, Flex, Center, Icon, Card} from '@chakra-ui/react'
 import { StarIcon, ChatIcon } from '@chakra-ui/icons'
 // import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink} from '@chakra-ui/react'
@@ -23,7 +23,7 @@ const ProductCard = (props) => {
     // }
     return (
         <>
-            <Box m={2} maxWidth={'2xs'}>
+            <Box me={2} pb={2} maxWidth={'3xs'}>
             <Box 
                 className={styles.main}
                 _hover={{
@@ -31,7 +31,7 @@ const ProductCard = (props) => {
                 }}
             >
                 {/* картинка товара */}
-                <Center boxSize='2xs' bg='gray.100' borderRadius='lg' position={'relative'}>
+                <Center boxSize='3xs' bg='gray.100' borderRadius='lg' position={'relative'}>
                     <Image 
                         src={props.imageUrl}
                         alt={props.imageAlt}          
@@ -47,8 +47,8 @@ const ProductCard = (props) => {
                 {/* блок с ценой */}
                 <Flex mt={2}>
                     <Text fontSize='lg' fontWeight={'semibold'} color={'green.400'} ms={2}> {props.price}сом</Text>
-                    <Text fontSize='sm' as='s' ms={2} color={'gray.400'}> {props.oldPrice}сом</Text>
-                    <Text fontSize='sm' color='red' ms={2}> -{((parseFloat(props.oldPrice)-parseFloat(props.price))/(parseFloat(props.price)/100)).toFixed(1)}% </Text>
+                    <Text fontSize='xs' as='s' ms={2} color={'gray.400'}> {props.oldPrice}сом</Text>
+                    <Text fontSize='xs' color='red' ms={2}> -{((parseFloat(props.oldPrice)-parseFloat(props.price))/(parseFloat(props.price)/100)).toFixed(1)}% </Text>
                 </Flex>
                 {/* продавец и краткое описание */}
                 <Box>
