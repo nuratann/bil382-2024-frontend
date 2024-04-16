@@ -4,25 +4,145 @@ import CategoryList from './CategoryList';
 import CategoryListInside from './CategoryListInside';
 import { ElectronicsIcon, ClothingIcon, ShoesIcon } from './CatalogIcons';
 
+
 function MainCatalog() {
     const [activeCategory, setActiveCategory] = useState(null);
 
     const categories = [
+
+
         {
             name: "Electronics",
-            items: [{ subcategories: [{ name: "Televisions", link: "/televisions", subLink: "/more-televisions" }, { name: "Smartphones", link: "/smartphones", subLink: "/more-smartphones" }, { name: "Sneakers", link: "/sneakers", subLink: "/more-sneakers" }, { name: "Sneakers", link: "/sneakers", subLink: "/more-sneakers" }, { name: "Sneakers", link: "/sneakers", subLink: "/more-sneakers" }, { name: "Sneakers", link: "/sneakers", subLink: "/more-sneakers" }] }],
+            items: [{
+                subcategories: [{
+                    name: "Televisions", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                },
+                {
+                    name: "Smartphones", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }]
+            }],
             icon: <ElectronicsIcon />
         },
+
+
         {
             name: "Clothing",
-            items: [{ subcategories: [{ name: "Men's Clothing", link: "/mens-clothing", subLink: "/more-mens-clothing" }, { name: "Women's Clothing", link: "/womens-clothing", subLink: "/more-womens-clothing" }] }],
-            icon: <ClothingIcon />
+            items: [{
+                subcategories: [{
+                    name: "Televisions", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" },
+                        { text: "More clothing", url: "/more/clothing" }
+                    ]
+                },
+                {
+                    name: "Smartphones", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }]
+            }],
+            icon: <ElectronicsIcon />
         },
+
         {
             name: "Shoes",
-            items: [{ subcategories: [{ name: "Running Shoes", link: "/running-shoes", subLink: "/more-running-shoes" }, { name: "Sneakers", link: "/sneakers", subLink: "/more-sneakers" }] }],
-            icon: <ShoesIcon />
+            items: [{
+                subcategories: [{
+                    name: "Televisions", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                },
+                {
+                    name: "Smartphones", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }, {
+                    name: "Sneakers", links: [
+                        { text: "Televisions", url: "/televisions" },
+                        { text: "More Televisions", url: "/more-televisions" }
+                    ]
+                }]
+            }],
+            icon: <ElectronicsIcon />
         }
+
+
+
+
+        // {
+        //     name: "Clothing",
+        //     items: [{ subcategories: [{ name: "Men's Clothing", link: "/mens-clothing", subLink: "/more-mens-clothing" }, { name: "Women's Clothing", link: "/womens-clothing", subLink: "/more-womens-clothing" }] }],
+        //     icon: <ClothingIcon />
+        // },
+        // {
+        //     name: "Shoes",
+        //     items: [{ subcategories: [{ name: "Running Shoes", link: "/running-shoes", subLink: "/more-running-shoes" }, { name: "Sneakers", link: "/sneakers", subLink: "/more-sneakers" }] }],
+        //     icon: <ShoesIcon />
+        // }
         // Add more categories as needed
     ];
 
@@ -62,6 +182,7 @@ function MainCatalog() {
 }
 
 export default MainCatalog;
+
 
 // import CategoryList from "./CategoryList.jsx";
 // import CategoryListInside from "./CategoryListInside.jsx";

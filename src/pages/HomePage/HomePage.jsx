@@ -9,25 +9,22 @@ import Subscribe from '../../components/Subscribe/Subscribe'
 import Footer from '../../components/Footer/Footer'
 
 
-function HomePage(){
+function HomePage() {
 
-    return(
+    return (
         <>
-            <Header />
-            <Navbar />
-            <Carousel /> 
-      {/* <DiscountBlock/>
+            <Header/>
+            <Navbar/>
+            <Carousel/>
+            {/* <DiscountBlock/>
       <TopCategoryBlock/> */}
-      <Flex justify={'center'} w={'100%'} mt={4}>
-        <Flex justify={'center'} w={'80%'} >
-        <RecomendationBlock gridColumns={5} count={50}/>
-        </Flex>
-        </Flex>
+            <RecomendationBlock gridColumns={5} count={50}/>
 
-      {/* <Subscribe/>  */}
-      <Flex mt={8} justify={'center'} align={'center'} bg={'brand.blue'} roundedTop={'lg'}>
-        <Text color={'white'} fontSize={48} fontFamily={'"Tilt Neon", sans-serif;'}>Footer</Text>
-      </Flex>
+
+            {/*<Flex mt={8} justify={'center'} align={'center'} bg={'brand.blue'} roundedTop={'lg'}>*/}
+            {/*  <Text color={'white'} fontSize={48} fontFamily={'"Tilt Neon", sans-serif;'}>Footer</Text>*/}
+            {/*</Flex>*/}
+
             <Footer/>
         </>
     )

@@ -16,20 +16,10 @@ function App() {
                     <Route path='/' element={<HomePage/>}/>
                     <Route path='/test' element={<SearchLine/>}/>
                     <Route path='/agreement' element={<UserAgreementPage/>}/>
+                    <Route path='/test_product' element={<ProductPage/>}/>
                 </Routes>
             </BrowserRouter>
         </ChakraProvider>
-  return (
-    <ChakraProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/'             element={<HomePage />} />
-          <Route path='/test'         element={<RegAndAuthModal/>} />
-          <Route path='/test_product' element={<ProductPage/>}/>
-        </Routes>
-      </BrowserRouter>
-    </ChakraProvider>
-
   )
 
 }

@@ -15,7 +15,7 @@ function CategoryList({ href, icon, children, onClick }) {
                     color="#070707"
                     display="flex"
                     alignItems="center"
-                    gap="2px" // Chakra UI uses scale for gaps
+                    gap="2"
                     p="5px 8px"
                     borderRadius="12px"
                     _hover={{
