@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Box, VStack, Icon, Text, Button } from '@chakra-ui/react'
+import useUserStore from '../../stores/useUserStore'
 import {
     Popover,
     PopoverTrigger,
@@ -11,8 +12,13 @@ import {
     PopoverCloseButton,
     PopoverAnchor,
 } from '@chakra-ui/react'
+import RegAndAuthModal from '../RegAndAuthModal/RegAndAuthModal'
 
-const IconTitleDropMenu = ({ icon, text, count, username, isAuthentificated }) => {
+const IconTitleDropMenu = ({ icon }) => {
+    const user = useUserStore((state) => state.user)
+    const reset = useUserStore((state) => state.reset)
+    const notifications = user.notifications[0]
+    const isAuth = user.isAuth
     const [isOnTrigger, setOnTrigger] = useState(false);
     const [isOnMenu, setOnMenu] = useState(false);
     const menuItems = [
@@ -21,8 +27,7 @@ const IconTitleDropMenu = ({ icon, text, count, username, isAuthentificated }) =
         { text: 'Premium' },
         { text: 'Сообщения' },
         { text: 'Сравнение товаров' },
-        { text: 'Купоны и сертификаты' },
-        { text: 'Выйти' }
+        { text: 'Купоны и сертификаты' }
     ]
     return (
         <>
@@ -40,8 +45,8 @@ const IconTitleDropMenu = ({ icon, text, count, username, isAuthentificated }) =
                         onMouseLeave={() => setOnTrigger(false)}
                         _hover={{ color: 'brand.hoverblue' }}>
                         <Icon as={icon} boxSize={5} mx={2} mt={3} />
-                        <Text fontSize={11} fontWeight={'semibold'}>{isAuthentificated?text:"Войти"}</Text>
-                        {isAuthentificated?
+                        <Text fontSize={11} fontWeight={'semibold'}>{isAuth?user.username:"Войти"}</Text>
+                        {isAuth&&notifications!=0?
                         <Box
                             boxSize={4}
                             position="absolute" top={0.25} right={0.25} zIndex={2}
@@ -52,7 +57,7 @@ const IconTitleDropMenu = ({ icon, text, count, username, isAuthentificated }) =
                             fontSize={9}
                             pt={'1.5px'}
                         >
-                            <Text>{count}</Text>
+                            <Text>{notifications}</Text>
                         </Box>
                         :
                         <></>}
@@ -65,7 +70,7 @@ const IconTitleDropMenu = ({ icon, text, count, username, isAuthentificated }) =
                 >
                     <PopoverArrow />
                     <PopoverBody>
-                        {isAuthentificated?
+                        {isAuth?
                             <VStack alignItems={'start'} spacing={1}>
                                 {menuItems.map((item, index) => (
                                     <Button
@@ -78,6 +83,15 @@ const IconTitleDropMenu = ({ icon, text, count, username, isAuthentificated }) =
                                         {item.text}
                                     </Button>
                                 ))}
+                                <Button
+                                        bg={'white'}
+                                        textAlign={'left'}
+                                        justifyContent={'flex-start'}
+                                        w={'100%'}
+                                        onClick={reset}
+                                    >
+                                        Выйти
+                                    </Button>
                         </VStack>
                         :
                             <VStack spacing={2} textAlign={'center'}>
@@ -85,14 +99,16 @@ const IconTitleDropMenu = ({ icon, text, count, username, isAuthentificated }) =
                                     Войдите, чтобы делать покупки, отслеживать заказы и пользоваться персональными скидками и баллами.
                                     После входа вы сможете создать аккаунт юрлица.
                                 </Text>
-                                <Button
+                                {/* <Button
                                         bg={'brand.blue'}
                                         w={'90%'}
                                         color={'white'}
                                         fontSize={14}
+                                        onClick={(e) => fetchUser()}
                                 >
                                         Войти или зарегистрироваться
-                                </Button>
+                                </Button> */}
+                                <RegAndAuthModal/>
                         </VStack>
                         }
                         

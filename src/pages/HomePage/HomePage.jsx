@@ -16,10 +16,18 @@ function HomePage(){
             <Header />
             <Navbar />
             <Carousel /> 
-            <DiscountBlock/>
-            <TopCategoryBlock/>
-            <RecomendationBlock/>
-            <Subscribe/>
+      {/* <DiscountBlock/>
+      <TopCategoryBlock/> */}
+      <Flex justify={'center'} w={'100%'} mt={4}>
+        <Flex justify={'center'} w={'80%'} >
+        <RecomendationBlock gridColumns={5} count={50}/>
+        </Flex>
+        </Flex>
+
+      {/* <Subscribe/>  */}
+      <Flex mt={8} justify={'center'} align={'center'} bg={'brand.blue'} roundedTop={'lg'}>
+        <Text color={'white'} fontSize={48} fontFamily={'"Tilt Neon", sans-serif;'}>Footer</Text>
+      </Flex>
             <Footer/>
         </>
     )

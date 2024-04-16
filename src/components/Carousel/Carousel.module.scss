@@ -1,0 +1,36 @@
+.slider {
+    width: 70%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .slide {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+  }
+
+  .adBlock {
+    width: 100%;
+    height: 248px;
+    background-color: #FF9017;
+    border-radius: 6px;
+  }
+
+  .adBlock img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    border-radius: 6px;
+  }

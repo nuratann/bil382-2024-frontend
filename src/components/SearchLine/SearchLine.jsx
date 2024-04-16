@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDisclosure } from '@chakra-ui/react'
-import { Box, Input, Icon, Flex, Button, HStack, SimpleGrid, IconButton} from '@chakra-ui/react'
+import { Box, Input, Icon, Flex, Button, HStack, SimpleGrid, IconButton } from '@chakra-ui/react'
 import {
     Modal,
     ModalOverlay,
@@ -12,60 +12,108 @@ import {
 } from '@chakra-ui/react'
 import { AiOutlineSearch } from "react-icons/ai";
 import { ChevronDownIcon, SmallCloseIcon } from "@chakra-ui/icons"
+import useSearchStore from '../../stores/useSearchStrore'
 
-const SearchLine = () => {
+const SearchLine = (props) => {
+    const searchState = useSearchStore((state) => state)
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [choosenCat, setChoosen] = useState('Везде')
-    const [isChoosen, setIsChoosen] = useState(false)
     const categories = ["Электроника", "Обувь", "Детские товары", "Бытовая техника", "Строительство и ремонт", "Аптека", "Книги", "Автотовары",
         "Хобби и творчество", "Ювелирные украшения", "Канцелярские товары", "Антиквариат и коллекционирование", "Бытовая химия и гигиена",
         "Товары для курения и акссесуары", "Билеты, отели, туры", "Одежда", "Дом и сад", "Красота и здоровье", "Спорт и отдых", "Продукты питания",
         "Товары для животных", "Туризм, рыбалка, охота", "Мебель", "Аксессуары", "Музыка и видео", "Товары для взрослых", "Цифровые товары",
         "Игры и консоли", "Автомобили"]
+
+    const onSearch = (query) => {
+        searchState.updateHistory(searchState.query)
+    }
     return (
         <>
-            <Flex bg={'brand.blue'} ms={4} me={8} rounded={10} p={0.5} alignItems={'center'} w={'70%'} maxH={'48px'}>
+            <Flex 
+                bg={'brand.blue'} 
+                ms={4} 
+                me={8} 
+                rounded={10} 
+                p={0.5} 
+                alignItems={'center'} 
+                w={'70%'} 
+                maxH={'48px'} 
+                ref={props.searchRef}
+                zIndex={props.zindex}
+            >
                 <HStack w={'100%'} bg={'white'} rounded={8} p={0.5}>
                     <Flex
                         rounded={'lg'}
-                        bg={isChoosen ? 'brand.blue' : 'gray.400'}
-                        _hover={isChoosen ? { bg: 'brand.blue' } : {}}
+                        bg={searchState.isChoosen ? 'brand.blue' : 'gray.400'}
+                        _hover={searchState.isChoosen ? { bg: 'brand.blue' } : {}}
                     >
                         <Button
-                            onClick={onOpen}
-                            rightIcon={isChoosen ? <></> : <ChevronDownIcon />}
-                            bg={isChoosen ? 'brand.blue' : 'brand.gray'}
-                            color={isChoosen ? 'white':'brand.text'}
-                            _hover={isChoosen ? { bg: 'brand.blue'} : {bg: 'brand.gray', color: 'brand.hovertext'}}
-                            _focus={isChoosen ? { bg: 'brand.blue' } : {bg: 'brand.gray'}}
-                            
+                            onClick={isOpen?onClose:onOpen}
+                            rightIcon={searchState.isChoosen ? <></> : <ChevronDownIcon />}
+                            bg={searchState.isChoosen ? 'brand.blue' : 'brand.gray'}
+                            color={searchState.isChoosen ? 'white' : 'brand.text'}
+                            _hover={searchState.isChoosen ? { bg: 'brand.blue' } : { bg: 'brand.gray', color: 'brand.hovertext' }}
+                            _focus={searchState.isChoosen ? { bg: 'brand.blue' } : { bg: 'brand.gray' }}
+
                         >
-                            {choosenCat}
+                            {searchState.choosenCat}
                         </Button>
                         <Flex alignItems={'center'}>
 
-                            {isChoosen ?
+                            {searchState.isChoosen ?
                                 <SmallCloseIcon
                                     color={'brand.text'}
                                     rounded={'full'}
                                     bg={'white'}
                                     me={2}
                                     _hover={{ bg: 'gray.300' }}
-                                    onClick={() => { setChoosen("Везде"); setIsChoosen(false) }}
+                                    onClick={() => { searchState.updateChoosen("Везде"); }}
                                 />
                                 :
                                 <></>
                             }
                         </Flex>
                     </Flex>
-
-                    <Input placeholder='Искать на Buyers' variant='unstyled' />
+                    
+                    <Input 
+                        rounded={0}
+                        placeholder='Искать на Buyers' 
+                        variant='unstyled' 
+                        onClick={props.inputClick} 
+                        value={searchState.query} 
+                        onKeyDown={
+                            (e)=>{
+                                if (e.key === 'Enter') {
+                                    onSearch();
+                                }
+                            }
+                        }
+                        onChange={(e)=>{searchState.updateQuery(e.target.value)}}/>
+                        {searchState.query!==''?
+                            <SmallCloseIcon
+                                    color={'brand.text'}
+                                    rounded={'full'}
+                                    bg={'white'}
+                                    me={2}
+                                    _hover={{ bg: 'gray.300' }}
+                                    onClick={() => { searchState.updateQuery(""); }}
+                                />
+                            :
+                            <></>
+                        }
+                        
                 </HStack>
 
-                <Icon as={AiOutlineSearch} boxSize={6} mx={6} color={'white'} _hover={{cursor: 'pointer'}}/>
+                <Icon 
+                    as={AiOutlineSearch} 
+                    boxSize={6} 
+                    mx={6} 
+                    color={'white'} 
+                    _hover={{ cursor: 'pointer' }} 
+                    onClick={onSearch}
+                />
             </Flex>
             <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
+                <ModalOverlay  backdropFilter='blur(5px)'/>
                 <ModalContent maxWidth={'2xl'} rounded={'2xl'}>
                     <ModalHeader>
                         <Button
@@ -73,7 +121,7 @@ const SearchLine = () => {
                             bg={'white'}
                             textAlign={'left'}
                             justifyContent={'flex-start'}
-                            onClick={() => { setChoosen("Везде"); setIsChoosen(false); onClose() }}
+                            onClick={() => { searchState.updateChoosen("Везде"); onClose() }}
                         >
                             Везде
                         </Button>
@@ -88,7 +136,7 @@ const SearchLine = () => {
                                     bg={'white'}
                                     textAlign={'left'}
                                     justifyContent={'flex-start'}
-                                    onClick={() => { setChoosen(category); setIsChoosen(true); onClose() }}
+                                    onClick={() => { searchState.updateChoosen(category); onClose() }}
                                 >
                                     {category}
                                 </Button>
