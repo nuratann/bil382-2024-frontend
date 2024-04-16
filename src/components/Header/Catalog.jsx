@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+
 import {
     Menu,
     MenuButton,
@@ -7,8 +9,8 @@ import {
     Button
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import Main_catalog from '../../components/Catalog_category_list/Main_catalog.jsx'
-import Main_catalog_html from "../Catalog_category_list/Main_catalog_html.jsx";
+import MainCatalog from '../../components/Catalog_category_list/Main_catalog.jsx'
+//import Main_catalog_html from "../Catalog_category_list/Main_catalog_html.jsx";
 
 const Catalog = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,7 +39,7 @@ const Catalog = () => {
                 Каталог
             </MenuButton>
             <MenuList>
-                {isMenuOpen ? <Main_catalog /> : null}
+                {isMenuOpen ? <MainCatalog /> : null}
             </MenuList>
         </Menu>
     );
