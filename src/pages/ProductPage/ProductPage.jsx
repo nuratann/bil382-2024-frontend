@@ -10,7 +10,7 @@ import ProductActions from '../../components/ProductActions/ProductActions';
 import StoreInfoBlock from '../../components/StoreInfoBlock/StoreInfoBlock';
 import RecomendationBlock from '../../components/RecomendationBlock/RecomendationBlock';
 import ProductDescriptionBlock from '../../components/ProductDescriptionBlock/ProductDescriptionBlock';
-
+import ProductCommentTabs from '../../components/ProductCommentTabs/ProductCommentTabs';
 
 function ProductPage(){
     const productPageBreadcrumbItems = [
@@ -33,6 +33,7 @@ function ProductPage(){
         // Добавьте дополнительные характеристики...
       ];
       const exampleDescription = 'Кофе хареный зерновой JAMADJI 1 кг - отличный подарок для мужчин и женщин на 14 и 23 февраля...';
+
     return(
         <>
             <Header />
@@ -49,8 +50,9 @@ function ProductPage(){
                 <Heading fontSize={"2xl"}>Похожие товары</Heading>
                 <RecomendationBlock count={5}/>    
                 <ProductDescriptionBlock 
-                description={exampleDescription}
-                characteristics={exampleCharacteristics}/>
+                  description={exampleDescription}
+                  characteristics={exampleCharacteristics}/>
+                <ProductCommentTabs reviewsCount={1002} questionsCount={12}/>
             </Container>    
         </>
     )
