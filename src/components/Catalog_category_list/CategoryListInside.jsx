@@ -8,7 +8,7 @@ function CategoryListInside({ categoryName, items }) {
                 <Text fontSize="28px" fontWeight="550" color="black" mb="8px" marginLeft="60px">
                     {categoryName}
                 </Text>
-                <Text fontSize="14px" fontWeight="400" color="rgba(0, 26, 52, 0.6)" mb="20px">
+                <Text fontSize="14px" fontWeight="400" color="rgba(0, 26, 52, 0.6)" mb="15px">
                     {items.reduce((total, item) => total + item.subcategories.length, 0)} items
                 </Text>
             </div>
