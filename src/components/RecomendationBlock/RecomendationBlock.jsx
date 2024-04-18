@@ -1,34 +1,39 @@
+import { useEffect } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from './RecomendationBlock.module.scss'
 import {Flex} from '@chakra-ui/react'
+import useSearchStore from "../../stores/useSearchStore";
 
 function RecomendationBlock(props) {
+    useEffect(() => {
+        useSearchStore.getState().getRecomendations()
+    },[])
     const {count} = props;
 
-    const recomendationCards = Array.from({ length: count }, (_, index) => 
-        <ProductCard 
-            key={index} 
-            imageUrl='https://cdn.leroymerlin.ru/lmru/image/upload/f_auto/q_auto/dpr_1.0/c_pad/w_1000/h_1000/v1711535077/lmcode/pqAx59XDzkmBgWH_oBNxcg/86858614_01.png'
-            imageAlt='KUDO image'
-            price={360.99}
-            oldPrice={399.99}
-            rating={4.8}
-            reviews={118}
-            seller='KUDO bishkek'
-            description='Грунт-эмаль 3 в 1 по ржавчине KUDO высокопрочная ...'
-            date='19-04-2024'
-            isFavorite={false}
-        />);
+    const recomendations = useSearchStore(state => state.recomendations)
     return(
         <>     
                    
-        <Flex 
-            flexWrap={'wrap'}
-            justify={'space-between'}
-        >
-
-            {recomendationCards}
-        </Flex>
+                   {recomendations && <Flex
+                    flexWrap={'wrap'}
+                    justify={'space-between'}
+                >
+                    {recomendations.map((product, index) => (
+                        <ProductCard
+                            key={index}
+                            imageUrl='https://habrastorage.org/r/w1560/getpro/habr/upload_files/221/ca9/a1e/221ca9a1ed27f8db4db8df25d38f6164.png'
+                            imageAlt='KUDO image'
+                            price={product.price}
+                            oldPrice={product.old_price}
+                            rating={product.rating}
+                            reviews={product.reviews}
+                            seller={product.seller}
+                            description={product.description}
+                            date={product.delivery_date}
+                            isFavorite={false}
+                        />
+                    ))}
+                </Flex>}
         </>
     );
 }

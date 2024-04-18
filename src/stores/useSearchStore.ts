@@ -10,12 +10,14 @@ type SearchStore = {
     choosenCat: string,
     isChoosen: boolean,
     results: Product[],
+    recomendations: Product[],
     updateQuery: (new_query: string) => void,
     updateChoosen: (category: string) => void,
     updateHistory: (query: string) => void,
     deleteHistory: (index: number) => void,
     getSuggestions: (query: string) => void,
     search: (query: string) => void,
+    getRecomendations: (query: string) => void,
     reset: () => void
 }
 
@@ -29,6 +31,7 @@ const useSearchStore = create<SearchStore>()(
                 choosenCat: 'Везде',
                 isChoosen: false,
                 results: [],
+                recomendations: [],
                 updateQuery: (new_query) => set({query:new_query}),
                 updateChoosen: (category) => {
                     set({choosenCat:category})
@@ -58,6 +61,10 @@ const useSearchStore = create<SearchStore>()(
                 search: async (query) => {
                     const results = await SearchService.search(query);
                     set(()=>({results:results}));
+                },
+                getRecomendations: async (query) => {
+                    const results = await SearchService.getRecomendations();
+                    set(()=>({recomendations:results}));
                 },
                 reset: () => set(()=>({history: []})),
             }),
