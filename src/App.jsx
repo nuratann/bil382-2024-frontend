@@ -7,6 +7,7 @@ import theme from './ChakraThemeExtension.js'
 import UserAgreementPage from "./pages/UserAgreement/UserAgreementPage.jsx";
 import RegAndAuthModal from './components/RegAndAuthModal/RegAndAuthModal.jsx';
 import ProductPage from './pages/ProductPage/ProductPage.jsx'
+import TestSearchPage from './pages/TestSearchPage/TestSearchPage.jsx';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path='/test' element={<SearchLine/>}/>
                     <Route path='/agreement' element={<UserAgreementPage/>}/>
                     <Route path='/test_product' element={<ProductPage/>}/>
+                    <Route path='/search' element={<TestSearchPage/>}/>
                 </Routes>
             </BrowserRouter>
         </ChakraProvider>

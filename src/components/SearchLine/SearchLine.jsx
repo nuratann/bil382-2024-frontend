@@ -13,6 +13,7 @@ import {
 import { AiOutlineSearch } from "react-icons/ai";
 import { ChevronDownIcon, SmallCloseIcon } from "@chakra-ui/icons"
 import useSearchStore from '../../stores/useSearchStore'
+import { useNavigate} from "react-router-dom";
 
 const SearchLine = (props) => {
     const searchState = useSearchStore((state) => state)
@@ -22,9 +23,11 @@ const SearchLine = (props) => {
         "Товары для курения и акссесуары", "Билеты, отели, туры", "Одежда", "Дом и сад", "Красота и здоровье", "Спорт и отдых", "Продукты питания",
         "Товары для животных", "Туризм, рыбалка, охота", "Мебель", "Аксессуары", "Музыка и видео", "Товары для взрослых", "Цифровые товары",
         "Игры и консоли", "Автомобили"]
-
-    const onSearch = (query) => {
+        let navigate = useNavigate();
+    const onSearch = () => {
         searchState.updateHistory(searchState.query)
+        searchState.search(searchState.query)
+        navigate("/search")
     }
     return (
         <>
