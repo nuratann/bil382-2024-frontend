@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { AiOutlineSearch } from "react-icons/ai";
 import { ChevronDownIcon, SmallCloseIcon } from "@chakra-ui/icons"
-import useSearchStore from '../../stores/useSearchStrore'
+import useSearchStore from '../../stores/useSearchStore'
 
 const SearchLine = (props) => {
     const searchState = useSearchStore((state) => state)
@@ -87,7 +87,10 @@ const SearchLine = (props) => {
                                 }
                             }
                         }
-                        onChange={(e)=>{searchState.updateQuery(e.target.value)}}/>
+                        onChange={(e)=>{
+                            searchState.updateQuery(e.target.value)
+                            searchState.getSuggestions(e.target.value)
+                            }}/>
                         {searchState.query!==''?
                             <SmallCloseIcon
                                     color={'brand.text'}
