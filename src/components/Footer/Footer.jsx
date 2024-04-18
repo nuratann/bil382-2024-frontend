@@ -79,7 +79,7 @@ function Footer() {
             as="footer"
             bg="#f5f7fa"
             borderTop="1px solid"
-            borderColor="gray.200"
+            borderColor="gray.300"
             py={8}
             px={{ base: 4, md: 8 }}
         >
@@ -95,7 +95,7 @@ function Footer() {
                         key={index}
                         {...column}
                         style={{
-                            color: "rgba(0, 26, 52, .6)",
+                            color: "rgba(0, 25, 52, .6)",
                             fontSize: "14px",
                             overflow: "hidden",
                             textOverflow: "ellipsis",
