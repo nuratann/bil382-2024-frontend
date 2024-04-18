@@ -8,7 +8,15 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 const SearchTips = ({isHistory}) => {
     const updateQuery = useSearchStore((state) => state.updateQuery)
-    const history = isHistory?useSearchStore((state) => state.history):useSearchStore((state) => state.suggestions)
+    const q = useSearchStore((state) => state.query)
+    const history = 
+        isHistory?
+            q!==''?
+                useSearchStore((state) => state.history).filter(str => str.startsWith(q))
+                :
+                useSearchStore((state) => state.history)
+            :
+            useSearchStore((state) => state.suggestions)
     const deleteHistory = useSearchStore((state) => state.deleteHistory)
     return (
     <>
