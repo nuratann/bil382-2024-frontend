@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as RouterLink } from 'react-router-dom'; // Import RouterLink from react-router-dom
-import {Route, Routes, BrowserRouter} from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { Box, Stack, Text, Link as ChakraLink } from "@chakra-ui/react";
 
 const footerLinks = [
@@ -63,7 +63,7 @@ const FooterLinkColumn = ({ title, links }) => (
                 <ChakraLink
                     key={index}
                     as={link === "Пользовательское соглашение" ? RouterLink : "a"}
-                    to={link === "Пользовательское соглашение" ? "/agreement" : "#"}                    color="gray.600"
+                    to={link === "Пользовательское соглашение" ? "/agreement" : "#"} color="gray.600"
                     _hover={{ textDecoration: "none", color: "blue" }}
                 >
                     {link}
@@ -76,8 +76,8 @@ const FooterLinkColumn = ({ title, links }) => (
 function Footer() {
     return (
         <Box
-            as="footer" // Explicitly set role as footer
-            bg="white"
+            as="footer"
+            bg="#f5f7fa"
             borderTop="1px solid"
             borderColor="gray.200"
             py={8}
