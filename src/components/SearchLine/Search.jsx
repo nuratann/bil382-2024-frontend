@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react'
-import { Input, useDisclosure } from '@chakra-ui/react'
+import { Input, VStack, useDisclosure } from '@chakra-ui/react'
 import SearchLine from './SearchLine'
 import {
     Modal,
@@ -13,8 +13,8 @@ import {
     Text
 } from '@chakra-ui/react'
 import RecommendationBlock from '../RecomendationBlock/RecomendationBlock'
-import useSearchStore from '../../stores/useSearchStrore'
-import SearchHistory from './SearchHistory'
+import useSearchStore from '../../stores/useSearchStore'
+import SearchTips from './SearchTips'
 
 const Search = () => {
     const searchState = useSearchStore((state) => state)
@@ -94,12 +94,15 @@ const Search = () => {
                         {
                             searchState.query===''?
                             <>
-                                <SearchHistory/>
+                                <SearchTips isHistory={true}/>
                                 <Text fontWeight={'bold'} fontSize={24} p={2} fontFamily={'Montserrat; sans-serif'}>Рекомендуем для вас</Text>
                                 <RecommendationBlock count={10}/>
                             </>                            
                             :
-                            <></>
+                            <>
+                              <SearchTips isHistory={true}/>
+                              <SearchTips isHistory={false}/>
+                            </>
                         }
                     </ModalBody>
                 </ModalContent>

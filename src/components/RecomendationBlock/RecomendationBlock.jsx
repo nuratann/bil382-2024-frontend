@@ -16,7 +16,7 @@ function RecomendationBlock(props) {
             reviews={118}
             seller='KUDO bishkek'
             description='Грунт-эмаль 3 в 1 по ржавчине KUDO высокопрочная ...'
-            date='11 апреля'
+            date='19-04-2024'
             isFavorite={false}
         />);
     return(
