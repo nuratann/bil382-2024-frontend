@@ -21,7 +21,7 @@ function RecomendationBlock(props) {
                     {recomendations.map((product, index) => (
                         <ProductCard
                             key={index}
-                            imageUrl='https://habrastorage.org/r/w1560/getpro/habr/upload_files/221/ca9/a1e/221ca9a1ed27f8db4db8df25d38f6164.png'
+                            imageUrl={product.img}
                             imageAlt='KUDO image'
                             price={product.price}
                             oldPrice={product.old_price}

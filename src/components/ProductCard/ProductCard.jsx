@@ -36,6 +36,7 @@ const ProductCard = (props) => {
                         <Image
                             src={props.imageUrl}
                             alt={props.imageAlt}
+                            maxH={'3xs'}
                         />
                         <Icon
                             as={(props.isFavorite || isHovered) ? AiFillHeart : AiOutlineHeart}
