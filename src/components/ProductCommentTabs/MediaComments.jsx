@@ -26,25 +26,25 @@ const MediaComments = ({ mediaList }) => {
   
   return (
     <>
-      <SimpleGrid columns={8} spacing="5px" maxW="760px">
+      <SimpleGrid columns={8} spacing="5px" maxW="820px">
         {/* Отображение медиа до предпоследнего элемента */}
         {mediaList.slice(0, lastMediaIndex).map((media, index) => (
           <Box
             key={index}
-            boxSize="90px"
+            boxSize="100px"
             borderRadius="md"
             overflow="hidden"
             onClick={() => openModal(index)}
             cursor="pointer"
             position="relative"
           >
-            <Image src={media.src} alt={`Media ${index}`} width="90px" height="90px" objectFit="cover" />
+            <Image src={media.src} alt={`Media ${index}`} width="100px" height="100px" objectFit="cover" />
           </Box>
         ))}
         {/* Заблюренное изображение с информацией о количестве оставшихся медиа */}
         {displayBlur && (
           <Box
-            boxSize="90px"
+            boxSize="100px"
             borderRadius="md"
             overflow="hidden"
             position="relative"
@@ -53,7 +53,7 @@ const MediaComments = ({ mediaList }) => {
             alignItems="center"
             onClick={() => openModal(lastMediaIndex)}
           >
-            <Image src={mediaList[lastMediaIndex]?.src} alt="Additional media" width="90px" height="90px" objectFit="cover" filter="blur(2px)" />
+            <Image src={mediaList[lastMediaIndex]?.src} alt="Additional media" width="100px" height="100px" objectFit="cover" filter="blur(2px)" />
             <Text position="absolute" color="white" fontSize="lg" fontWeight="bold">
               +{mediaList.length - lastMediaIndex}
             </Text>
