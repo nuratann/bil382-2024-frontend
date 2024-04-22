@@ -8,6 +8,9 @@ import UserAgreementPage from "./pages/UserAgreement/UserAgreementPage.jsx";
 import RegAndAuthModal from './components/RegAndAuthModal/RegAndAuthModal.jsx';
 import ProductPage from './pages/ProductPage/ProductPage.jsx'
 import SearchPage from './pages/SearchPage/SearchPage.jsx';
+import Favorites from './pages/FavoritesPage/FavoritesPage.jsx';
+
+
 
 function App() {
     return (
@@ -19,6 +22,7 @@ function App() {
                     <Route path='/agreement' element={<UserAgreementPage />} />
                     <Route path='/test_product' element={<ProductPage />} />
                     <Route path='/search_page' element={<SearchPage />} />
+                    <Route path='/favorites' element={<Favorites />} />
                 </Routes>
             </BrowserRouter>
         </ChakraProvider>
