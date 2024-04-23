@@ -7,31 +7,31 @@ import TopCategoryBlock from '../../components/TopCategoryBlock/TopCategoryBlock
 import RecomendationBlock from '../../components/RecomendationBlock/RecomendationBlock'
 import Subscribe from '../../components/Subscribe/Subscribe'
 import Footer from '../../components/Footer/Footer'
-import {Flex} from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 
 
 function HomePage() {
 
     return (
         <>
-            <Header/>
-            <Navbar/>
-            <Carousel/>
+            <Header />
+            <Navbar />
+            <Carousel />
             {/* <DiscountBlock/>
       <TopCategoryBlock/> */}
             <Flex my={8} justify={'center'} w={'100%'} >
                 <Flex w={'80%'}>
-                    <RecomendationBlock gridColumns={5} count={50}/>
+                    <RecomendationBlock gridColumns={5} count={50} />
                 </Flex>
             </Flex>
-            
+
 
 
             {/*<Flex mt={8} justify={'center'} align={'center'} bg={'brand.blue'} roundedTop={'lg'}>*/}
             {/*  <Text color={'white'} fontSize={48} fontFamily={'"Tilt Neon", sans-serif;'}>Footer</Text>*/}
             {/*</Flex>*/}
 
-            <Footer/>
+            <Footer />
         </>
     )
 }
