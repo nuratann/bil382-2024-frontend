@@ -14,7 +14,7 @@ import {
 import { AiOutlineSearch } from "react-icons/ai";
 import { ChevronDownIcon, SmallCloseIcon } from "@chakra-ui/icons"
 import useSearchStore from '../../stores/useSearchStore'
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SearchLine = (props) => {
     const searchState = useSearchStore((state) => state)
@@ -24,7 +24,7 @@ const SearchLine = (props) => {
         "Товары для курения и акссесуары", "Билеты, отели, туры", "Одежда", "Дом и сад", "Красота и здоровье", "Спорт и отдых", "Продукты питания",
         "Товары для животных", "Туризм, рыбалка, охота", "Мебель", "Аксессуары", "Музыка и видео", "Товары для взрослых", "Цифровые товары",
         "Игры и консоли", "Автомобили"]
-        let navigate = useNavigate();
+    let navigate = useNavigate();
     const onSearch = () => {
         searchState.updateHistory(searchState.query)
         searchState.search(searchState.query)
@@ -91,8 +91,24 @@ const SearchLine = (props) => {
                                 }
                             }
                         }
-<<<<<<< HEAD
-                        onChange={(e) => { searchState.updateQuery(e.target.value) }} />
+                        //     onChange={(e) => { searchState.updateQuery(e.target.value) }} />
+                        // {searchState.query !== '' ?
+                        //     <SmallCloseIcon
+                        //         color={'brand.text'}
+                        //         rounded={'full'}
+                        //         bg={'white'}
+                        //         me={2}
+                        //         _hover={{ bg: 'gray.300' }}
+                        //         onClick={() => { searchState.updateQuery(""); }}
+                        //     />
+                        //     :
+                        //     <></>
+                        // }
+
+                        onChange={(e) => {
+                            searchState.updateQuery(e.target.value)
+                            searchState.getSuggestions(e.target.value)
+                        }} />
                     {searchState.query !== '' ?
                         <SmallCloseIcon
                             color={'brand.text'}
@@ -106,25 +122,6 @@ const SearchLine = (props) => {
                         <></>
                     }
 
-=======
-                        onChange={(e)=>{
-                            searchState.updateQuery(e.target.value)
-                            searchState.getSuggestions(e.target.value)
-                            }}/>
-                        {searchState.query!==''?
-                            <SmallCloseIcon
-                                    color={'brand.text'}
-                                    rounded={'full'}
-                                    bg={'white'}
-                                    me={2}
-                                    _hover={{ bg: 'gray.300' }}
-                                    onClick={() => { searchState.updateQuery(""); }}
-                                />
-                            :
-                            <></>
-                        }
-                        
->>>>>>> ff255f2ccf58794fcf54a9d39a17e5a54de90bbd
                 </HStack>
 
                 {/* here need to adjust the way how search 'query' is enetered and will icon work when line is empty? Also, try to route, by the element from searchresult in searchLine, so 2 way routing from icon, from */}
