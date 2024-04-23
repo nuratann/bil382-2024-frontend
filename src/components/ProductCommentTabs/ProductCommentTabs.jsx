@@ -8,7 +8,8 @@ import {
   Box
 } from '@chakra-ui/react';
 import MediaComments from './MediaComments';
-
+import SortComments from './SortComments';
+import ReviewsList from './ReviewsList';
 
 function ProductTabs({ reviewsCount, questionsCount }) {
     const mediaList = [
@@ -61,6 +62,99 @@ function ProductTabs({ reviewsCount, questionsCount }) {
         comment: 'Очень понравилось, спасибо!Очень понравилось, спасибо!Очень понравилось, спасибо!Очень понравилось, спасибо!Очень понравилось, спасибо!Очень понравилось, спасибо!',
       }];
 
+      const reviews = [
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        {
+          profileImg: 'https://cdn1.ozonusercontent.com/s3/fs-my-account-avatar/wc50/QyklLr_SSKq2EthCC1ofiw.jpg',
+          name: 'Виталий С.',
+          date: '18 апреля 2024',
+          comment: 'Не для гурманов, но на вполне приличном уровне',
+          rating: 4,
+          likes: 12,
+        },
+        
+
+        // ...другие отзывы
+      ];
   return (
     <Tabs variant='soft-rounded' colorScheme='blue'>
       <TabList mb='1em'>
@@ -82,6 +176,8 @@ function ProductTabs({ reviewsCount, questionsCount }) {
           <Box>
             {/* Здесь будет содержимое для "Отзывы о товаре" */}
             <MediaComments mediaList={mediaList}/>
+            <SortComments/>
+            <ReviewsList reviews={reviews}/>
           </Box>
         </TabPanel>
         <TabPanel>

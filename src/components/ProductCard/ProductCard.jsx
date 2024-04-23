@@ -5,6 +5,7 @@ import { StarIcon, ChatIcon } from '@chakra-ui/icons'
 // import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink } from '@chakra-ui/react'
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import {dateFormat} from '../../helpers/dateFormat.js'
 
 
 const ProductCard = (props) => {
@@ -51,7 +52,7 @@ const ProductCard = (props) => {
                         <Text fontSize='xs' color='red' ms={2}> -{((parseFloat(props.oldPrice) - parseFloat(props.price)) / (parseFloat(props.price) / 100)).toFixed(1)}% </Text>
                     </Flex>
                     {/* продавец и краткое описание */}
-                    <Box>
+                    <Box overflow={'hidden'} h={'6rem'}>
                         <ChakraLink
                             className={styles.seller}
                             color={'black'}
@@ -82,7 +83,7 @@ const ProductCard = (props) => {
                     </Flex>
                     {/* кнопка купить с датой доставки */}
                 </Box>
-                <Button w={'100%'} bg={'brand.blue'} color={'white'}>{props.date}</Button>
+                <Button w={'100%'} bg={'brand.blue'} color={'white'}>{dateFormat(props.date)}</Button>
             </Box>
         </>
     )

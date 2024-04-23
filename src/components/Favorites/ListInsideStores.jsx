@@ -27,7 +27,7 @@ function ListInsideStores({ bgColor }) {
                     <CardBody>
                         <Text>Redirect to sellers page</Text>
 
-                        <Image src='https://ir-2.ozone.ru/s3/multimedia-w/wc200/6851094152.jpg' />
+                        {/*<Image src='https://ir-2.ozone.ru/s3/multimedia-w/wc200/6851094152.jpg' />*/}
                     </CardBody>
 
 

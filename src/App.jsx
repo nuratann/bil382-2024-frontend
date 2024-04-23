@@ -7,6 +7,7 @@ import theme from './ChakraThemeExtension.js'
 import UserAgreementPage from "./pages/UserAgreement/UserAgreementPage.jsx";
 import RegAndAuthModal from './components/RegAndAuthModal/RegAndAuthModal.jsx';
 import ProductPage from './pages/ProductPage/ProductPage.jsx'
+import TestSearchPage from './pages/TestSearchPage/TestSearchPage.jsx';
 import SearchPage from './pages/SearchPage/SearchPage.jsx';
 import Favorites from './pages/FavoritesPage/FavoritesPage.jsx';
 
@@ -21,6 +22,7 @@ function App() {
                     <Route path='/test' element={<SearchLine />} />
                     <Route path='/agreement' element={<UserAgreementPage />} />
                     <Route path='/test_product' element={<ProductPage />} />
+                    <Route path='/search' element={<TestSearchPage />} />
                     <Route path='/search_page' element={<SearchPage />} />
                     <Route path='/favorites' element={<Favorites />} />
                 </Routes>
