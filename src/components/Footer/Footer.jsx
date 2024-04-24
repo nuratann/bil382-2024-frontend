@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as RouterLink } from 'react-router-dom'; // Import RouterLink from react-router-dom
+import { Link as RouterLink } from 'react-router-dom';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { Box, Stack, Text, Link as ChakraLink } from "@chakra-ui/react";
 
