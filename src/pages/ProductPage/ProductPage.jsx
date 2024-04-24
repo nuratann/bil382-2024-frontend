@@ -11,6 +11,7 @@ import StoreInfoBlock from '../../components/StoreInfoBlock/StoreInfoBlock';
 import RecomendationBlock from '../../components/RecomendationBlock/RecomendationBlock';
 import ProductDescriptionBlock from '../../components/ProductDescriptionBlock/ProductDescriptionBlock';
 import ProductCommentTabs from '../../components/ProductCommentTabs/ProductCommentTabs';
+import Footer from '../../components/Footer/Footer'
 
 function ProductPage(){
     const productPageBreadcrumbItems = [
@@ -53,7 +54,8 @@ function ProductPage(){
                   description={exampleDescription}
                   characteristics={exampleCharacteristics}/>
                 <ProductCommentTabs reviewsCount={1002} questionsCount={12}/>
-            </Container>    
+            </Container>  
+            <Footer/>  
         </>
     )
 }
