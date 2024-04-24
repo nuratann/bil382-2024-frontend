@@ -13,6 +13,7 @@ import {
     PopoverAnchor,
 } from '@chakra-ui/react'
 import RegAndAuthModal from '../RegAndAuthModal/RegAndAuthModal'
+import { useNavigate } from 'react-router-dom'
 
 const IconTitleDropMenu = ({ icon }) => {
     const user = useUserStore((state) => state.user)
@@ -22,13 +23,14 @@ const IconTitleDropMenu = ({ icon }) => {
     const [isOnTrigger, setOnTrigger] = useState(false);
     const [isOnMenu, setOnMenu] = useState(false);
     const menuItems = [
-        { text: 'Личный кабинет' },
-        { text: 'Баллы и бонусы' },
-        { text: 'Premium' },
-        { text: 'Сообщения' },
-        { text: 'Сравнение товаров' },
-        { text: 'Купоны и сертификаты' }
+        { text: 'Личный кабинет', link: '/account' },
+        { text: 'Баллы и бонусы', link: '/' },
+        { text: 'Premium', link: '/' },
+        { text: 'Сообщения', link: '/' },
+        { text: 'Сравнение товаров', link: '/' },
+        { text: 'Купоны и сертификаты', link: '/' }
     ]
+    const navigate = useNavigate();
     return (
         <>
 
@@ -79,6 +81,7 @@ const IconTitleDropMenu = ({ icon }) => {
                                         textAlign={'left'}
                                         justifyContent={'flex-start'}
                                         w={'100%'}
+                                        onClick={()=>{navigate(item.link)}}
                                     >
                                         {item.text}
                                     </Button>
@@ -88,7 +91,7 @@ const IconTitleDropMenu = ({ icon }) => {
                                         textAlign={'left'}
                                         justifyContent={'flex-start'}
                                         w={'100%'}
-                                        onClick={reset}
+                                        onClick={()=>{reset(); setOnMenu(false); setOnTrigger(false);}}
                                     >
                                         Выйти
                                     </Button>
