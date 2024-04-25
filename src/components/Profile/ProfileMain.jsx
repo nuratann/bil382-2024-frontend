@@ -4,9 +4,11 @@ import { Flex, Box, Heading, Container, List, ListItem, Text, Link, LinkBox } fr
 import ProfileImage from './ProfileImage';
 import ProfileMainSub from './ProfileSubPages/ProfileMainSub';
 import ShopCertificates from './ProfileSubPages/ShopCertificates';
-import BalanceF from './ProfileSubPages/BalanceOfFunds';
 import Bonuses from './ProfileSubPages/BonusAndPoints';
 import PayMethods from './ProfileSubPages/PayMethods';
+import Chat from './OrdersSubComp/Chat';
+import PersonalAccount from './PersonalAccount';
+
 
 function ProfileMain() {
 
@@ -76,12 +78,6 @@ function ProfileMain() {
                                 cursor="pointer"
                                 mb="5px">Способы оплаты</ListItem>
                         </Link>
-                        <Link>
-                            <ListItem
-                                onClick={() => handleLinkClick("Баланс средств")}
-                                cursor="pointer"
-                                mb="5px">Баланс средств</ListItem>
-                        </Link>
                     </List>
 
 
@@ -101,7 +97,9 @@ function ProfileMain() {
                             <ListItem mb="5px">Купленные товары</ListItem>
                         </Link>
                         <Link>
-                            <ListItem mb="5px">Сообщения</ListItem>
+                            <ListItem
+                                onClick={() => handleLinkClick("Сообщения")}
+                                cursor="pointer" mb="5px">Сообщения</ListItem>
                         </Link>
                         <Link>
                             <ListItem mb="5px">Электронные чеки</ListItem>
@@ -138,7 +136,10 @@ function ProfileMain() {
                     <Text fontWeight="750" fontSize={"14px"} mt="20px" >Настройки аккаунта</Text>
                     <List fontSize="14px" fontWeight={500} mt="5px" spacing={1} mb="50px" >
                         <Link to="/account">
-                            <ListItem mb="5px">Моя учётная запись</ListItem>
+                            <ListItem
+                                onClick={() => handleLinkClick("Моя учётная запись")}
+                                cursor="pointer"
+                                mb="5px">Моя учётная запись</ListItem>
                         </Link>
                     </List>
                 </Box>
@@ -150,7 +151,8 @@ function ProfileMain() {
                 {activeComponent === "Подарочные сертификаты" && <ShopCertificates />}
                 {activeComponent === "Баллы и бонусы" && <Bonuses />}
                 {activeComponent === "Способы оплаты" && <PayMethods />}
-                {activeComponent === "Баланс средств" && <BalanceF />}
+                {activeComponent === "Сообщения" && <Chat />}
+                {activeComponent === "Моя учётная запись" && <PersonalAccount />}
 
             </Box>
         </Box>

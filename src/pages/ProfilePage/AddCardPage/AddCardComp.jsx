@@ -1,9 +1,23 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Flex, Box, Input, Heading, Container, List, ListItem, Text, Link, LinkBox, Button, Image } from '@chakra-ui/react'
-import { Link as RouterLink } from 'react-router-dom'; // Import RouterLink from react-router-dom
-
+import { Link as RouterLink } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
+import PayMethods from '../../../components/Profile/ProfileSubPages/PayMethods';
+// import { CardDataContext } from './CardDataContext';
 
 function AddCard() {
+
+
+    // const { cardData, setCardData } = useContext(CardDataContext);
+
+    // const handleCardNumberChange = (e) => setCardData({ ...cardData, cardNumber: e.target.value });
+    // const handleExpiryMonthChange = (e) => setCardData({ ...cardData, expiry: { ...cardData.expiry, month: e.target.value } });
+    // const handleExpiryYearChange = (e) => setCardData({ ...cardData, expiry: { ...cardData.expiry, year: e.target.value } });
+    // const handleCvvChange = (e) => setCardData({ ...cardData, cvv: e.target.value });
+
+
+
 
     return (
         <Box ml="300px" h="600px" w="1000px">
@@ -16,7 +30,7 @@ function AddCard() {
                     <Text ml="25px" mt="10px" fontSize={"14px"} color={"gray.500"}>Номер карты</Text>
                     <Input
                         fontSize={"14px"}
-                        placeholder='Введите номер карты'
+                        placeholder='0000 0000 0000 0000'
                         mt="5px"
                         ml="20px"
                         width="280px"
@@ -38,7 +52,7 @@ function AddCard() {
 
                         <Input
                             fontSize={"13px"}
-                            value='ГГ'
+                            placeholder='ГГ'
                             width="60px"
                             h="30px"
 
