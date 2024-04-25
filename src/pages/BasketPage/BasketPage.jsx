@@ -1,8 +1,9 @@
-import { Container } from "@chakra-ui/react";
+import { Container, Heading, } from "@chakra-ui/react";
 import BasketHeader from "../../components/BasketHeader/BasketHeader";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import CartManager from "../../components/CartManager/CartManager";
+import RecomendationBlock from "../../components/RecomendationBlock/RecomendationBlock";
 
 function BasketPage() {
     const cartItems = [
@@ -78,13 +79,18 @@ function BasketPage() {
         <Header/>
         <Navbar/>
         <Container maxWidth="80vw">
-        <BasketHeader
-            itemCount={5} // предполагаемое количество товаров
-            onSelectAll={() => console.log('Выбраны все товары')}
-            onDeleteSelected={() => console.log('Удалены выбранные товары')}
-            onShare={() => console.log('Поделиться')}
-        />            
-        <CartManager initialItems={itemsWithId}/>
+          <BasketHeader
+              itemCount={5} // предполагаемое количество товаров
+              onSelectAll={() => console.log('Выбраны все товары')}
+              onDeleteSelected={() => console.log('Удалены выбранные товары')}
+              onShare={() => console.log('Поделиться')}
+          />            
+          <CartManager initialItems={itemsWithId}/>
+          <Heading fontSize={"2xl"} m={"50px 0"}>Ваши избарнные товары</Heading>
+          <RecomendationBlock count={5}/>
+          <Heading fontSize={"2xl"} m={"50px 0"}>Рекомендации</Heading>
+          <RecomendationBlock count={5}/>        
+        
         </Container>  
     </>
     );

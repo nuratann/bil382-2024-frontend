@@ -35,7 +35,7 @@ const CartManager = ({ initialItems }) => {
 
   if (items.length === 0) {
     return (
-      <Center w="800px" h="100%" p="16px" borderRadius="20px" boxShadow="0 2px 8px rgba(0, 0, 0, 0.08)">
+      <Center m={"16px 0"} w="800px" h="100%" p="16px" borderRadius="20px" boxShadow="0 2px 8px rgba(0, 0, 0, 0.08)">
         <Text fontSize="lg" color="gray.500">Корзина пуста. Выберите товар.</Text>
       </Center>
     );
