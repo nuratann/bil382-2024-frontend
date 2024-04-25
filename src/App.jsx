@@ -33,10 +33,8 @@ function App() {
                     <Route path='/search' element={<TestSearchPage />} />
                     <Route path='/basket_page' element={<BasketPage />} />
                     <Route path='/account' element={<TestAccountPage />} />
-
                     <Route path='/search_page' element={<SearchPage />} />
                     <Route path='/favorites' element={<Favorites />} />
-
                     <Route path='/profile' element={<ProfilePg />} />
                     <Route path='/add_card' element={<AddCardPage />} />
 
