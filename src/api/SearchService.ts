@@ -31,6 +31,22 @@ class SearchService {
             throw error;
         }
     }
+
+    async getRecomendations(): Promise<Product[]> {
+        const url = `http://localhost:8080/api/v1/search/products/`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Failed to fetch products');
+            }
+            const products = await response.json();
+            console.log(products)
+            return products;
+        } catch (error) {
+            console.error('Error:', error);
+            throw error;
+        }
+    }
 }
 
 export default new SearchService()

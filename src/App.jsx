@@ -8,8 +8,13 @@ import UserAgreementPage from "./pages/UserAgreement/UserAgreementPage.jsx";
 import RegAndAuthModal from './components/RegAndAuthModal/RegAndAuthModal.jsx';
 import ProductPage from './pages/ProductPage/ProductPage.jsx'
 import TestSearchPage from './pages/TestSearchPage/TestSearchPage.jsx';
+import BasketPage from './pages/BasketPage/BasketPage.jsx';
+
+import TestAccountPage from './pages/TestAccountPage/TestAccountPage.jsx';
+
 import SearchPage from './pages/SearchPage/SearchPage.jsx';
 import Favorites from './pages/FavoritesPage/FavoritesPage.jsx';
+
 import ProfilePg from './pages/ProfilePage/ProfilePage.jsx';
 import AddCardPage from './pages/ProfilePage/AddCardPage/AddCardPage.jsx';
 
@@ -20,13 +25,18 @@ function App() {
         <ChakraProvider theme={theme}>
             <BrowserRouter>
                 <Routes>
+
                     <Route path='/' element={<HomePage />} />
                     <Route path='/test' element={<SearchLine />} />
                     <Route path='/agreement' element={<UserAgreementPage />} />
                     <Route path='/test_product' element={<ProductPage />} />
                     <Route path='/search' element={<TestSearchPage />} />
+                    <Route path='/basket_page' element={<BasketPage />} />
+                    <Route path='/account' element={<TestAccountPage />} />
+
                     <Route path='/search_page' element={<SearchPage />} />
                     <Route path='/favorites' element={<Favorites />} />
+
                     <Route path='/profile' element={<ProfilePg />} />
                     <Route path='/add_card' element={<AddCardPage />} />
 
