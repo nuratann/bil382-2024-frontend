@@ -8,6 +8,7 @@ import UserAgreementPage from "./pages/UserAgreement/UserAgreementPage.jsx";
 import RegAndAuthModal from './components/RegAndAuthModal/RegAndAuthModal.jsx';
 import ProductPage from './pages/ProductPage/ProductPage.jsx'
 import TestSearchPage from './pages/TestSearchPage/TestSearchPage.jsx';
+import BasketPage from './pages/BasketPage/BasketPage.jsx';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path='/agreement' element={<UserAgreementPage/>}/>
                     <Route path='/test_product' element={<ProductPage/>}/>
                     <Route path='/search' element={<TestSearchPage/>}/>
+                    <Route path='/basket_page' element={<BasketPage/>}/>
                 </Routes>
             </BrowserRouter>
         </ChakraProvider>
