@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as RouterLink } from 'react-router-dom';
 import IconBuyers from '../../assets/icon.png'
 import flag from "../../assets/rus-flag.png"
 import Search from '../SearchLine/Search';
@@ -23,9 +24,11 @@ function Header() {
                             icon={BsEmojiSmile}
                             text={'Nuratan'}
                         />
-                        <IconWithTitle icon={BsBoxSeam} text={'Заказы'} index={1}/>
-                        <IconWithTitle icon={BsHeart} text={'Избранное'} index={2}/>
-                        <IconWithTitle icon={BsBasket3} text={'Корзина'} index={3}/>
+                        <IconWithTitle icon={BsBoxSeam} text={'Заказы'} index={1} />
+                        <Link to='/favorites'>
+                            <IconWithTitle icon={BsHeart} text={'Избранное'} index={2} />
+                        </Link>
+                        <IconWithTitle icon={BsBasket3} text={'Корзина'} index={3} />
                     </Flex>
                 </Flex>
             </Flex>
