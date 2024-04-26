@@ -35,8 +35,7 @@ function App() {
                     <Route path='/search' element={<TestSearchPage/>}/>
                     <Route path='/basket_page' element={<BasketPage/>}/>
                     <Route path='/account' element={<TestAccountPage/>}/>
-                    <Route path='/user_profile' element={<UserProfile/>}/>
-
+                    
                     <Route path='/' element={<HomePage />} />
                     <Route path='/test' element={<SearchLine />} />
                     <Route path='/agreement' element={<UserAgreementPage />} />

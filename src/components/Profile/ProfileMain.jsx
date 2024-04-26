@@ -8,6 +8,7 @@ import Bonuses from './ProfileSubPages/BonusAndPoints';
 import PayMethods from './ProfileSubPages/PayMethods';
 import Chat from './OrdersSubComp/Chat';
 import PersonalAccount from './PersonalAccount';
+import OrdersComponent from './ProfileSubPages/OrdersComponent';
 
 
 function ProfileMain() {
@@ -88,7 +89,9 @@ function ProfileMain() {
                             <ListItem mb="5px">Моя корзина</ListItem>
                         </Link>
                         <Link>
-                            <ListItem mb="5px">Мои заказы</ListItem>
+                            <ListItem 
+                             onClick={() => handleLinkClick("Мои заказы")}
+                            mb="5px">Мои заказы</ListItem>
                         </Link>
                         <Link>
                             <ListItem mb="5px">Мои возвраты</ListItem>
@@ -153,7 +156,7 @@ function ProfileMain() {
                 {activeComponent === "Способы оплаты" && <PayMethods />}
                 {activeComponent === "Сообщения" && <Chat />}
                 {activeComponent === "Моя учётная запись" && <PersonalAccount />}
-
+                {activeComponent === "Мои заказы" && <OrdersComponent />}
             </Box>
         </Box>
 
