@@ -3,41 +3,25 @@ import {
     Box, Input, Button, Select, Text, Divider
 } from '@chakra-ui/react';
 import ProfileImage from './ProfileImage';
+import useUserStore from '../../stores/useUserStore';
 
 function PersonalAccount() {
-    const [name, setName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [patronymic, setPatronymic] = useState('');
-    const [dateOfBirth, setDateOfBirth] = useState('');
-    const [gender, setGender] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const userState = useUserStore((state) => state.user);
 
     const handleSubmit = () => {
-        if (!name || !lastName || !dateOfBirth || !gender || !email || !phone) {
+        if (!firstName || !lastName || !dateOfBirth || !gender || !email || !phone) {
             alert('Please fill out all required fields');
             return;
         }
 
         const formData = {
-            name: name,
+            firstName: firstName,
             lastName: lastName,
-            patronymic: patronymic,
             dateOfBirth: dateOfBirth,
             gender: gender,
             email: email,
             phone: phone
         };
-
-        console.log('Form submitted:', formData);
-
-        setName('');
-        setLastName('');
-        setPatronymic('');
-        setDateOfBirth('');
-        setGender('');
-        setEmail('');
-        setPhone('');
     };
 
     return (
@@ -53,7 +37,7 @@ function PersonalAccount() {
                     <Box flex="1" mr="10px">
                         <Input
                             placeholder="Имя"
-                            value={name}
+                            value={userState.firstName}
                             onChange={(e) => setName(e.target.value)}
                             mb={4}
                             width="300px"
@@ -62,7 +46,7 @@ function PersonalAccount() {
                     <Box flex="1" ml="10px">
                         <Input
                             placeholder="Фамилия"
-                            value={lastName}
+                            value={userState.lastName}
                             onChange={(e) => setLastName(e.target.value)}
                             mb={4}
                             width="300px"
@@ -71,20 +55,12 @@ function PersonalAccount() {
                 </Box>
 
                 <Box display="flex" flexDirection="row" ml="30px" mt="20px">
-                    <Box flex="1" mr="10px">
-                        <Input
-                            placeholder="Отчество"
-                            value={patronymic}
-                            onChange={(e) => setPatronymic(e.target.value)}
-                            mb={4}
-                            width="300px"
-                        />
-                    </Box>
+                    
                     <Box flex="1" ml="10px">
                         <Input
                             type="date"
                             placeholder="Дата рождения"
-                            value={dateOfBirth}
+                            value={userState.birthDay}
                             onChange={(e) => setDateOfBirth(e.target.value)}
                             mb={4}
                             width="300px"
@@ -96,13 +72,14 @@ function PersonalAccount() {
                     <Box flex="1" mr="10px">
                         <Select
                             placeholder="Пол"
-                            value={gender}
+                            value={userState.gender}
                             onChange={(e) => setGender(e.target.value)}
                             mb={4}
                             width="300px"
                         >
                             <option value="male">Мужчина</option>
                             <option value="female">Женщина</option>
+                            <option value="female">Military Apache Helicopter</option>
                         </Select>
                     </Box>
                     <Box flex="1" ml="10px">
@@ -119,7 +96,7 @@ function PersonalAccount() {
                     <Box ml="10px" >
                         <Input
                             placeholder="Email"
-                            value={email}
+                            value={userState.email}
                             onChange={(e) => setEmail(e.target.value)}
                             mb={4}
                             width="250px"
@@ -131,7 +108,7 @@ function PersonalAccount() {
                     <Box mr="10px">
                         <Input
                             placeholder="Phone"
-                            value={phone}
+                            value={userState.phone}
                             onChange={(e) => setPhone(e.target.value)}
                             mb={4}
                             width="250px"

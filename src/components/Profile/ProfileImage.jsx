@@ -63,7 +63,8 @@ function ProfileImage() {
             <Box ml="60px">
                 <Link _hover={{ textDecoration: 'none' }}
                     textDecoration="none"
-                    color="brand.blue">
+                    color="brand.blue"
+                    to='Моя учетная запись'>
                     <Text color="brand.blue">Изменить профиль</Text>
                     {/* Add link destination here */}
                 </Link>

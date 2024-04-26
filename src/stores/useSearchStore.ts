@@ -32,6 +32,29 @@ const useSearchStore = create<SearchStore>()(
                 isChoosen: false,
                 results: [],
                 recomendations: [
+                  {
+                    "id": 0,
+                    "img": "https://ir-3.ozone.ru/s3/multimedia-b/wc1000/6064306271.jpg",
+                    "title": "Кофе жареный зерновой JAMADJI 1 кг",
+                    "description": "Кофе хареный зерновой JAMADJI 1 кг - отличный подарок для мужчин и женщин на 14 и 23 февраля...",
+                    "specs": {
+                      "type": "смартфон",
+                      "chip": "A15 Bionic",
+                      "display": "Retina XDR 6,1 дюйма",
+                      "camera": "тройная камера 12 Мп"
+                    },
+                    "rating": 4,
+                    "category": "Кофе и чай",
+                    "orders": 5000,
+                    "sells": ["скидки недели"],
+                    "quantity": 100,
+                    "price": 3554,
+                    "old_price": 3600,
+                    "seller": 'OOO "Фаворит"',
+                    "is_premium_seller": true,
+                    "reviews": 1200,
+                    "delivery_date": "05-07-2024"
+                  },
                     {
                       "id": 1,
                       "img": "https://login.kg/image/cache/catalog/new/Phones/Apple/IPhone%2013/Pro/1-500x400.jpg",

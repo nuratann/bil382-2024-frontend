@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './ProductCard.module.scss'
 import { Box, Image, Button, Text, Flex, Center, Icon, Card } from '@chakra-ui/react'
 import { StarIcon, ChatIcon } from '@chakra-ui/icons'
-// import { Link as ReactRouterLink } from 'react-router-dom'
+import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink } from '@chakra-ui/react'
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import {dateFormat} from '../../helpers/dateFormat.js'
@@ -65,9 +65,9 @@ const ProductCard = (props) => {
                             }}>
                             {props.seller}
                         </ChakraLink><br />
-                        <ChakraLink
+                        <ChakraLink 
                             className={styles.desc}
-                            to='/'
+                            as={ReactRouterLink} to='/product'
                             fontSize={'sm'}
                             _hover={{
                                 color: 'blue.400',

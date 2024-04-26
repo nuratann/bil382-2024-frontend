@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Flex, Box, Heading, Container, List, ListItem, Text, Link, LinkBox } from '@chakra-ui/react'
 import ProfileImage from './ProfileImage';
 import ProfileMainSub from './ProfileSubPages/ProfileMainSub';
@@ -13,6 +14,8 @@ import OrdersComponent from './ProfileSubPages/OrdersComponent';
 
 function ProfileMain() {
 
+    
+
     // const [activeLink, setActiveLink] = useState(null);
 
     // const handleClick = (link) => {
@@ -23,6 +26,9 @@ function ProfileMain() {
     //     return activeLink === link;
     // };
 
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const initValue = searchParams.get('init');
 
     const [activeComponent, setActiveComponent] = useState("Главная");
 
@@ -30,6 +36,11 @@ function ProfileMain() {
         setActiveComponent(componentName);
 
     };
+    useEffect(() => {
+        handleLinkClick(initValue || "Главная");
+    },[])
+
+    
 
     return (
         <Box height="max-content" width="100%" bgColor="gray.100" direction="row" display="flex" mt="20px">
@@ -45,7 +56,7 @@ function ProfileMain() {
                 flexDirection="column"
                 boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)" >
 
-                <ProfileImage />
+                <ProfileImage/>
 
                 <Box ml="30px" mt="30px" width="200px" >
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Личная информация</Text>
@@ -85,7 +96,7 @@ function ProfileMain() {
 
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Заказы</Text>
                     <List fontSize="14px" fontWeight={500} mt="5px" spacing={2}>
-                        <Link>
+                        <Link to='/basket_page'>
                             <ListItem mb="5px">Моя корзина</ListItem>
                         </Link>
                         <Link>
@@ -95,9 +106,6 @@ function ProfileMain() {
                         </Link>
                         <Link>
                             <ListItem mb="5px">Мои возвраты</ListItem>
-                        </Link>
-                        <Link>
-                            <ListItem mb="5px">Купленные товары</ListItem>
                         </Link>
                         <Link>
                             <ListItem

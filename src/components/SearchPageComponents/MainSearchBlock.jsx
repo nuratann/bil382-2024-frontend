@@ -12,11 +12,13 @@ import { colors } from './MainSearchData';
 import { customScrollbarStyles } from './MainSearchData';
 import { materials } from './MainSearchData';
 import { seasons } from './MainSearchData';
+import useSearchStore from '../../stores/useSearchStore';
 
 
 function MainSearchBlock() {
 
-
+    const query = useSearchStore((state) => state.query);
+    const results = useSearchStore((state) => state.results);
     const [selectedRadioOption, setSelectedRadioOption] = useState(radioOptions[0]); // State for selected option
 
     const handleChange = (value) => {
@@ -28,7 +30,7 @@ function MainSearchBlock() {
         <Box height={'395vh'} >
             <Box width="1300" height="60px" marginBottom="40px"
                 marginTop="20px" marginLeft="40px" marginRight="40px" p={4} borderRadius={4}>
-                <Text fontSize="14px" fontWeight="500" letterSpacing='2' >По запросу <strong>запрос</strong> было найдено 14456 товаров.</Text>
+                <Text fontSize="14px" fontWeight="500" letterSpacing='2' >По запросу <strong>{query}</strong> было найдено {results.length} товаров.</Text>
                 {/* Here need to add, logic for query itself, and number of items on that searchquery */}
             </Box>
             <Box

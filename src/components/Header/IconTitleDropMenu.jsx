@@ -23,10 +23,10 @@ const IconTitleDropMenu = ({ icon }) => {
     const [isOnTrigger, setOnTrigger] = useState(false);
     const [isOnMenu, setOnMenu] = useState(false);
     const menuItems = [
-        { text: 'Личный кабинет', link: '/account' },
+        { text: 'Личный кабинет', link: '/profile' },
         { text: 'Баллы и бонусы', link: '/' },
         { text: 'Premium', link: '/' },
-        { text: 'Сообщения', link: '/' },
+        { text: 'Сообщения', link: '/profile?init=Сообщения' },
         { text: 'Сравнение товаров', link: '/' },
         { text: 'Купоны и сертификаты', link: '/' }
     ]

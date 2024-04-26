@@ -24,11 +24,15 @@ function Header() {
                             icon={BsEmojiSmile}
                             text={'Nuratan'}
                         />
+                        <Link to='/profile?init=Мои заказы'>
                         <IconWithTitle icon={BsBoxSeam} text={'Заказы'} index={1} />
+                        </Link>
                         <Link to='/favorites'>
                             <IconWithTitle icon={BsHeart} text={'Избранное'} index={2} />
                         </Link>
+                        <Link to='/basket_page'>
                         <IconWithTitle icon={BsBasket3} text={'Корзина'} index={3} />
+                        </Link>
                     </Flex>
                 </Flex>
             </Flex>
