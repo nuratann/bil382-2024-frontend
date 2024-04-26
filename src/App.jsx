@@ -36,14 +36,6 @@ function App() {
                     <Route path='/basket_page' element={<BasketPage/>}/>
                     <Route path='/account' element={<TestAccountPage/>}/>
                     
-                    <Route path='/' element={<HomePage />} />
-                    <Route path='/test' element={<SearchLine />} />
-                    <Route path='/agreement' element={<UserAgreementPage />} />
-                    <Route path='/test_product' element={<ProductPage />} />
-                    <Route path='/search' element={<TestSearchPage />} />
-                    <Route path='/basket_page' element={<BasketPage />} />
-                    <Route path='/account' element={<TestAccountPage />} />
-
                     <Route path='/search_page' element={<SearchPage />} />
                     <Route path='/favorites' element={<Favorites />} />
                     <Route path='/profile' element={<ProfilePg />} />
