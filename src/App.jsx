@@ -14,6 +14,7 @@ import TestAccountPage from './pages/TestAccountPage/TestAccountPage.jsx';
 
 import SearchPage from './pages/SearchPage/SearchPage.jsx';
 import Favorites from './pages/FavoritesPage/FavoritesPage.jsx';
+import UserProfile from './pages/UserProfile/UserProfile.jsx';
 
 
 
@@ -31,6 +32,7 @@ function App() {
                     <Route path='/search' element={<TestSearchPage/>}/>
                     <Route path='/basket_page' element={<BasketPage/>}/>
                     <Route path='/account' element={<TestAccountPage/>}/>
+                    <Route path='/user_profile' element={<UserProfile/>}/>
                     
                     <Route path='/search_page' element={<SearchPage />} />
                     <Route path='/favorites' element={<Favorites />} />
