@@ -11,7 +11,7 @@ import Chat from './OrdersSubComp/Chat';
 import PersonalAccount from './PersonalAccount';
 import OrdersComponent from './ProfileSubPages/OrdersComponent';
 import ReturnsComponents from './ProfileSubPages/ReturnsComponent';
-import ReturnPage from '../ReturnCard/ReturnPage';
+import ElectronicReceipts from './ProfileSubPages/ElectronicReceipts';
 
 
 function ProfileMain() {
@@ -117,7 +117,10 @@ function ProfileMain() {
                                 cursor="pointer" mb="5px">Сообщения</ListItem>
                         </Link>
                         <Link>
-                            <ListItem mb="5px">Электронные чеки</ListItem>
+                            <ListItem 
+                            mb="5px"
+                            onClick={() => handleLinkClick("Электронные чеки")}
+                            >Электронные чеки</ListItem>
                         </Link>
                     </List>
 
@@ -170,6 +173,7 @@ function ProfileMain() {
                 {activeComponent === "Моя учётная запись" && <PersonalAccount />}
                 {activeComponent === "Мои заказы" && <OrdersComponent />}
                 {activeComponent === "Мои возвраты" && <ReturnsComponents />}
+                {activeComponent === "Электронные чеки" && <ElectronicReceipts />}
             </Box>
         </Box>
 
