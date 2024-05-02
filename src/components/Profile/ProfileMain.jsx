@@ -10,6 +10,7 @@ import PayMethods from './ProfileSubPages/PayMethods';
 import Chat from './OrdersSubComp/Chat';
 import PersonalAccount from './PersonalAccount';
 import OrdersComponent from './ProfileSubPages/OrdersComponent';
+import ReturnsComponents from './ProfileSubPages/ReturnsComponent';
 
 
 function ProfileMain() {
@@ -105,7 +106,9 @@ function ProfileMain() {
                             mb="5px">Мои заказы</ListItem>
                         </Link>
                         <Link>
-                            <ListItem mb="5px">Мои возвраты</ListItem>
+                            <ListItem 
+                            mb="5px"
+                            onClick={() => handleLinkClick("Мои возвраты")}>Мои возвраты</ListItem>
                         </Link>
                         <Link>
                             <ListItem
@@ -165,6 +168,7 @@ function ProfileMain() {
                 {activeComponent === "Сообщения" && <Chat />}
                 {activeComponent === "Моя учётная запись" && <PersonalAccount />}
                 {activeComponent === "Мои заказы" && <OrdersComponent />}
+                {activeComponent === "Мои возвраты" && <ReturnsComponents />}
             </Box>
         </Box>
 
