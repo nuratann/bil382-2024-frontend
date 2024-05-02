@@ -11,6 +11,7 @@ import Chat from './OrdersSubComp/Chat';
 import PersonalAccount from './PersonalAccount';
 import OrdersComponent from './ProfileSubPages/OrdersComponent';
 import ReturnsComponents from './ProfileSubPages/ReturnsComponent';
+import ReturnPage from '../ReturnCard/ReturnPage';
 
 
 function ProfileMain() {
