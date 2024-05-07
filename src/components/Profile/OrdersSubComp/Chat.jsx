@@ -75,7 +75,8 @@ function DefaultComponent() {
 
     return (
         <Box h="600px" width="750px" bgColor="gray.100" borderRadius="28px" ml="30px" mt="10px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)" alignContent={"center"} >
-            <Box h="30px" width="max-content" bgColor="white" opacity="0.7" borderRadius="28px" ml="250px" mr="10px" mt="10px" p="10px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)" alignContent={"center"} >
+            <Box h="30px" width="max-content" bgColor="white" opacity="0.7" borderRadius="28px" ml="250px" mr="10px" mt="10px" p="10px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)" alignContent={"center"}
+            >
                 <Text ml="10px">Выберите чат для общения</Text>
             </Box>
 
@@ -89,9 +90,25 @@ function DefaultComponent() {
 function Chat1() {
 
     return (
-        <Box h="600px" width="750px" bgColor="gray.100" borderRadius="28px" ml="30px" mt="10px" mb="30px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)" overflowY="auto">
+        <Box h="600px" width="750px" bgColor="gray.100" borderRadius="28px" ml="30px" mt="10px" mb="30px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)" overflowY="auto"
 
-            <Box h="max-content" ml="30px" mb="30px">
+            css={{
+                "&::-webkit-scrollbar": {
+                    width: "6px",
+                    borderRadius: "20px",
+
+                },
+                "&::-webkit-scrollbar-track": {
+                    background: "gray.300"
+                },
+                "&::-webkit-scrollbar-thumb": {
+                    background: "#707070"
+                }
+            }}
+        >
+
+            <Box h="max-content" ml="30px" mb="30px"
+            >
                 <Card maxW='sm' mt="20px">
                     <CardBody>
                         <Image
@@ -144,7 +161,21 @@ function Chat1() {
 function Chat2() {
 
     return (
-        <Box h="600px" width="750px" bgColor="gray.100" borderRadius="28px" ml="30px" mt="10px" mb="30px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)" overflowY="auto">
+        <Box h="600px" width="750px" bgColor="gray.100" borderRadius="28px" ml="30px" mt="10px" mb="30px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)" overflowY="auto"
+            css={{
+                "&::-webkit-scrollbar": {
+                    width: "6px",
+                    borderRadius: "20px",
+
+                },
+                "&::-webkit-scrollbar-track": {
+                    background: "gray.300"
+                },
+                "&::-webkit-scrollbar-thumb": {
+                    background: "#707070"
+                }
+            }}
+        >
 
             <Box h="max-content" ml="30px" mb="30px">
                 <Card maxW='sm' mt="20px">

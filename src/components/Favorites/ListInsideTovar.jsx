@@ -33,7 +33,7 @@ function ListInsideTovar({ bgColor }) {
     };
 
     return (
-        <Box width="1100px" ml="50px" height="320vh" mr="50px" bgColor={bgColor}>
+        <Box width="1100px" ml="50px" height="max-content" mr="50px" bgColor={bgColor}>
             <Box width="1100px" height="100vh">
                 <Text fontSize="24px" fontWeight="600">Подобрано для вас</Text>
                 <Box>
@@ -132,7 +132,7 @@ function ListInsideTovar({ bgColor }) {
 
             </Box>
 
-            <Box width="1100px" marginTop="80px" height="240vh" >
+            <Box width="1100px" marginTop="80px" height="max-content" >
                 <Text fontSize="26px" fontWeight="600" p={5}>Подобрано для вас</Text>
                 <RecomendationBlock gridColumns={3} count={12} />
             </Box>

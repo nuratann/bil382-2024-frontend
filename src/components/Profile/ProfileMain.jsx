@@ -13,11 +13,14 @@ import OrdersComponent from './ProfileSubPages/OrdersComponent';
 import ReturnsComponents from './ProfileSubPages/ReturnsComponent';
 import ElectronicReceipts from './ProfileSubPages/ElectronicReceipts';
 import ReviewsComponent from './ProfileSubPages/ReviewsComponent';
+import FavoritesFunction from '../Favorites/Favorites';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 
 function ProfileMain() {
 
-    
+
 
     // const [activeLink, setActiveLink] = useState(null);
 
@@ -41,9 +44,9 @@ function ProfileMain() {
     };
     useEffect(() => {
         handleLinkClick(initValue || "Главная");
-    },[])
+    }, [])
 
-    
+
 
     return (
         <Box height="max-content" width="100%" bgColor="gray.100" direction="row" display="flex" mt="20px">
@@ -59,7 +62,7 @@ function ProfileMain() {
                 flexDirection="column"
                 boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)" >
 
-                <ProfileImage/>
+                <ProfileImage />
 
                 <Box ml="30px" mt="30px" width="200px" >
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Личная информация</Text>
@@ -99,18 +102,18 @@ function ProfileMain() {
 
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Заказы</Text>
                     <List fontSize="14px" fontWeight={500} mt="5px" spacing={2}>
-                        <Link to='/basket_page'>
+                        <RouterLink to='/basket_page'>
                             <ListItem mb="5px">Моя корзина</ListItem>
+                        </RouterLink >
+                        <Link>
+                            <ListItem
+                                onClick={() => handleLinkClick("Мои заказы")}
+                                mb="5px">Мои заказы</ListItem>
                         </Link>
                         <Link>
-                            <ListItem 
-                             onClick={() => handleLinkClick("Мои заказы")}
-                            mb="5px">Мои заказы</ListItem>
-                        </Link>
-                        <Link>
-                            <ListItem 
-                            mb="5px"
-                            onClick={() => handleLinkClick("Мои возвраты")}>Мои возвраты</ListItem>
+                            <ListItem
+                                mb="5px"
+                                onClick={() => handleLinkClick("Мои возвраты")}>Мои возвраты</ListItem>
                         </Link>
                         <Link>
                             <ListItem
@@ -118,9 +121,9 @@ function ProfileMain() {
                                 cursor="pointer" mb="5px">Сообщения</ListItem>
                         </Link>
                         <Link>
-                            <ListItem 
-                            mb="5px"
-                            onClick={() => handleLinkClick("Электронные чеки")}
+                            <ListItem
+                                mb="5px"
+                                onClick={() => handleLinkClick("Электронные чеки")}
                             >Электронные чеки</ListItem>
                         </Link>
                     </List>
@@ -129,26 +132,27 @@ function ProfileMain() {
 
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Отзывы</Text>
                     <List fontSize="14px" fontWeight={500} mt="5px" spacing={1} >
-                        <Link to="/reviews">
+                        <RouterLink to="/reviews">
                             <ListItem mb="5px" onClick={() => handleLinkClick("Мои отзывы")}>Мои отзывы</ListItem>
-                        </Link>
-                        <Link to="/questions-and-answers">
+                        </RouterLink >
+                        <RouterLink to="/questions-and-answers">
                             <ListItem mb="5px">Мои вопросы и ответы</ListItem>
-                        </Link>
-                        <Link to="/pending-questions">
+                        </RouterLink >
+                        <RouterLink to="/pending-questions">
                             <ListItem mb="5px">Вопросы, ожидающие ответа</ListItem>
-                        </Link>
+                        </RouterLink >
                     </List>
 
 
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Подписки</Text>
                     <List fontSize="14px" fontWeight={500} mt="5px" spacing={4}>
-                        <Link to="/favorites">
-                            <ListItem mb="5px">Избранное</ListItem>
-                        </Link>
-                        <Link to="/notification-settings">
+                        <RouterLink to="/favorites">
+                            <ListItem
+                                mb="5px">Избранное</ListItem>
+                        </RouterLink>
+                        <RouterLink to="/notification-settings">
                             <ListItem mb="5px">Настройки уведомлений</ListItem>
-                        </Link>
+                        </RouterLink >
                     </List>
 
 
@@ -159,7 +163,7 @@ function ProfileMain() {
                                 onClick={() => handleLinkClick("Моя учётная запись")}
                                 cursor="pointer"
                                 mb="5px">Моя учётная запись</ListItem>
-                        </Link>
+                        </Link >
                     </List>
                 </Box>
 
@@ -176,6 +180,7 @@ function ProfileMain() {
                 {activeComponent === "Мои возвраты" && <ReturnsComponents />}
                 {activeComponent === "Электронные чеки" && <ElectronicReceipts />}
                 {activeComponent === "Мои отзывы" && <ReviewsComponent />}
+                {/* {activeComponent === "Избранное" && <FavoritesFunction />} */}
             </Box>
         </Box>
 
