@@ -12,6 +12,7 @@ import PersonalAccount from './PersonalAccount';
 import OrdersComponent from './ProfileSubPages/OrdersComponent';
 import ReturnsComponents from './ProfileSubPages/ReturnsComponent';
 import ElectronicReceipts from './ProfileSubPages/ElectronicReceipts';
+import ReviewsComponent from './ProfileSubPages/ReviewsComponent';
 
 
 function ProfileMain() {
@@ -129,7 +130,7 @@ function ProfileMain() {
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Отзывы</Text>
                     <List fontSize="14px" fontWeight={500} mt="5px" spacing={1} >
                         <Link to="/reviews">
-                            <ListItem mb="5px">Мои отзывы</ListItem>
+                            <ListItem mb="5px" onClick={() => handleLinkClick("Мои отзывы")}>Мои отзывы</ListItem>
                         </Link>
                         <Link to="/questions-and-answers">
                             <ListItem mb="5px">Мои вопросы и ответы</ListItem>
@@ -174,6 +175,7 @@ function ProfileMain() {
                 {activeComponent === "Мои заказы" && <OrdersComponent />}
                 {activeComponent === "Мои возвраты" && <ReturnsComponents />}
                 {activeComponent === "Электронные чеки" && <ElectronicReceipts />}
+                {activeComponent === "Мои отзывы" && <ReviewsComponent />}
             </Box>
         </Box>
 
