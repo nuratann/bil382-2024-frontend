@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import CategoryList from './CategoryList';
 import CategoryListInside from './CategoryListInside';
-import { categories } from './CatalogData.jsx'
+import { categories } from './CatalogData.jsx';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function MainCatalog() {
     const [activeCategory, setActiveCategory] = useState(categories[0].name);
@@ -27,18 +28,20 @@ function MainCatalog() {
                 {categories.map((category) => (
                     <React.Fragment key={category.name} >
                         <div style={{ display: "flex", gap: "50px" }}>
-                            <div
-                                onMouseEnter={() => handleMouseEnter(category.name)}
-                                onMouseLeave={handleMouseLeave}
-                                style={{ width: "250px" }}>
-                                <CategoryList
-                                    height="max-content"
-                                    href="#"
-                                    icon={category.icon}
-                                    width="350px">
-                                    {category.name}
-                                </CategoryList>
-                            </div>
+                            {/* Wrap category name with Link */}
+                            <Link to={`/categories/${category.name}`} style={{ textDecoration: "none" }}>
+                                <div
+                                    onMouseEnter={() => handleMouseEnter(category.name)}
+                                    onMouseLeave={handleMouseLeave}
+                                    style={{ width: "250px", cursor: "pointer" }}>
+                                    <CategoryList
+                                        height="max-content"
+                                        icon={category.icon}
+                                        width="350px">
+                                        {category.name}
+                                    </CategoryList>
+                                </div>
+                            </Link>
                             {activeCategory === category.name && (
                                 <div style={{ position: "absolute", top: "0px", left: "150px" }}>
                                     <CategoryListInside
@@ -56,4 +59,3 @@ function MainCatalog() {
 }
 
 export default MainCatalog;
-
