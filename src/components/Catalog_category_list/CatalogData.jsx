@@ -1,5 +1,4 @@
 
-import { ElectronicsIcon, ClothingIcon, ShoesIcon, HousingAndgardening, ChildItems, HealthBeauty, BytovayaTech, Remont, Sport, Food, Pharmacy, Zootovar, Books, Tourism, Accessouars, Mebel, GameConsole, Schoolsupplies, Hygen, Auto } from './CatalogIcons';
 
 export const categories = [
     {
@@ -99,8 +98,8 @@ export const categories = [
             },
 
             ]
-        }],
-        icon: <ElectronicsIcon />
+        }]
+
     },
 
 
@@ -205,8 +204,8 @@ export const categories = [
 
 
             ]
-        }],
-        icon: <ClothingIcon />
+        }]
+
     },
 
     {
@@ -306,8 +305,8 @@ export const categories = [
             },
 
             ]
-        }],
-        icon: <ShoesIcon />
+        }]
+
     },
 
 
@@ -347,8 +346,8 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <HousingAndgardening />
+        }]
+
     },
 
 
@@ -389,8 +388,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <ChildItems />
+        }]
     },
 
 
@@ -430,8 +428,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <HealthBeauty />
+        }]
     },
 
 
@@ -471,8 +468,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <BytovayaTech />
+        }]
     },
 
 
@@ -512,8 +508,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Sport />
+        }]
     },
 
 
@@ -553,8 +548,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Remont />
+        }]
     },
 
 
@@ -595,8 +589,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Food />
+        }]
     },
 
     {
@@ -634,8 +627,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Pharmacy />
+        }]
     },
 
 
@@ -674,8 +666,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Zootovar />
+        }]
     },
 
 
@@ -714,8 +705,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Books />
+        }]
     },
 
 
@@ -754,8 +744,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Tourism />
+        }]
     },
 
 
@@ -795,8 +784,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Mebel />
+        }]
     },
 
 
@@ -835,8 +823,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Accessouars />
+        }]
     },
 
     {
@@ -874,8 +861,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Schoolsupplies />
+        }]
     },
 
     {
@@ -913,8 +899,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Hygen />
+        }]
     },
 
     {
@@ -952,8 +937,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <GameConsole />
+        }]
     },
 
     {
@@ -991,8 +975,7 @@ export const categories = [
                     { text: "More Televisions", url: "/more-televisions" }
                 ]
             }]
-        }],
-        icon: <Auto />
+        }]
     }
 
 
