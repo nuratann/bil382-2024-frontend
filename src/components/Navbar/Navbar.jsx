@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import { BsAirplane, BsPhone } from "react-icons/bs";
-import { PiTShirt,PiFlowerLotusLight} from "react-icons/pi";
+import { PiTShirt, PiFlowerLotusLight } from "react-icons/pi";
 import { TbHorseToy } from "react-icons/tb";
 import { CgCrown } from "react-icons/cg";
 import { SlPresent } from "react-icons/sl";
@@ -10,15 +10,15 @@ import { LuBanana, LuMicrowave } from "react-icons/lu";
 
 const Navbar = () => {
     const navs = [
-        { text: 'Билеты, отели, туры', icon: <BsAirplane/> },
-        { text: 'Одежда и обувь', icon: <PiTShirt/>  },
-        { text: 'Электроника', icon: <BsPhone/>  },
-        { text: 'Дом и сад', icon: <PiFlowerLotusLight/>  },
-        { text: 'Детские товары', icon: <TbHorseToy/>   },
-        { text: 'Премиум', icon: <CgCrown/>   },
-        { text: 'Подарочные сертификаты', icon: <SlPresent/>  },
-        { text: 'Продукты питания', icon: <LuBanana/>   },
-        { text: 'Бытовая техника', icon: <LuMicrowave/>   }
+        { text: 'Билеты, отели, туры', icon: <BsAirplane /> },
+        { text: 'Одежда и обувь', icon: <PiTShirt /> },
+        { text: 'Электроника', icon: <BsPhone /> },
+        { text: 'Дом и сад', icon: <PiFlowerLotusLight /> },
+        { text: 'Детские товары', icon: <TbHorseToy /> },
+        { text: 'Премиум', icon: <CgCrown /> },
+        { text: 'Подарочные сертификаты', icon: <SlPresent /> },
+        { text: 'Продукты питания', icon: <LuBanana /> },
+        { text: 'Бытовая техника', icon: <LuMicrowave /> }
     ]
     return (
         <>

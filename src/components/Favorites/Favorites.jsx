@@ -1,5 +1,4 @@
 import React from 'react';
-// import React, { useState } from 'react';
 import { Box, Flex, Text, List, ListItem, Icon } from '@chakra-ui/react';
 import { useState } from 'react';
 import ListInsideTovar from './ListInsideTovar';
@@ -21,7 +20,8 @@ function FavoritesFunction() {
     };
 
     return (
-        <Box height={'330vh'} display="flex" >
+        <Box height={'max-content'} display="flex"
+        >
             {/* adjust height so every componenet will have max-content height dynamically */}
             <Box
                 width="240px"
@@ -30,7 +30,8 @@ function FavoritesFunction() {
                 ml='50px'
                 marginBottom="40px"
                 marginTop="40px"
-                height="360vh">
+                height="max-content"
+            >
 
                 <Box display="flex" justifyContent="space-between">
                     <Box
@@ -83,7 +84,7 @@ function FavoritesFunction() {
                 </Box>
             </Box>
 
-        </Box>
+        </Box >
     );
 }
 

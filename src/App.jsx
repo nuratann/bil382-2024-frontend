@@ -18,6 +18,7 @@ import UserProfile from './pages/UserProfile/UserProfile.jsx';
 
 import ProfilePg from './pages/ProfilePage/ProfilePage.jsx';
 import AddCardPage from './pages/ProfilePage/AddCardPage/AddCardPage.jsx';
+import CategoryPage from './pages/CategoryPage/CategoryPage.jsx';
 
 
 
@@ -28,18 +29,21 @@ function App() {
                 <Routes>
 
 
-                    <Route path='/' element={<HomePage/>}/>
-                    <Route path='/test' element={<SearchLine/>}/>
-                    <Route path='/agreement' element={<UserAgreementPage/>}/>
-                    <Route path='/product' element={<ProductPage/>}/>
-                    <Route path='/test_search' element={<TestSearchPage/>}/>
-                    <Route path='/basket_page' element={<BasketPage/>}/>
-                    <Route path='/account' element={<TestAccountPage/>}/>
-                    
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='/test' element={<SearchLine />} />
+                    <Route path='/agreement' element={<UserAgreementPage />} />
+                    <Route path='/product' element={<ProductPage />} />
+                    <Route path='/test_search' element={<TestSearchPage />} />
+                    <Route path='/basket_page' element={<BasketPage />} />
+                    <Route path='/account' element={<TestAccountPage />} />
+
                     <Route path='/search' element={<SearchPage />} />
                     <Route path='/favorites' element={<Favorites />} />
                     <Route path='/profile' element={<ProfilePg />} />
                     <Route path='/add_card' element={<AddCardPage />} />
+                    <Route path='/categories/:name' element={<CategoryPage />} />
+
+
 
                 </Routes>
             </BrowserRouter>
