@@ -4,5 +4,11 @@
         "list2": "Order",
         "list3": "Favorite",
         "list4": "Basket"
+    },
+    "favoriteslist": {
+        "list1": "",
+        "list2": "Товары и списки",
+        "list3": "Магазины",
+        "list4": "Коллекции"
     }
 }

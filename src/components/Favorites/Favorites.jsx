@@ -7,6 +7,8 @@ import ListInsideStores from './ListInsideStores';
 import { TovarsIcon } from './FavoritesData';
 import { MagazineIcon } from './FavoritesData';
 import { CollectionIcon } from './FavoritesData';
+import { useTranslation } from 'react-i18next';
+
 
 
 
@@ -18,6 +20,9 @@ function FavoritesFunction() {
     const handleLineClick = (line) => {
         setSelectedLine(line);
     };
+
+    const { t, i18n } = useTranslation();
+
 
     return (
         <Box height={'max-content'} display="flex"
@@ -49,7 +54,7 @@ function FavoritesFunction() {
 
                             >        <Flex align="center" justify="start" cursor="pointer" gap="4" _hover={{ color: "blue.500" }}>
                                     <Icon as={TovarsIcon} boxSize={6} color="blue.500" mr={2} />
-                                    <Text >Товары и списки</Text>
+                                    <Text >Товары </Text>
                                 </Flex>
                             </ListItem>
                             <ListItem

@@ -1,0 +1,26 @@
+{
+    "beautyAndHealth": {
+        "text": "Красота и здоровье"
+    },
+    "clothingAndFootwear": {
+        "text": "Одежда и обувь"
+    },
+    "electronics": {
+        "text": "Электроника"
+    },
+    "homeAndGarden": {
+        "text": "Дом и сад"
+    },
+    "babyProducts": {
+        "text": "Детские товары"
+    },
+    "premium": {
+        "text": "Премиум"
+    },
+    "groceries": {
+        "text": "Продукты питания"
+    },
+    "homeAppliances": {
+        "text": "Бытовая техника"
+    }
+}

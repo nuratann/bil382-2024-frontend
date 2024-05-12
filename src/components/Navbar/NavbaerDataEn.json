@@ -1,0 +1,26 @@
+{
+    "beautyAndHealth": {
+        "text": "Beauty and Health"
+    },
+    "clothingAndFootwear": {
+        "text": "Clothing and Footwear"
+    },
+    "electronics": {
+        "text": "Electronics"
+    },
+    "homeAndGarden": {
+        "text": "Home and Garden"
+    },
+    "babyProducts": {
+        "text": "Baby Products"
+    },
+    "premium": {
+        "text": "Premium"
+    },
+    "groceries": {
+        "text": "Groceries"
+    },
+    "homeAppliances": {
+        "text": "Home Appliances"
+    }
+}

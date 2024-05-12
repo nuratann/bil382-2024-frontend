@@ -45,12 +45,14 @@ function Header() {
                     </Link>
 
 
-                    <Menu>
+                    <Menu placement="bottom">
                         <MenuButton as={Flex} alignItems="center" ml={4} mt="5px">
-                            <FiGlobe size={25} />
+                            <FiGlobe size={25} color="gray.400" style={{ opacity: 0.7 }} />
                         </MenuButton>
+
                         <MenuList>
                             <MenuItem onClick={() => changeLanguage("ru")}>Русский</MenuItem>
+                            <MenuItem onClick={() => changeLanguage("kg")}>Кыргызча</MenuItem>
                             <MenuItem onClick={() => changeLanguage("en")}>English</MenuItem>
 
                         </MenuList>
