@@ -179,7 +179,7 @@ function ProfileMain() {
                 {activeComponent === "Мои заказы" && <OrdersComponent />}
                 {activeComponent === "Мои возвраты" && <ReturnsComponents />}
                 {activeComponent === "Электронные чеки" && <ElectronicReceipts />}
-                {activeComponent === "Мои отзывы" && <ReviewsComponent />}
+                {activeComponent === "Мои отзывы" && <ReviewsComponenxt />}
                 {/* {activeComponent === "Избранное" && <FavoritesFunction />} */}
             </Box>
         </Box>

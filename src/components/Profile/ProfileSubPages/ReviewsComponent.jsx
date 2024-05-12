@@ -3,9 +3,7 @@ import {
     Box,
     Heading
 } from '@chakra-ui/react';
-import ReviewCard from '../../ProductCommentTabs/ReviewCard';
 import UserReviews from '../../ProductCommentTabs/UserReviews';
-
 
 const ReviewsComponent = () => {
 
