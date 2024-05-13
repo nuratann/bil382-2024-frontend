@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import {
-    Box, Input, Button, Select, Text, Divider
+    Box, Input, Button, Select, Text, Divider,
+    Flex
 } from '@chakra-ui/react';
 import ProfileImage from './ProfileImage';
 import useUserStore from '../../stores/useUserStore';
+import { Link } from 'react-router-dom';
 
 function PersonalAccount() {
     const userState = useUserStore((state) => state.user);
@@ -26,8 +28,12 @@ function PersonalAccount() {
 
     return (
         <Box height="800px" width="1160px" bgColor="white" display="flex" flexDirection="column" ml="30px" mt="30px" mb="50px" borderRadius="28px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)">
-            <Text fontWeight="550" fontSize="18px" ml="30px" mt="20px">Личные данные</Text>
-
+            <Flex justifyContent={"space-between"}>
+                <Text fontWeight="550" fontSize="18px" ml="30px" mt="20px">Личные данные</Text>
+                <Link to='/profile?init=Мои заказы'>Стать продавцом</Link>
+            </Flex>
+            
+            
             <Divider />
 
 
@@ -119,7 +125,7 @@ function PersonalAccount() {
                     </Box>
                 </Box>
             </Box>
-
+            
         </Box>
 
     )

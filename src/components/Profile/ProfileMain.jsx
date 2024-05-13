@@ -15,6 +15,7 @@ import ElectronicReceipts from './ProfileSubPages/ElectronicReceipts';
 import ReviewsComponent from './ProfileSubPages/ReviewsComponent';
 import FavoritesFunction from '../Favorites/Favorites';
 import { Link as RouterLink } from 'react-router-dom';
+import SellerProfile from './ProfileSubPages/SellerProfile';
 
 
 
@@ -164,6 +165,12 @@ function ProfileMain() {
                                 cursor="pointer"
                                 mb="5px">Моя учётная запись</ListItem>
                         </Link >
+                        <Link to="/account">
+                            <ListItem
+                                onClick={() => handleLinkClick("Стать продавцом")}
+                                cursor="pointer"
+                                mb="5px">Стать продавцом</ListItem>
+                        </Link >
                     </List>
                 </Box>
 
@@ -180,6 +187,7 @@ function ProfileMain() {
                 {activeComponent === "Мои возвраты" && <ReturnsComponents />}
                 {activeComponent === "Электронные чеки" && <ElectronicReceipts />}
                 {activeComponent === "Мои отзывы" && <ReviewsComponenxt />}
+                {activeComponent === "Стать продавцом" && <SellerProfile />}
                 {/* {activeComponent === "Избранное" && <FavoritesFunction />} */}
             </Box>
         </Box>
