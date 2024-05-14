@@ -1,0 +1,41 @@
+[
+    {
+        "title": "Buyers Marketplace",
+        "links": [
+            "About Us",
+            "Vacancies",
+            "Become a Courier",
+            "Buyers Brand",
+            "Details",
+            "User Agreement"
+        ]
+    },
+    {
+        "title": "Earn with Buyers",
+        "links": [
+            "Become a Seller",
+            "Become a Supplier",
+            "Become a Partner",
+            "Open a Pickup Point"
+        ]
+    },
+    {
+        "title": "Buy as a Company",
+        "links": [
+            "Add Company",
+            "My Companies",
+            "Gift Certificates"
+        ]
+    },
+    {
+        "title": "Help",
+        "links": [
+            "How to Order",
+            "Payment",
+            "Delivery",
+            "Returns",
+            "Contacts",
+            "Security"
+        ]
+    }
+]

@@ -2,48 +2,58 @@ import React from "react";
 import { Link as RouterLink } from 'react-router-dom';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { Box, Stack, Text, Link as ChakraLink } from "@chakra-ui/react";
+import { useTranslation } from 'react-i18next';
+import FooterRu from './FooterRu.json';
+import FooterEn from './FooterEn.json';
+import FooterKg from './FooterKg.json';
 
-const footerLinks = [
-    {
-        title: "Buyers маркетплейс",
-        links: [
-            "О нас",
-            "Вакансии",
-            "Стать курьером",
-            "Бренд buyers",
-            "Реквизиты",
-            "Пользовательское соглашение",
-        ],
-    },
-    {
-        title: "Зарабатывать с Buyers",
-        links: [
-            "Стать продавцом",
-            "Стать поставщиком",
-            "Стать портнером",
-            "Открыть пункт выдачи",
-        ],
-    },
-    {
-        title: "Покупать как компания",
-        links: [
-            "Добавить компанию",
-            "Мои компании",
-            "Подарочные сертификаты",
-        ],
-    },
-    {
-        title: "Помощь",
-        links: [
-            "Как сделать заказ",
-            "Оплата",
-            "Доставка",
-            "Возврат товаров",
-            "Контакты",
-            "Безопасность",
-        ],
-    },
-];
+
+
+// const footerLinks = [
+//     {
+//         title: "Buyers маркетплейс",
+//         links: [
+//             "О нас",
+//             "Вакансии",
+//             "Стать курьером",
+//             "Бренд buyers",
+//             "Реквизиты",
+//             "Пользовательское соглашение",
+//         ],
+//     },
+//     {
+//         title: "Зарабатывать с Buyers",
+//         links: [
+//             "Стать продавцом",
+//             "Стать поставщиком",
+//             "Стать портнером",
+//             "Открыть пункт выдачи",
+//         ],
+//     },
+//     {
+//         title: "Покупать как компания",
+//         links: [
+//             "Добавить компанию",
+//             "Мои компании",
+//             "Подарочные сертификаты",
+//         ],
+//     },
+//     {
+//         title: "Помощь",
+//         links: [
+//             "Как сделать заказ",
+//             "Оплата",
+//             "Доставка",
+//             "Возврат товаров",
+//             "Контакты",
+//             "Безопасность",
+//         ],
+//     },
+// ];
+
+
+
+
 
 const FooterLinkColumn = ({ title, links }) => (
     <Stack spacing={2}>
@@ -74,6 +84,11 @@ const FooterLinkColumn = ({ title, links }) => (
 );
 
 function Footer() {
+    const { i18n } = useTranslation();
+    const footerLinks = i18n.language === 'en' ? FooterEn :
+        i18n.language === 'ru' ? FooterRu :
+            FooterKg;
+
     return (
         <Box
             as="footer"

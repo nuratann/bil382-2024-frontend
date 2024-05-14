@@ -1,0 +1,26 @@
+{
+    "beautyAndHealth": {
+        "text": "Сулуулук жана ден соолук"
+    },
+    "clothingAndFootwear": {
+        "text": "Кийимдер "
+    },
+    "electronics": {
+        "text": "Электроника"
+    },
+    "homeAndGarden": {
+        "text": "Үй жана бакча"
+    },
+    "babyProducts": {
+        "text": "Балдар буюму"
+    },
+    "premium": {
+        "text": "Премиум"
+    },
+    "groceries": {
+        "text": "Тамак-аш"
+    },
+    "homeAppliances": {
+        "text": "Үй-техникасы"
+    }
+}
