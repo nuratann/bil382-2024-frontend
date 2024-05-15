@@ -5,7 +5,7 @@ import flag from "../../assets/rus-flag.png"
 import Search from '../SearchLine/Search';
 import { Flex, Icon, Text, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import IconWithTitle from './IconWithTitle';
-import { BsBoxSeam, BsBasket3, BsHeart, BsEmojiSmile } from "react-icons/bs";
+import { BsBoxSeam, BsBasket3, BsHeart, BsEmojiSmile, BsTranslate } from "react-icons/bs";
 import Catalog from './Catalog';
 import IconTitleDropMenu from './IconTitleDropMenu';
 import { Link } from 'react-router-dom';
@@ -31,6 +31,7 @@ function Header() {
                 </Link>
                 <Catalog />
                 <Search />
+
                 <Flex alignItems="center">
 
                     <IconWithTitle icon={BsEmojiSmile} text={'Nuratan'} />
@@ -47,7 +48,7 @@ function Header() {
 
                     <Menu placement="bottom">
                         <MenuButton as={Flex} alignItems="center" ml={4} mt="5px">
-                            <FiGlobe size={25} color="gray.400" style={{ opacity: 0.7 }} />
+                            <BsTranslate size={25} color="gray.400" style={{ opacity: 0.7 }} />
                         </MenuButton>
 
                         <MenuList>
