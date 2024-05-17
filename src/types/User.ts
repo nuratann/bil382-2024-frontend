@@ -1,3 +1,5 @@
+import { Product } from "./Product"
+
 export type User = {
     isAuth: boolean
     id:number

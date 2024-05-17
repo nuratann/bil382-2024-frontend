@@ -15,6 +15,9 @@ import ElectronicReceipts from './ProfileSubPages/ElectronicReceipts';
 import ReviewsComponent from './ProfileSubPages/ReviewsComponent';
 import FavoritesFunction from '../Favorites/Favorites';
 import { Link as RouterLink } from 'react-router-dom';
+import SellerProfile from './ProfileSubPages/SellerProfile';
+import MyProducts from './Seller/MyProducts';
+import AddProduct from './Seller/AddProduct';
 
 
 
@@ -98,7 +101,38 @@ function ProfileMain() {
                         </Link>
                     </List>
 
+                    <Text fontWeight="750" fontSize={"14px"} mt="20px">Мои товары</Text>
+                    <List fontSize="14px"
+                        fontWeight={500}
+                        mt="5px"
+                        spacing={1}>
+                        <Link>
+                            <ListItem
+                                onClick={() => handleLinkClick("Товары")}
+                                cursor="pointer"
+                                mb="5px">Товары</ListItem>
+                        </Link>
 
+                        <Link>
+                            <ListItem
+                                onClick={() => handleLinkClick("Добавить товар")}
+                                cursor="pointer"
+                                mb="5px">Добавить товар</ListItem>
+                        </Link>
+
+                        <Link>
+                            <ListItem
+                                onClick={() => handleLinkClick("Заявки на товар")}
+                                cursor="pointer"
+                                mb="5px">Заявки на товар</ListItem>
+                        </Link>
+                        <Link>
+                            <ListItem
+                                onClick={() => handleLinkClick("Проданные товары")}
+                                cursor="pointer"
+                                mb="5px">Проданные товары</ListItem>
+                        </Link>
+                    </List>
 
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Заказы</Text>
                     <List fontSize="14px" fontWeight={500} mt="5px" spacing={2}>
@@ -132,7 +166,7 @@ function ProfileMain() {
 
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Отзывы</Text>
                     <List fontSize="14px" fontWeight={500} mt="5px" spacing={1} >
-                        <RouterLink to="/reviews">
+                        <RouterLink>
                             <ListItem mb="5px" onClick={() => handleLinkClick("Мои отзывы")}>Мои отзывы</ListItem>
                         </RouterLink >
                         <RouterLink to="/questions-and-answers">
@@ -164,6 +198,12 @@ function ProfileMain() {
                                 cursor="pointer"
                                 mb="5px">Моя учётная запись</ListItem>
                         </Link >
+                        <Link to="/account">
+                            <ListItem
+                                onClick={() => handleLinkClick("Стать продавцом")}
+                                cursor="pointer"
+                                mb="5px">Стать продавцом</ListItem>
+                        </Link >
                     </List>
                 </Box>
 
@@ -180,6 +220,9 @@ function ProfileMain() {
                 {activeComponent === "Мои возвраты" && <ReturnsComponents />}
                 {activeComponent === "Электронные чеки" && <ElectronicReceipts />}
                 {activeComponent === "Мои отзывы" && <ReviewsComponent />}
+                {activeComponent === "Стать продавцом" && <SellerProfile />}
+                {activeComponent === "Товары" && <MyProducts />}
+                {activeComponent === "Добавить товар" && <AddProduct />}
                 {/* {activeComponent === "Избранное" && <FavoritesFunction />} */}
             </Box>
         </Box>

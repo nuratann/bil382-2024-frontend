@@ -14,7 +14,7 @@ const Breadcrumb = ({ items }) => {
   const linkHoverColor = useColorModeValue("blue.500", "blue.100");
 
   return (
-    <ChakraBreadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />} w="80%" m={"0 auto"} p={"16px"}>
+    <ChakraBreadcrumb spacing="8px" separator={"/"} w="80%" m={"0 auto"} p={"16px"}>
       {items.map((item, index) => (
         <BreadcrumbItem key={index} isCurrentPage={index === items.length}>
             <BreadcrumbLink

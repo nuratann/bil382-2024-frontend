@@ -15,4 +15,5 @@ export type Product = {
     premium_seller: boolean;
     reviews: number;
     delivery_date: string;
+    specs: Object;
 }

@@ -6,7 +6,7 @@ import { AiOutlineShop } from 'react-icons/ai';
 import { SiTrustedshops } from "react-icons/si";
 import { PiCrownSimpleFill } from "react-icons/pi";
 
-const StoreInfoBlock = () => {
+const StoreInfoBlock = (props) => {
   return (
     
     <Grid templateColumns="repeat(3, 1fr)" gap={6} p={4} border={"1px"} borderColor={"gray.200"}  borderRadius="md" w={"800px"} h={"125px"}  mb={"20px"}>
@@ -19,7 +19,7 @@ const StoreInfoBlock = () => {
         <Box textAlign="center" justifyContent={"space-between"} m={"auto 0"}>
             <Flex>
                 <Icon as={AiOutlineShop} boxSize={6} mr={"10px"}/>
-                <Link fontSize="sm" src="#">OOO "Фаворит"</Link>
+                <Link fontSize="sm" src="#">{props.seller}</Link>
             </Flex>
             <Text fontSize="xs" color="gray.500">Перейти в магазин</Text>
         </Box>
@@ -28,7 +28,7 @@ const StoreInfoBlock = () => {
       <VStack textAlign="center" m={"auto 0"}>
         <Flex>
             <Icon as={FaStar} color="yellow.400" mr={"10px"}/>
-            <Text fontSize="sm">4,7 рейтинг товаров</Text>
+            <Text fontSize="sm">{props.rating} рейтинг товаров</Text>
         </Flex>
         <Text fontSize="xs" color="gray.500">Доставка и сервис Buyers</Text>
       </VStack>
