@@ -55,10 +55,9 @@ const CartManager = ({ initialItems }) => {
               }
               setSelectedItems(newSelectedItems);
             }} />
-            <Image src={item.imageUrl} alt={item.title} w="69px" h="92px" objectFit="cover" mr={10} />
+            <Image src={item.img} alt={item.title} w="69px" h="92px" objectFit="cover" mr={10} />
             <Box flex="1" mr={4} maxBlockSize="320px">
               <Text fontWeight="medium" fontSize="sm" mb="8px">{item.title}</Text>
-              <Text fontSize="sm" color="#808D9A" mb="16px">{item.description}</Text>
               {item.isDiscounted && (
                 <Badge colorScheme="red" mb="8px">
                   <Icon as={FaFire} color="red" mr={1} /> Распродажа
@@ -70,8 +69,8 @@ const CartManager = ({ initialItems }) => {
               </Box>
             </Box>
             <Box flex="1" mr={4} textAlign="right">
-              <Text color="red.500" fontWeight="bold">{item.discountedPrice} с</Text>
-              {item.isDiscounted && <Text as="s">{item.price} с</Text>}
+              <Text color="red.500" fontWeight="bold" textDecoration={'line-through'}>{item.old_price} с</Text>
+              <Text color="green.500" fontWeight="bold">{item.price} с</Text>
             </Box>
             <Stack direction="row" alignItems="center" mr={4}>
               <IconButton icon={<MinusIcon />} aria-label="Уменьшить количество" onClick={() => handleDecrement(item.id)} size="sm" />

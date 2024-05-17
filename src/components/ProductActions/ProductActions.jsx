@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Flex,
   Button,
@@ -11,7 +12,8 @@ import { FaMinus, FaPlus, FaShoppingBasket, FaHeart, FaRegHeart, FaRegPlayCircle
 import DeliveryInfo from './DeliveryInfo';
 import FAQLinks from './FAQLinks'
 
-const ProductActions = () => {
+const ProductActions = (props) => {
+    const navigate = useNavigate();
     const [isFavorited, setIsFavorited] = useState(false);
     const handleAddToFavorites = () => {
         // Здесь может быть код для добавления в избранное
@@ -46,7 +48,7 @@ const ProductActions = () => {
     
     const goToCart = () => {
         // Логика перехода в корзину
-        console.log('Переход в корзину');
+        navigate('/cart');
     };
 
     // Стили для кнопок и ссылок
@@ -66,7 +68,7 @@ const ProductActions = () => {
             borderRadius="20px"
             >
                 <Text fontSize="3xl" fontWeight="bold" alignSelf="flex-start" >
-                    3 554 сом
+                    {props.price} сом
                 </Text>
                 <Flex justifyContent={"flex-start"}>
                     {inCart ? (

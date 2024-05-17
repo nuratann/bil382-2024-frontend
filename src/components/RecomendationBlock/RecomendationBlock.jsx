@@ -21,6 +21,7 @@ function RecomendationBlock(props) {
                     {recomendations.map((product, index) => (
                         <ProductCard
                             key={index}
+                            index={index}
                             imageUrl={product.img}
                             imageAlt='KUDO image'
                             price={product.price}

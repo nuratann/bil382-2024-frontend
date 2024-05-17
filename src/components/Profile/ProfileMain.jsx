@@ -166,7 +166,7 @@ function ProfileMain() {
 
                     <Text fontWeight="750" fontSize={"14px"} mt="20px">Отзывы</Text>
                     <List fontSize="14px" fontWeight={500} mt="5px" spacing={1} >
-                        <RouterLink to="/reviews">
+                        <RouterLink>
                             <ListItem mb="5px" onClick={() => handleLinkClick("Мои отзывы")}>Мои отзывы</ListItem>
                         </RouterLink >
                         <RouterLink to="/questions-and-answers">

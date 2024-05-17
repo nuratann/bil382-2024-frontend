@@ -32,8 +32,7 @@ function Header() {
                 <Catalog />
                 <Search />
                 <Flex alignItems="center">
-
-                    <IconWithTitle icon={BsEmojiSmile} text={'Nuratan'} />
+                    <IconTitleDropMenu icon={BsEmojiSmile}/>
                     <Link to='/profile?init=Мои заказы'>
                         <IconWithTitle icon={BsBoxSeam} text={t("headerlist.list2")} index={1} />
                     </Link>

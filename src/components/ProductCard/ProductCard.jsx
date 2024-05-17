@@ -10,6 +10,7 @@ import {dateFormat} from '../../helpers/dateFormat.js'
 
 const ProductCard = (props) => {
     const [isHovered, setIsHovered] = useState(false);
+    let isFavorite = props.isFavorite
     // const property = {
     //     imageUrl: 'https://cdn.leroymerlin.ru/lmru/image/upload/f_auto/q_auto/dpr_1.0/c_pad/w_1000/h_1000/v1711535077/lmcode/pqAx59XDzkmBgWH_oBNxcg/86858614_01.png',
     //     imageAlt: 'KUDO image',
@@ -39,12 +40,13 @@ const ProductCard = (props) => {
                             maxH={'3xs'}
                         />
                         <Icon
-                            as={(props.isFavorite || isHovered) ? AiFillHeart : AiOutlineHeart}
+                            as={(isFavorite || isHovered) ? AiFillHeart : AiOutlineHeart}
                             boxSize={6}
                             position="absolute" top={4} right={4} zIndex={0} //here removed z index from 2 =>0 because was overlapping with my caatalog
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
-                            color={(props.isFavorite || isHovered) ? 'red.500' : 'gray.500'} />
+                            onClick={()=>isFavorite=true}
+                            color={(isFavorite || isHovered) ? 'red.500' : 'gray.500'} />
                     </Center>
                     {/* блок с ценой */}
                     <Flex mt={2}>
@@ -67,7 +69,7 @@ const ProductCard = (props) => {
                         </ChakraLink><br />
                         <ChakraLink 
                             className={styles.desc}
-                            as={ReactRouterLink} to='/product'
+                            as={ReactRouterLink} to={`/product/${props.index}`}
                             fontSize={'sm'}
                             _hover={{
                                 color: 'blue.400',
