@@ -3,7 +3,7 @@ import BasketHeader from "../../components/BasketHeader/BasketHeader";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import CartManager from "../../components/CartManager/CartManager";
-import RecomendationBlock from "../../components/RecomendationBlock/RecomendationBlock";
+import RecommendationBlock from "../../components/RecommendationBlock/RecommendationBlock";
 import useUserStore from "../../stores/useUserStore";
 
 function BasketPage() {
@@ -27,9 +27,9 @@ function BasketPage() {
           />            
           <CartManager initialItems={itemsWithId}/>
           <Heading fontSize={"2xl"} m={"50px 0"}>Ваши избарнные товары</Heading>
-          <RecomendationBlock count={5}/>
+          <RecommendationBlock count={5}/>
           <Heading fontSize={"2xl"} m={"50px 0"}>Рекомендации</Heading>
-          <RecomendationBlock count={5}/>        
+          <RecommendationBlock count={5}/>        
         
         </Container>  
     </>

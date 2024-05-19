@@ -40,7 +40,7 @@ const ProductGallery = ({ images }) => {
                 m={"auto"}
                 width={"48px"}
                 height={"48px"}
-                src={image}
+                src={image.url}
                 alt={`Thumbnail ${index + 1}`}
                 objectFit="cover"
               />
@@ -49,7 +49,7 @@ const ProductGallery = ({ images }) => {
         </VStack>
         <Box width="500px" height="500px" onClick={onOpen}>
           <Image
-            src={images[selectedIndex]}
+            src={images[selectedIndex].url}
             alt={`Selected product image ${selectedIndex + 1}`}
             objectFit="contain"
             boxSize="100%"

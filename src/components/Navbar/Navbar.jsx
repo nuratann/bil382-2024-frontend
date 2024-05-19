@@ -29,8 +29,8 @@ const Navbar = () => {
     return (
         <div className="navbar" style={{ gap: '1px', display: 'flex', marginLeft: "90px", padding: '0px' }}>
             {Object.keys(navs).map((key, index) => (
-                <Flex gap="0px" m='0px' padding={'0px'} alignItems={'stretch'}>
-                    <Link key={index} href={routes[index]} >
+                <Flex key={index} gap="0px" m='0px' padding={'0px'} alignItems={'stretch'}>
+                    <Link  href={routes[index]} >
                         <Button
                             bg={'white'}
                             textAlign={'left'}

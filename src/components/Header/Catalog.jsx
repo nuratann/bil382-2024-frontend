@@ -26,7 +26,7 @@ const Catalog = () => {
 
     return (
         <>
-            <Menu isLazy>
+            <Menu isLazy onClose={toggleMenu}>
                 <MenuButton
                     as={Button}
                     pe={8}
@@ -47,8 +47,8 @@ const Catalog = () => {
                     </Box>
                     </Flex>
                 </MenuButton>
-                <MenuList>
-                    {isMenuOpen ? <MainCatalog /> : null}
+                <MenuList m={5}>
+                    <MainCatalog />
                 </MenuList>
             </Menu>
         </>

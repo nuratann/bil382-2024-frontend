@@ -1,6 +1,6 @@
 class AuthService {
 
-    async getJWT(username: string, password: string) {
+    async getJWT(username, password) {
         const url = 'http://localhost:5052/realms/buyers_realm/protocol/openid-connect/token';
         const clientId = 'springsecurity';
         const clientSecret = '63B0GkzMnnw7VgYsVqapaWrwOzKgXmRF';
@@ -33,7 +33,7 @@ class AuthService {
         }
     }
 
-    async refreshAccessToken(refreshToken: string): Promise<string> {
+    async refreshAccessToken(refreshToken){
         const keycloakUrl = 'http://localhost:5052/realms/buyers_realm/protocol/openid-connect/token';
         const clientId = 'springsecurity';
         const clientSecret = '63B0GkzMnnw7VgYsVqapaWrwOzKgXmRF';

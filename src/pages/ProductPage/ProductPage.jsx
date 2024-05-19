@@ -9,55 +9,45 @@ import ProductGallery from '../../components/ProductInfo/ProductGallery'
 import ProductInfo from '../../components/ProductInfo/ProductInfo';
 import ProductActions from '../../components/ProductActions/ProductActions';
 import StoreInfoBlock from '../../components/StoreInfoBlock/StoreInfoBlock';
-import RecomendationBlock from '../../components/RecomendationBlock/RecomendationBlock';
+import RecommendationBlock from '../../components/RecommendationBlock/RecommendationBlock';
 import ProductDescriptionBlock from '../../components/ProductDescriptionBlock/ProductDescriptionBlock';
 import ProductCommentTabs from '../../components/ProductCommentTabs/ProductCommentTabs';
 import Footer from '../../components/Footer/Footer'
-import useSearchStore from '../../stores/useSearchStore';
+import useProductStore from '../../stores/useProductStore';
+import ProductOptions from '../../components/ProductInfo/ProductOptions';
 
 function ProductPage(){
   const { productId } = useParams();
-  const product = useSearchStore((state)=>state.recomendations[productId])
-  console.log('product')
-  console.log(product)
+  const product = useProductStore((state)=>state.getProductById(productId))
     const productPageBreadcrumbItems = [
         { text: 'Главная', href: '/' },
         { text: 'Категории', href: '/categories' },
-        { text: product.category, href: '/categories' }
+        { text: product.category.name, href: '/categories' }
       ];
-      const imageUrls = [
-        product.img,
-      ];
-      const exampleCharacteristics = [
-        { label: 'Состав кофе', value: 'Арабика/Робуста' },
-        { label: 'Степень обжарки', value: 'Средняя' },
-        { label: 'Интенсивность вкуса', value: 'Средний' },
-        { label: 'Состав кофе', value: 'Арабика/Робуста' },
-        { label: 'Степень обжарки', value: 'Средняя' },
-        { label: 'Интенсивность вкуса', value: 'Средний' },
-        // Добавьте дополнительные характеристики...
-      ];
-      const exampleDescription = product.description;
+      const imageUrls = JSON.parse(product.mediaLinks)
 
     return(
         <>
             <Header />
             <Navbar />
             <Breadcrumb items={productPageBreadcrumbItems} />
-            <ProductHeader title={product.title} reviews={product.reviews}/>
-            <Flex w={"80%"} m={"0 auto"}>
+            <ProductHeader title={product.title} reviews={product.reviews.length}/>
+            <Flex w={"90%"} m={"0 auto"}>
                 <ProductGallery images={imageUrls} />
-                <ProductInfo specs={product.specs}/>
+                <Flex flexDirection={'column'}>
+                  <ProductOptions options={product.options}/>
+                  <ProductInfo specs={product.specs}/>
+                </Flex>
                 <ProductActions price={product.price}/>
             </Flex>
-            <Container maxWidth="80vw">
-                <StoreInfoBlock seller={product.seller} rating={product.rating}/>
+            <Container maxWidth="90vw">
+                <StoreInfoBlock seller={product.sellerId} rating={product.rating}/>
                 <Heading fontSize={"2xl"}>Похожие товары</Heading>
-                <RecomendationBlock count={5}/>    
+                <RecommendationBlock gridColumns={5} count={50} />
                 <ProductDescriptionBlock 
-                  description={exampleDescription}
-                  characteristics={exampleCharacteristics}/>
-                <ProductCommentTabs reviewsCount={1002} questionsCount={12}/>
+                  description={product.description}
+                  characteristicsString={product.specs}/>
+                <ProductCommentTabs reviews={product.reviews} questionsCount={12}/>
             </Container>  
             <Footer/>  
         </>

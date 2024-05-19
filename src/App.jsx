@@ -19,6 +19,7 @@ import UserProfile from './pages/UserProfile/UserProfile.jsx';
 import ProfilePg from './pages/ProfilePage/ProfilePage.jsx';
 import AddCardPage from './pages/ProfilePage/AddCardPage/AddCardPage.jsx';
 import CategoryPage from './pages/CategoryPage/CategoryPage.jsx';
+import TestPage from './TestPage.jsx'
 
 
 
@@ -30,7 +31,7 @@ function App() {
 
 
                     <Route path='/' element={<HomePage />} />
-                    <Route path='/test' element={<SearchLine />} />
+                    {/* <Route path='/test' element={<SearchLine />} /> */}
                     <Route path='/agreement' element={<UserAgreementPage />} />
                     <Route path="/product/:productId" element={<ProductPage />} />
                     {/* <Route path='/product' element={<ProductPage />} /> */}
@@ -43,6 +44,7 @@ function App() {
                     <Route path='/profile' element={<ProfilePg />} />
                     <Route path='/add_card' element={<AddCardPage />} />
                     <Route path='/categories/:name' element={<CategoryPage />} />
+                    <Route path='/test' element={<TestPage />} />
 
 
 
