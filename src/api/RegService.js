@@ -1,4 +1,4 @@
-import {UserRegistrationDTO} from '@/types/User'
+
 import AuthService from './AuthService'
 class RegService{
     async checkEmailOrUsername(emailOrUsername){
@@ -24,7 +24,7 @@ class RegService{
           }
     }
 
-    async register(user:UserRegistrationDTO){
+    async register(user){
         try {
             const response = await fetch(
               `http://localhost:5000/api/v1/users/`,

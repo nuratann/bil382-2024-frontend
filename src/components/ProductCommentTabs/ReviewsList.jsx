@@ -8,7 +8,6 @@ import ReviewCard from './ReviewCard'; // Импортируем компоне�
 
 const ReviewsList = ({ reviews }) => {
   const [visibleReviews, setVisibleReviews] = useState(10); // Начальное количество видимых отзывов
-
   const showMoreReviews = () => {
     setVisibleReviews(prevVisibleReviews => prevVisibleReviews + 10); // Показать больше отзывов
   };
@@ -16,7 +15,7 @@ const ReviewsList = ({ reviews }) => {
   return (
     <Box>
       {reviews.slice(0, visibleReviews).map((review, index) => (
-        <ReviewCard key={index} {...review} /> // Распространяем все свойства отзыва на ReviewCard
+        <ReviewCard key={index} review={review} /> // Распространяем все свойства отзыва на ReviewCard
       ))}
       {visibleReviews < reviews.length && (
         <Button onClick={showMoreReviews} mt="4">

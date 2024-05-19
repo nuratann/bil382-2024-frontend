@@ -1,11 +1,11 @@
-import {User} from '@/types/User' 
+
 import {jwtDecode} from 'jwt-decode'
 
 class UserService {
 
-    async getUser(accessToken:string):Promise<User> {
+    async getUser(accessToken) {
         try {
-            const id:string = jwtDecode(accessToken).sub
+            const id = jwtDecode(accessToken).sub
             console.log(id)
             const url = `http://localhost:5000/api/v1/users/${id}`;
             const response = await fetch(url, {

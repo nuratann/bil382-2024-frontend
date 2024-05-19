@@ -28,7 +28,7 @@ function MainCatalog() {
             padding="14px 0"
             zIndex="1000"
             boxSizing="border-box"
-            width="1480px"
+            width="1380px"
             height="max-content">
             <Flex direction="column" margin="0 auto" height="111vh" >
                 {catalog.map((category) => (
@@ -44,13 +44,13 @@ function MainCatalog() {
                                     <CategoryList
                                         height="max-content"
                                         // icon={category.icon}
-                                        width="350px">
+                                        width="300px">
                                         {category.name}
                                     </CategoryList>
                                 </div>
                             </Link>
                             {activeCategory === category.name && (
-                                <div style={{ position: "absolute", top: "0px", left: "150px" }}>
+                                <div style={{ position: "absolute", top: "0px", left: "100px" }}>
                                     <CategoryListInside
                                         height="max-content"
                                         categoryName={category.name}

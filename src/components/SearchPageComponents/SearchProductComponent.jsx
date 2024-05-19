@@ -1,7 +1,7 @@
 // import React from 'react';
 import { Box, Input, Menu, MenuButton, IconButton, MenuList, MenuItem, Flex, Divider } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import RecomendationBlock from '../../components/RecomendationBlock/RecomendationBlock'
+import RecommendationBlock from '../../components/RecommendationBlock/RecommendationBlock'
 import LinkSequence from './LinkSequencePage';
 import React, { useState } from 'react';
 import { menuItems } from './MainSearchData';
@@ -56,7 +56,7 @@ function SearchProductComponent() {
             </Flex>
                     <Divider my={4} borderColor={'gray.500'}/>
             <Flex borderColor={"darkslategray"}>
-                <RecomendationBlock gridColumns={3} count={20} />
+                <RecommendationBlock gridColumns={3} count={20} />
             </Flex>
 
             <Box borderTopWidth={"0.02px"} borderTopColor={"#36454F"} width="1100px" mt="20px" height='10vh'>

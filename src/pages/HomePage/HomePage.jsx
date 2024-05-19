@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header'
 import Navbar from '../../components/Navbar/Navbar'
 import DiscountBlock from '../../components/DiscountBlock/DiscountBlock'
 import TopCategoryBlock from '../../components/TopCategoryBlock/TopCategoryBlock'
-import RecomendationBlock from '../../components/RecomendationBlock/RecomendationBlock'
+import RecommendationBlock from '../../components/RecommendationBlock/RecommendationBlock'
 import Subscribe from '../../components/Subscribe/Subscribe'
 import Footer from '../../components/Footer/Footer'
 import { Flex } from '@chakra-ui/react'
@@ -21,7 +21,7 @@ function HomePage() {
       <TopCategoryBlock/> */}
             <Flex my={8} justify={'center'} w={'100%'} >
                 <Flex w={'80%'}>
-                    <RecomendationBlock gridColumns={5} count={50} />
+                    <RecommendationBlock gridColumns={5} count={50} />
                 </Flex>
             </Flex>
 

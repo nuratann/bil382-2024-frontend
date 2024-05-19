@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Flex, Text, Menu, MenuButton, MenuList, MenuItem, IconButton, Input, useDisclosure, List, ListItem, Modal, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Button } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import RecomendationBlock from "../../components/RecomendationBlock/RecomendationBlock"
+import RecommendationBlock from "../../components/RecommendationBlock/RecommendationBlock"
 import { ListIconCustom } from './FavoritesData';
 import { ListIconCustomCreated } from './FavoritesData';
 import { menuItems } from './FavoritesData';
@@ -127,14 +127,14 @@ function ListInsideTovar({ bgColor }) {
                             </Menu>
                         </Box>
                     </Box>
-                    <RecomendationBlock gridColumns={3} count={4} />
+                    <RecommendationBlock gridColumns={3} count={4} />
                 </Box>
 
             </Box>
 
             <Box width="1100px" marginTop="80px" height="max-content" >
                 <Text fontSize="26px" fontWeight="600" p={5}>Подобрано для вас</Text>
-                <RecomendationBlock gridColumns={3} count={12} />
+                <RecommendationBlock gridColumns={3} count={12} />
             </Box>
         </Box>
     );

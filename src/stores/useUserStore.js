@@ -1,22 +1,34 @@
 import { create } from "zustand";
 import { persist, devtools } from 'zustand/middleware'
-import UserService from '@/api/UserService'
-import AuthService from "@/api/AuthService";
-import {User, UserRegistrationDTO, initialUserState} from '@/types/User'
-import RegService from "@/api/RegService";
-import { Product } from "@/types/Product";
+import UserService from '../api/UserService'
+import AuthService from "../api/AuthService";
+import RegService from "../api/RegService";
 
-type UserStore = {
-    user: User
-    cart: Product[]
-    favorites: Product[]
-    updateIsAuth: (isAuth: User['isAuth']) => void
-    signIn: (username:string, password: string) => Promise<void>,
-    signUp: (user:UserRegistrationDTO) => Promise<string>
-    reset: () => void
+// type UserStore = {
+//     user: User
+//     cart: Product[]
+//     favorites: Product[]
+//     updateIsAuth: (isAuth: User['isAuth']) => void
+//     signIn: (username:string, password: string) => Promise<void>,
+//     signUp: (user:UserRegistrationDTO) => Promise<string>
+//     reset: () => void
+// }
+
+const initialUserState = {
+    isAuth: false,
+    id:-1,
+    username: "",
+    firstName: "",
+    lastName: "",
+    birthDay: "",
+    email: "",
+    phone: "",
+    gender: "",
+    notifications: new Int16Array(4),
+    authData: null
 }
 
-const useUserStore = create<UserStore>()(
+const useUserStore = create()(
     devtools(
         persist(
             (set, get) => ({

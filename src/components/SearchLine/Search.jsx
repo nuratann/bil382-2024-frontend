@@ -12,7 +12,7 @@ import {
     Button,
     Text
 } from '@chakra-ui/react'
-import RecommendationBlock from '../RecomendationBlock/RecomendationBlock'
+import RecommendationBlock from '../RecommendationBlock/RecommendationBlock'
 import useSearchStore from '../../stores/useSearchStore'
 import SearchTips from './SearchTips'
 
