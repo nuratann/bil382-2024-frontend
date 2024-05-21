@@ -15,7 +15,7 @@ import {
 import RegAndAuthModal from '../RegAndAuthModal/RegAndAuthModal'
 import { useNavigate } from 'react-router-dom'
 
-const IconTitleDropMenu = ({ icon }) => {
+const IconTitleDropMenu = ({ icon, text }) => {
     const user = useUserStore((state) => state.user)
     const reset = useUserStore((state) => state.reset)
     const notifications = user.notifications[0]
@@ -47,7 +47,7 @@ const IconTitleDropMenu = ({ icon }) => {
                         onMouseLeave={() => setOnTrigger(false)}
                         _hover={{ color: 'brand.hoverblue' }}>
                         <Icon as={icon} boxSize={5} mx={2} mt={3} />
-                        <Text fontSize={11} fontWeight={'semibold'}>{isAuth?user.username:"Войти"}</Text>
+                        <Text fontSize={11} fontWeight={'semibold'}>{isAuth?user.username:text}</Text>
                         {isAuth&&notifications!=0?
                         <Box
                             boxSize={4}

@@ -10,7 +10,7 @@ import catalogEn from './CatalogDataEn.json'
 import catalogRu from './CatalogDataRu.json'
 
 
-function MainCatalog() {
+const MainCatalog = () => {
     const [activeCategory, setActiveCategory] = useState(categories[0].name);
 
     const handleMouseEnter = (categoryName) => {

@@ -1,29 +1,48 @@
 class AuthService {
 
-    async getJWT(username, password) {
-        const url = 'http://localhost:5052/realms/buyers_realm/protocol/openid-connect/token';
-        const clientId = 'springsecurity';
-        const clientSecret = '63B0GkzMnnw7VgYsVqapaWrwOzKgXmRF';
-
-        const data = {
-            grant_type: 'password',
-            username: username,
-            password: password,
-            client_id: clientId,
-            client_secret: clientSecret,
-        };
+    async signIn(username, password) {
+        const url = 'http://localhost:8081/api/v1/auth/signIn';
 
         try {
 
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams(data).toString(),
-            })
+            const response = await fetch(
+                url,
+                {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({"username":`${username}`,"password":`${password}`})
+                }
+              );
             if (!response.ok) {
-                throw new Error('Failed to get auth data');
+                throw new Error('Failed to signIn');
+            }
+
+            return await response.json();
+        } catch (error) {
+            console.error('Error:', error);
+            throw error;
+        }
+    }
+
+    async signUp(user) {
+        const url = 'http://localhost:8081/api/v1/auth/signUp';
+
+        try {
+
+            const response = await fetch(
+                url,
+                {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(user)
+                }
+              );
+            if (!response.ok) {
+                throw new Error('Failed to signUp');
             }
 
             return await response.json();
@@ -34,25 +53,18 @@ class AuthService {
     }
 
     async refreshAccessToken(refreshToken){
-        const keycloakUrl = 'http://localhost:5052/realms/buyers_realm/protocol/openid-connect/token';
-        const clientId = 'springsecurity';
-        const clientSecret = '63B0GkzMnnw7VgYsVqapaWrwOzKgXmRF';
-
-        const data = {
-            grant_type: 'refresh_token',
-            refresh_token: refreshToken,
-            client_id: clientId,
-            client_secret: clientSecret,
-        };
+        const url = 'http://localhost:8081/api/v1/auth/refresh';
 
         try {
-            const response = await fetch(keycloakUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams(data).toString(),
-            });
+            const response = await fetch(url, 
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({"refreshToken":`${refreshToken}`})
+                }
+            );
 
             if (!response.ok) {
                 throw new Error('Failed to refresh access token');

@@ -5,13 +5,12 @@ import flag from "../../assets/rus-flag.png"
 import Search from '../SearchLine/Search';
 import { Flex, Icon, Text, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import IconWithTitle from './IconWithTitle';
-import { BsBoxSeam, BsBasket3, BsHeart, BsEmojiSmile } from "react-icons/bs";
+import { BsBoxSeam, BsBasket3, BsHeart, BsEmojiSmile, BsGlobe } from "react-icons/bs";
 import Catalog from './Catalog';
 import IconTitleDropMenu from './IconTitleDropMenu';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styles from './Catalog.module.scss';
-import { FiGlobe } from 'react-icons/fi';
 
 
 
@@ -25,14 +24,14 @@ function Header() {
     }
     return (
         <Flex justifyContent={'center'} w={'100%'}>
-            <Flex px={4} py={2} alignItems={'center'} w={'80%'}>
+            <Flex px={4} py={2} alignItems={'center'} w={'90%'}>
                 <Link to='/'>
                     <Text color={'brand.blue'} fontFamily={'"Tilt Neon", sans-serif;'} fontSize={36} me={4}>Buyers</Text>
                 </Link>
                 <Catalog />
                 <Search />
                 <Flex alignItems="center">
-                    <IconTitleDropMenu icon={BsEmojiSmile}/>
+                    <IconTitleDropMenu icon={BsEmojiSmile} text={t("headerlist.list0")}/>
                     <Link to='/profile?init=Мои заказы'>
                         <IconWithTitle icon={BsBoxSeam} text={t("headerlist.list2")} index={1} />
                     </Link>
@@ -46,7 +45,7 @@ function Header() {
 
                     <Menu placement="bottom">
                         <MenuButton as={Flex} alignItems="center" ml={4} mt="5px">
-                            <FiGlobe size={25} color="gray.400" style={{ opacity: 0.7 }} />
+                            <IconWithTitle icon={BsGlobe} text={t("headerlist.list1")} index={1} />
                         </MenuButton>
 
                         <MenuList>
