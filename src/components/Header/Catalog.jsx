@@ -34,6 +34,12 @@ const Catalog = () => {
                     me={2}
                     height={'48px'}
                     display={'flex'}
+                    transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
+                    _active={{
+                        bg: '#458af7',
+                        transform: 'scale(0.97)',
+                        borderColor: '#bec3c9',
+                      }}
                     alignItems={'center'}
                     bg={'brand.blue'}
                     color={'white'}

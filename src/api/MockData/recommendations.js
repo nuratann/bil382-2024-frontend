@@ -302,7 +302,7 @@ export const recomendations=[
         "category": {"id": "456", "name": "Кухонная техника"},
         "isFavorite": false,
         "price": "69990",
-        "oldPrice": "",
+        "oldPrice": "78000",
         "sellerId": "3k4l5m6n-7o8p-9q0r-1s2t",
         "mediaLinks": "[{\"type\":\"img\",\"url\":\"https://delonghi-shop.com.ua/modules/images/delonghi_magnifica_esam_4000b_a.jpg\"},{\"type\":\"img\",\"url\":\"https://www.banan.kg/u/images/8285/1180558_1176406_xxl.jpg\"}]",
         "title": "Кофемашина DeLonghi Magnifica",

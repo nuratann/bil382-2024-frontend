@@ -6,22 +6,39 @@ import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink } from '@chakra-ui/react'
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import {dateFormat} from '../../helpers/dateFormat.js'
+import { motion } from 'framer-motion';
+import useFavoritesStore from '../../stores/useFavoritesStore.js'
+import { CiDeliveryTruck } from "react-icons/ci";
+import { TiStarFullOutline } from "react-icons/ti";
+import { IoChatbubble } from "react-icons/io5";
+import useSellersStore from '../../stores/useSellersStore.js'
+
+
+// const MotionIcon = motion(Icon);
+
 
 
 const ProductCard = (props) => {
+    const favoritesStore = useFavoritesStore((state) => state)
     const [isHovered, setIsHovered] = useState(false);
+    const getSellerById  = useSellersStore(state=>state.getSellerById)
     let isFavorite = props.product.isFavorite
     const today = new Date(); 
     const image = JSON.parse(props.product.mediaLinks)[0]
-
+    
     const favoriteToggle=()=>{
         //TODO: addToFavorites
         props.product.isFavorite=! props.product.isFavorite
         isFavorite= props.product.isFavorite
+        if(isFavorite){
+            favoritesStore.addFavorite(props.product.id)
+        }else{
+            favoritesStore.removeFavorite(props.product.id)
+        }
     }
     return (
         <>
-            <Box me={2} pb={2} maxWidth={'3xs'}>
+            <Box me={2} maxWidth={'3xs'} borderRadius={7}>
                 <Box
                     className={styles.main}
                     _hover={{
@@ -29,21 +46,33 @@ const ProductCard = (props) => {
                     }}
                 >
                     {/* картинка товара */}
-                    <Center boxSize='3xs' bg='gray.100' borderRadius='lg' position={'relative'}>
+                    <Center boxSize='3xs' bg='#f7f7f7' borderRadius='lg' position={'relative'}>
                         <Image
                             borderRadius='lg'
                             src={image.url}
                             alt={image.type}
                             maxH={'3xs'}
                         />
-                        <Icon
-                            as={(isFavorite || isHovered) ? AiFillHeart : AiOutlineHeart}
-                            boxSize={6}
-                            position="absolute" top={4} right={4} zIndex={0} //here removed z index from 2 =>0 because was overlapping with my caatalog
+                        <Box
+                            as={motion.div}
+                            m={0}
+                            p={0}
+                            position="absolute"
+                            top={4}
+                            right={4}
+                            zIndex={0}
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
-                            onClick={()=>favoriteToggle()}
-                            color={(isFavorite || isHovered) ? 'red.500' : 'gray.500'} />
+                            onClick={() => favoriteToggle()}
+                            whileTap={{ scale: 1.3, rotate: 9 }}
+                            transition={{ type: 'spring', stiffness: 300 }}
+                        >
+                            <Icon 
+                                as={(isFavorite || isHovered) ? AiFillHeart : AiOutlineHeart}
+                                color={(isFavorite || isHovered) ? 'red.500' : 'gray.500'}
+                                boxSize={6}
+                            />
+                        </Box>
                     </Center>
                     {/* блок с ценой */}
                     <Flex mt={2}>
@@ -52,7 +81,7 @@ const ProductCard = (props) => {
                         <Text fontSize='xs' color='red' ms={2}> -{((parseFloat(props.product.oldPrice) - parseFloat(props.product.price)) / (parseFloat(props.product.price) / 100)).toFixed(1)}% </Text>
                     </Flex>
                     {/* продавец и краткое описание */}
-                    <Box overflow={'hidden'} h={'6rem'}>
+                    <Box overflow={'hidden'} mb={2}>
                         <ChakraLink
                             className={styles.seller}
                             color={'black'}
@@ -62,28 +91,42 @@ const ProductCard = (props) => {
                                 color: 'green.500',
                                 textDecoration: 'none'
                             }}>
-                            {props.product.sellerId}
+                            {getSellerById(props.product.sellerId).businessName}
                         </ChakraLink><br />
                         <ChakraLink 
                             className={styles.desc}
                             as={ReactRouterLink} to={`/product/${props.product.id}`}
                             fontSize={'sm'}
+                            fontFamily={'Montserrat'}
+                            fontWeight={600}
                             _hover={{
                                 color: 'blue.400',
                                 textDecoration: 'none'
                             }}>
-                            {props.product.description}
+                            {props.product.description.slice(3,45)+"..."}
                         </ChakraLink>
                     </Box>
                     {/* рейтинг и отзывы */}
                     <Flex alignItems={'center'} mb={4}>
-                        <StarIcon color={'yellow.300'} /><Text mx={2} fontSize={'sm'} color={'gray.500'}>{props.product.rating}</Text>
-                        <ChatIcon color={'gray.500'} /><Text mx={2} fontSize={'sm'} color={'gray.500'}>{props.product.reviews.length}</Text>
+                        <Icon as={TiStarFullOutline} boxSize={'19px'} color={'#FFA800'}/><Text ms={1} me={3} fontWeight={'bold'} fontSize={'12'} color={'#99A3AE'}>{props.product.rating}</Text>
+                        <Icon as={ IoChatbubble} boxSize={'16px'} color={'#99A3AE'}/><Text mx={1} fontSize={'12'} fontWeight={'bold'} color={'#99A3AE'}>{props.product.reviews.length} отзывов</Text>
                         {/* так как это не компонент от chakra ui используем var чтобы получить цвета chakra-colors */}
                     </Flex>
                     {/* кнопка купить с датой доставки */}
                 </Box>
-                <Button w={'100%'} bg={'brand.blue'} color={'white'}>{dateFormat(new Date())}</Button>
+                <Button 
+                    w={'100%'} 
+                    bg={'brand.blue'} 
+                    color={'white'} 
+                    fontFamily={'Montserrat'}
+                    fontWeight={'bold'} 
+                    fontSize={14}
+                    borderRadius={5} 
+                    h={'32px'}
+                    >
+                    <Icon as={CiDeliveryTruck} boxSize={5} me={2}/>
+                    {dateFormat(new Date())}
+                </Button>
             </Box>
         </>
     )

@@ -20,7 +20,7 @@ const useProductStore = create()(
                         //TODO: get product from backend
                         return null
                     }
-                }
+                },
             }),
             {
                 name: 'productStore'

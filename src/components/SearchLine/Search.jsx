@@ -52,7 +52,7 @@ const Search = () => {
 
     return (
         <>
-            <SearchLine inputClick={()=>{onOpen();setInput(true);}} searchRef={searchRef} zindex={isInput?2000:1}/>
+            <SearchLine inputClick={()=>{onOpen();setInput(true);updateInputWidth();}} searchRef={searchRef} zindex={isInput?2000:1}/>
             <Modal 
                 isOpen={isOpen} 
                 onClose={()=>{
