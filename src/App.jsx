@@ -31,10 +31,8 @@ function App() {
 
 
                     <Route path='/' element={<HomePage />} />
-                    {/* <Route path='/test' element={<SearchLine />} /> */}
                     <Route path='/agreement' element={<UserAgreementPage />} />
                     <Route path="/product/:productId" element={<ProductPage />} />
-                    {/* <Route path='/product' element={<ProductPage />} /> */}
                     <Route path='/test_search' element={<TestSearchPage />} />
                     <Route path='/cart' element={<BasketPage />} />
                     <Route path='/account' element={<TestAccountPage />} />

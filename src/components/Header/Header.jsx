@@ -11,20 +11,27 @@ import IconTitleDropMenu from './IconTitleDropMenu';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styles from './Catalog.module.scss';
+import useCartStore from '../../stores/useCartStore';
+import useFavoritesStore from '../../stores/useFavoritesStore';
 
 
 
 
 function Header() {
-    const isAuthentificated = true;
+    const cart = useCartStore(state=>state.cart)
+    const favorites = useFavoritesStore(state=>state.favorites)
     const { t, i18n } = useTranslation();
     const changeLanguage = (language) => {
         i18n.changeLanguage(language);
         localStorage.setItem('nextlocal', language)
     }
     return (
-        <Flex justifyContent={'center'} w={'100%'}>
-            <Flex px={4} py={2} alignItems={'center'} w={'90%'}>
+        <Flex 
+            justifyContent={'center'} 
+            w={'100%'} 
+            bg={'white'}
+        >
+            <Flex px={4} alignItems={'center'} w={'90%'}>
                 <Link to='/'>
                     <Text color={'brand.blue'} fontFamily={'"Tilt Neon", sans-serif;'} fontSize={36} me={4}>Buyers</Text>
                 </Link>
@@ -36,10 +43,10 @@ function Header() {
                         <IconWithTitle icon={BsBoxSeam} text={t("headerlist.list2")} index={1} />
                     </Link>
                     <Link to='/favorites'>
-                        <IconWithTitle icon={BsHeart} text={t("headerlist.list3")} index={2} />
+                        <IconWithTitle icon={BsHeart} text={t("headerlist.list3")} notifications={favorites.length} />
                     </Link>
-                    <Link to='/basket_page'>
-                        <IconWithTitle icon={BsBasket3} text={t("headerlist.list4")} index={3} />
+                    <Link to='/cart'>
+                        <IconWithTitle icon={BsBasket3} text={t("headerlist.list4")} notifications={cart.length} />
                     </Link>
 
 

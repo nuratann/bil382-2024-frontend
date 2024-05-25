@@ -10,10 +10,10 @@ const ProductHeader = (props) => {
 
   // Примерные данные для товара
   const productName = props.title;
-  const rating = 4; // 4 из 5 звезд
-  const reviewCount = props.reviews;
-  const videoCount = 7;
-  const questionCount = 15;
+  const rating = props.rating
+  const reviewCount = props.reviewCount;
+  const videoCount = props.videoCount;
+  const questionCount = props.questionCount;
   const productCode = "265648848";
 
   return (
