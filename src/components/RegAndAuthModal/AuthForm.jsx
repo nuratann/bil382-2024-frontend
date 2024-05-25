@@ -15,6 +15,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 import { FormControl, FormLabel, FormHelperText } from '@chakra-ui/react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -31,10 +33,20 @@ const AuthForm = () => {
         rememberMe: false
     });
 
-    const handleSubmit = (values, { setSubmitting }) => {
+    const handleSubmit = (values, { setSubmitting }) => { 
         signIn(values.usernameOrEmail,values.password)
-        console.log(useUserStore())
-        setSubmitting(false);
+        .then(() => {
+            // Если аутентификация прошла успешно
+            setSubmitting(false);
+          })
+        .catch(error => {
+            // Если произошла ошибка во время аутентификации
+            console.error('Authentication error:', error);
+            toast.error("Ошибка!");
+            setSubmitting(false);
+          });
+        
+        
     };
     const [show, setShow] = React.useState(false)
     const handleClick = () => setShow(!show)
@@ -108,6 +120,7 @@ const AuthForm = () => {
                 </Formik>
             </ModalBody>
             <OAuthBlock />
+            <ToastContainer />
         </>
     )
 }

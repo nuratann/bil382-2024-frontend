@@ -36,7 +36,6 @@ const RegForm = () => {
 
     const signUp = useUserStore((state) => state.signUp)
     const state = useUserStore.getState();
-    console.log(state)
     const [show, setShow] = React.useState(false);
     const handleClick = () => setShow(!show);
 
