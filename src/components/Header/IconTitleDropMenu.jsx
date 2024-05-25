@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, VStack, Icon, Text, Button } from '@chakra-ui/react'
 import useUserStore from '../../stores/useUserStore'
 import {
@@ -15,7 +15,7 @@ import {
 import RegAndAuthModal from '../RegAndAuthModal/RegAndAuthModal'
 import { useNavigate } from 'react-router-dom'
 
-const IconTitleDropMenu = ({ icon, text }) => {
+const IconTitleDropMenu = ({ icon, text}) => {
     const user = useUserStore((state) => state.user)
     const reset = useUserStore((state) => state.reset)
     const notifications = user.notifications[0]
@@ -72,7 +72,7 @@ const IconTitleDropMenu = ({ icon, text }) => {
                 >
                     <PopoverArrow />
                     <PopoverBody>
-                        {isAuth?
+                        {isAuth?                            
                             <VStack alignItems={'start'} spacing={1}>
                                 {menuItems.map((item, index) => (
                                     <Button
@@ -118,7 +118,6 @@ const IconTitleDropMenu = ({ icon, text }) => {
                     </PopoverBody>
                 </PopoverContent>
             </Popover>
-
 
         </>
     )

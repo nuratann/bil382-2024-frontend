@@ -32,11 +32,14 @@ const useUserStore = create()(
         persist(
             (set, get) => ({
                 user: initialUserState,
+                updateUser: (user)=>{
+                    set(()=>({user:{...user}}));
+                },
                 signIn: async (username, password) => {
                     try{
                         const authData = await AuthService.signIn(username, password)
                         const user = await UserService.getUser(authData.access_token);
-                        set(()=>({user:{...user,authData,isAuth:true,notifications:initialUserState.notifications}}));
+                        return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
                     }
                     catch (error) {
                         throw error

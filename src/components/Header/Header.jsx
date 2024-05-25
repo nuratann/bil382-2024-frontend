@@ -1,7 +1,4 @@
 import React from 'react'
-import { Link as RouterLink } from 'react-router-dom';
-import IconBuyers from '../../assets/icon.png'
-import flag from "../../assets/rus-flag.png"
 import Search from '../SearchLine/Search';
 import { Flex, Icon, Text, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import IconWithTitle from './IconWithTitle';
@@ -10,9 +7,10 @@ import Catalog from './Catalog';
 import IconTitleDropMenu from './IconTitleDropMenu';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import styles from './Catalog.module.scss';
 import useCartStore from '../../stores/useCartStore';
 import useFavoritesStore from '../../stores/useFavoritesStore';
+
+
 
 
 
