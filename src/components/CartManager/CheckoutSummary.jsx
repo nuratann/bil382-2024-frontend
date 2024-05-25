@@ -16,8 +16,8 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 const CheckoutSummary = (props) => {
   const navigate = useNavigate();
-  const goCard = () => {
-    navigate('/add_card');
+  const goCheckout = (total) => {
+    navigate(`/checkout?amount=${total}`);
   };
   const bg = useColorModeValue('white', 'gray.700'); // Цвет фона для светлой и темной темы
   const {items} = props
@@ -44,7 +44,7 @@ const CheckoutSummary = (props) => {
       boxShadow="0 2px 8px rgba(0, 0, 0, 0.08)"
       w="380px"
     >
-      <Button onClick={goCard} bg="#10c44c" color="white" _hover={{ bg: '#10c200' }} h={'32px'}>
+      <Button onClick={()=>goCheckout(total)} bg="brand.green" color="white" _hover={{ bg: '#10c200' }} h={'32px'}>
         Перейти к оформлению
       </Button>
       <Text fontSize="sm" color="gray.500">

@@ -1,13 +1,35 @@
 import { Text } from '@chakra-ui/react';
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TestPage = () => {
-    console.log(JSON.parse("[{\"title\":\"цвет\",\"value\":[{\"title\":\"серый\",\"icon\":\"http://example.com/gray_icon.jpg\"},{\"title\":\"черный\",\"icon\":\"http://example.com/black_icon.jpg\"},{\"title\":\"синий\",\"icon\":\"http://example.com/blue_icon.jpg\"}]},{\"title\":\"размер\",\"value\":[{\"title\":\"маленький\",\"icon\":\"\"},{\"title\":\"средний\",\"icon\":\"\"},{\"title\":\"большой\",\"icon\":\"\"}]},{\"title\":\"тип\",\"value\":[{\"title\":\"классический\",\"icon\":\"\"},{\"title\":\"премиум\",\"icon\":\"\"},{\"title\":\"путешественник\",\"icon\":\"\"}]}]"))
-    return(
-        <>
-            <Text>This is test page!</Text>
-        </>
-    )
+    const notifySuccess = () => {
+        toast.success("Success notification!");
+      };
+    
+      const notifyError = () => {
+        toast.error("Error notification!");
+      };
+    
+      const notifyInfo = () => {
+        toast.info("Info notification!");
+      };
+    
+      const notifyWarning = () => {
+        toast.warn("Warning notification!");
+      };
+    
+      return (
+        <div>
+          <h1>React Toastify Example</h1>
+          <button onClick={notifySuccess}>Show Success Toast</button>
+          <button onClick={notifyError}>Show Error Toast</button>
+          <button onClick={notifyInfo}>Show Info Toast</button>
+          <button onClick={notifyWarning}>Show Warning Toast</button>
+          <ToastContainer />
+        </div>
+      );
 }
 
 export default TestPage

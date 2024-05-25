@@ -9,18 +9,19 @@ import RegAndAuthModal from './components/RegAndAuthModal/RegAndAuthModal.jsx';
 import ProductPage from './pages/ProductPage/ProductPage.jsx'
 import TestSearchPage from './pages/TestSearchPage/TestSearchPage.jsx';
 import BasketPage from './pages/BasketPage/BasketPage.jsx';
-
 import TestAccountPage from './pages/TestAccountPage/TestAccountPage.jsx';
 
 import SearchPage from './pages/SearchPage/SearchPage.jsx';
 import Favorites from './pages/FavoritesPage/FavoritesPage.jsx';
-import UserProfile from './pages/UserProfile/UserProfile.jsx';
 
 import ProfilePg from './pages/ProfilePage/ProfilePage.jsx';
 import AddCardPage from './pages/ProfilePage/AddCardPage/AddCardPage.jsx';
 import CategoryPage from './pages/CategoryPage/CategoryPage.jsx';
 import TestPage from './TestPage.jsx'
+import { loadStripe } from '@stripe/stripe-js';
+import PaymentPage from './pages/PaymentPage/PaymentPage.jsx';
 
+const stripePromise = loadStripe('pk_test_51PJeSX08MXO6we99KRwkspzVIUmINvrHaVYHTxivEOzdqHxC1CNZrPKImHi4iUfbYFwEfVGQ91FOd7SMBSssnlKZ00Q0mVeAFH');
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
                     <Route path='/add_card' element={<AddCardPage />} />
                     <Route path='/categories/:name' element={<CategoryPage />} />
                     <Route path='/test' element={<TestPage />} />
-
+                    <Route path='/checkout' element={<PaymentPage/>} />
 
 
                 </Routes>
