@@ -38,6 +38,7 @@ const useUserStore = create()(
                 signIn: async (username, password) => {
                     try{
                         const authData = await AuthService.signIn(username, password)
+                        console.log(authData)
                         const user = await UserService.getUser(authData.access_token);
                         return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
                     }
@@ -50,7 +51,8 @@ const useUserStore = create()(
                 signUp: async (user) => {
                     const authData = await AuthService.signUp(user);
                     await UserService.updateUser(user, authData.access_token)
-                    set(()=>({user:{...response,isAuth:true,notifications:initialUserState.notifications}}));
+                    return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
+                    // set(()=>({user:{...response,isAuth:true,notifications:initialUserState.notifications}}));
                 },
                 reset: () => set(()=>({user:{...initialUserState}})),
             }),

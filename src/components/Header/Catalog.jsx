@@ -10,19 +10,31 @@ import {
     MenuOptionGroup,
     MenuDivider,
     Flex,
-    Box
+    Box,
+    VStack,
+    Text,
+    Icon,
+    Grid,
+    GridItem
 } from '@chakra-ui/react';
+import { MdPhonelink } from "react-icons/md";
 import { HamburgerIcon } from '@chakra-ui/icons';
 import MainCatalog from '../../components/Catalog_category_list/Main_catalog.jsx'
 import Hamburger from 'hamburger-react'
+import categories from "../../api/MockData/categories.json"
+import { useDisclosure } from '@chakra-ui/react';
+import IconWithTitle from './IconWithTitle.jsx';
+import { color } from 'framer-motion';
+
 
 
 const Catalog = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const { isOpen, onOpen, onClose } = useDisclosure()
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    const [active, setActive] = useState('Электроника');
 
     return (
         <>
@@ -53,12 +65,99 @@ const Catalog = () => {
                     </Box>
                     </Flex>
                 </MenuButton>
-                <MenuList m={5}>
-                    <MainCatalog />
+                <MenuList 
+                    m={5} 
+                    position={'absolute'} 
+                    top="-20px" 
+                    left="-220px"
+                    w={'1350px'}
+                >
+                    <Flex>
+                    <VStack
+                        minW={'430px'}
+                        maxH={'730px'}
+                        overflow={'auto'}
+                        p={2}
+                        sx={{
+                            '::-webkit-scrollbar': {
+                              width: '10px',
+                            },
+                            '::-webkit-scrollbar-track': {
+                              background: '#f1f1f1',
+                              borderRadius: '5px',
+                            },
+                            '::-webkit-scrollbar-thumb': {
+                              background: '#888',
+                              borderRadius: '5px',
+                            },
+                            '::-webkit-scrollbar-thumb:hover': {
+                              background: '#555',
+                            },
+                          }}
+                    >
+                        <Text>Основные категории</Text>
+                        {Object.keys(categories).map((key) => (
+                            <MenuItem 
+                                key={key} 
+                                onMouseEnter={() => {setActive(key)}}
+                                color={active === key ? 'brand.blue' : 'black'}
+                                bg={active === key ? 'gray.200' : 'white'}
+                                fontWeight={'500'}
+                                borderRadius={'5px'}
+                                minW={'400px'}
+                            >
+                                <Flex align={'start'} justify={'center'}>
+                                    <Icon as={MdPhonelink} boxSize={6} mr={2} />
+                                    {key}
+                                </Flex>
+                            </MenuItem>
+                        ))}
+                    </VStack>
+                    <Box 
+                        w={'100%'} 
+                        mx={4} 
+                        maxH={'730px'} 
+                        overflow={'auto'}
+                        sx={{
+                            '::-webkit-scrollbar': {
+                              width: '10px',
+                            },
+                            '::-webkit-scrollbar-track': {
+                              background: '#f1f1f1',
+                              borderRadius: '5px',
+                            },
+                            '::-webkit-scrollbar-thumb': {
+                              background: '#888',
+                              borderRadius: '5px',
+                            },
+                            '::-webkit-scrollbar-thumb:hover': {
+                              background: '#555',
+                            },
+                          }}
+                    >
+                            <Text fontSize={48}>{active}</Text>
+                            <Grid templateColumns='repeat(3, 1fr)' gap={6} mt={8}>
+                                {Object.keys(categories[active]).map((key) => (
+                                    <GridItem w='100%'>
+                                        <Text key={key} fontWeight={'500'}>{key}</Text>
+                                        {categories[active][key].map((item) => (
+                                            <Text key={item} ms={2}>{item}</Text>
+                                        ))}
+                                    </GridItem>
+                                ))}
+                            </Grid>
+
+                            {/* {console.log(categories[active])} */}
+                        </Box>
+                    </Flex>
+                    {/* <MainCatalog /> */}
+                    
                 </MenuList>
             </Menu>
         </>
     )
 }
+
+
 
 export default Catalog;

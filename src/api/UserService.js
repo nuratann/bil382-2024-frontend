@@ -30,6 +30,7 @@ class UserService {
         try {
             const id = jwtDecode(accessToken).sub
             console.log(id)
+            const dto = {id:id,...user}
             const url = `http://localhost:8081/api/v1/users/`;
             const response = await fetch(url, {
                 method: 'POST',
@@ -37,7 +38,7 @@ class UserService {
                     'Authorization': `Bearer ${accessToken}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(dto)
             });
     
             if (!response.ok) {
