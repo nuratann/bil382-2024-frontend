@@ -17,6 +17,8 @@ import {
     Grid,
     GridItem
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
 import { MdPhonelink } from "react-icons/md";
 import { HamburgerIcon } from '@chakra-ui/icons';
 import MainCatalog from '../../components/Catalog_category_list/Main_catalog.jsx'
@@ -25,6 +27,7 @@ import categories from "../../api/MockData/categories.json"
 import { useDisclosure } from '@chakra-ui/react';
 import IconWithTitle from './IconWithTitle.jsx';
 import { color } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -35,6 +38,7 @@ const Catalog = () => {
         setIsMenuOpen(!isMenuOpen);
     };
     const [active, setActive] = useState('Электроника');
+    const navigate = useNavigate();
 
     return (
         <>
@@ -70,7 +74,7 @@ const Catalog = () => {
                     position={'absolute'} 
                     top="-20px" 
                     left="-220px"
-                    w={'1350px'}
+                    w={'1380px'}
                 >
                     <Flex>
                     <VStack
@@ -105,6 +109,7 @@ const Catalog = () => {
                                 fontWeight={'500'}
                                 borderRadius={'5px'}
                                 minW={'400px'}
+                                onClick={() => navigate(`/categories/${key}`)}
                             >
                                 <Flex align={'start'} justify={'center'}>
                                     <Icon as={MdPhonelink} boxSize={6} mr={2} />
@@ -139,9 +144,9 @@ const Catalog = () => {
                             <Grid templateColumns='repeat(3, 1fr)' gap={6} mt={8}>
                                 {Object.keys(categories[active]).map((key) => (
                                     <GridItem w='100%'>
-                                        <Text key={key} fontWeight={'500'}>{key}</Text>
+                                        <ChakraLink as={Link} to={`/categories/${key}`} key={key}><Text fontWeight={'500'}>{key}</Text></ChakraLink>
                                         {categories[active][key].map((item) => (
-                                            <Text key={item} ms={2}>{item}</Text>
+                                            <ChakraLink as={Link} to={`/categories/${item}`} key={item}><Text ms={2}>{item}</Text></ChakraLink>
                                         ))}
                                     </GridItem>
                                 ))}
