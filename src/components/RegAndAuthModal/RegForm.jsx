@@ -27,12 +27,11 @@ import OAuthBlock from './OAuthBlock';
 import useUserStore from '../../stores/useUserStore';
 
 const RegForm = () => {
-    
+
     const GenderEnum = {
         MALE: "male",
-        FEMALE: "female",
-        UNDEFINED: "undefined",
-      };
+        FEMALE: "female"
+    };
 
     const signUp = useUserStore((state) => state.signUp)
     const state = useUserStore.getState();
@@ -51,7 +50,7 @@ const RegForm = () => {
         confirmPassword: '',
     };
 
-    
+
 
     const validationSchema = Yup.object().shape({
         firstName: Yup.string().required('First Name is required'),
@@ -70,15 +69,15 @@ const RegForm = () => {
             .required('Confirm Password is required'),
     });
 
-    const handleSubmit = async (values, { setSubmitting,setFieldError }) => {
+    const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
         const response = await signUp(values)
-        if(response==='email'){
+        if (response === 'email') {
             setFieldError('email', 'Этот email уже занят');
         }
-        else if(response==='username'){
+        else if (response === 'username') {
             setFieldError('username', 'Этот логин уже занят');
         }
-        else{
+        else {
             console.log(state)
         }
         setSubmitting(false);
@@ -132,30 +131,30 @@ const RegForm = () => {
                                         </FormControl>
                                     )}
                                 </Field>
-                                <HStack spacing={2}  w={'100%'} >
-                                <Field name="birthDate">
-                                    {({ field, form }) => (
-                                        <FormControl isInvalid={form.errors.birthdate && form.touched.birthdate}>
-                                            <Input {...field} placeholder='День рождения'  type='date' sx={styles.input} />
-                                            <ErrorMessage name="birthDate" component={FormErrorMessage} />
-                                        </FormControl>
-                                    )}
-                                </Field>
+                                <HStack spacing={2} w={'100%'} >
+                                    <Field name="birthDate">
+                                        {({ field, form }) => (
+                                            <FormControl isInvalid={form.errors.birthdate && form.touched.birthdate}>
+                                                <Input {...field} placeholder='День рождения' type='date' sx={styles.input} />
+                                                <ErrorMessage name="birthDate" component={FormErrorMessage} />
+                                            </FormControl>
+                                        )}
+                                    </Field>
 
-                                <Field name="gender">
-                                    {({ field }) => (
-                                        <FormControl>
-                                            <Select {...field} id="gender" placeholder="Пол" sx={styles.input}>
-                                                {Object.values(GenderEnum).map((gender) => (
-                                                    <option key={gender} value={gender}>
-                                                        {gender}
-                                                    </option>
-                                                ))}
-                                            </Select>
-                                            <ErrorMessage name="gender" component="div" />
-                                        </FormControl>
-                                    )}
-                                </Field>
+                                    <Field name="gender">
+                                        {({ field }) => (
+                                            <FormControl>
+                                                <Select {...field} id="gender" placeholder="Пол" sx={styles.input}>
+                                                    {Object.values(GenderEnum).map((gender) => (
+                                                        <option key={gender} value={gender}>
+                                                            {gender}
+                                                        </option>
+                                                    ))}
+                                                </Select>
+                                                <ErrorMessage name="gender" component="div" />
+                                            </FormControl>
+                                        )}
+                                    </Field>
                                 </HStack>
 
                                 <Field name="email">
