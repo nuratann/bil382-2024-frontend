@@ -6,10 +6,11 @@ import {
 import ProfileImage from './ProfileImage';
 import useUserStore from '../../stores/useUserStore';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function PersonalAccount() {
     const userState = useUserStore((state) => state.user);
-
+    const navigate = useNavigate();
     const handleSubmit = () => {
         if (!firstName || !lastName || !dateOfBirth || !gender || !email || !phone) {
             alert('Please fill out all required fields');
@@ -27,10 +28,10 @@ function PersonalAccount() {
     };
 
     return (
-        <Box height="800px" width="1160px" bgColor="white" display="flex" flexDirection="column" ml="30px" mt="30px" mb="50px" borderRadius="28px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)">
-            <Flex justifyContent={"space-between"}>
-                <Text fontWeight="550" fontSize="18px" ml="30px" mt="20px">Личные данные</Text>
-                <Link to='/profile?init=Мои заказы'>Стать продавцом</Link>
+        <>
+            <Flex justifyContent={"space-between"} p={4}>
+                <Text fontWeight="550" fontSize="18px" ml="30px">Личные данные</Text>
+                <Button onClick={() => navigate('/profile/seller-profile')} bg={"brand.blue"} color="white" _hover={{ bg: "brand.hoverblue" }}>Стать продавцом</Button>
             </Flex>
             
             
@@ -38,7 +39,10 @@ function PersonalAccount() {
 
 
             <Box width="800px" h="max-content" ml="50px">
-                <ProfileImage />
+                <Box mb={8}>
+                    <ProfileImage />
+                </Box>
+                
                 <Box display="flex" flexDirection="row" ml="30px" mt="20px">
                     <Box flex="1" mr="10px">
                         <Input
@@ -85,7 +89,7 @@ function PersonalAccount() {
                         >
                             <option value="male">Мужчина</option>
                             <option value="female">Женщина</option>
-                            <option value="female">Military Apache Helicopter</option>
+                            <option value="nonbinary">Military Apache Helicopter</option>
                         </Select>
                     </Box>
                     <Box flex="1" ml="10px">
@@ -96,7 +100,7 @@ function PersonalAccount() {
             <Divider mt="50px" />
 
 
-            <Text fontWeight="550" fontSize="18px" ml="30px" mt="20px">Учеттные данные</Text>
+            <Text fontWeight="550" fontSize="18px" ml="30px" mt="20px">Учетные данные</Text>
             <Box flexDirection={"row"} display={"flex"} ml="40px">
                 <Box mt="30px" >
                     <Box ml="10px" >
@@ -125,8 +129,7 @@ function PersonalAccount() {
                     </Box>
                 </Box>
             </Box>
-            
-        </Box>
+            </>
 
     )
 }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 function ProfileMenu({active}) {
-
+    
     const menuList = {
         "Личная информация":{
             "Главная":"/profile/main",
@@ -55,6 +55,17 @@ function ProfileMenu({active}) {
             >
 
                 <ProfileImage />
+                <Box textAlign={'center'}>
+                <ChakraLink
+                    _hover={{ textDecoration: 'none' }}
+                    as={Link}
+                    textDecoration="none"
+                    color="brand.blue"
+                    to='/profile/personal-account'
+                >
+                    Изменить профиль
+                </ChakraLink>
+                </Box>
 
                 <Box m={'30px'} >
                     {Object.keys(menuList).map((key) => (

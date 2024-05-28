@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, VStack, Icon, Text, Button } from '@chakra-ui/react'
+import { Box, VStack, Icon, Text, Button, Flex, Avatar} from '@chakra-ui/react'
 import useUserStore from '../../stores/useUserStore'
 import {
     Popover,
@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 import RegAndAuthModal from '../RegAndAuthModal/RegAndAuthModal'
 import { useNavigate } from 'react-router-dom'
+import { BsEmojiGrin } from "react-icons/bs";
 
 const IconTitleDropMenu = ({ icon, text}) => {
     const user = useUserStore((state) => state.user)
@@ -23,12 +24,12 @@ const IconTitleDropMenu = ({ icon, text}) => {
     const [isOnTrigger, setOnTrigger] = useState(false);
     const [isOnMenu, setOnMenu] = useState(false);
     const menuItems = [
-        { text: 'Личный кабинет', link: '/profile' },
-        { text: 'Баллы и бонусы', link: '/' },
-        { text: 'Premium', link: '/' },
-        { text: 'Сообщения', link: '/profile?init=Сообщения' },
-        { text: 'Сравнение товаров', link: '/' },
-        { text: 'Купоны и сертификаты', link: '/' }
+        { text: 'Личный кабинет', link: '/profile/main' },
+        { text: 'Баллы и бонусы', link: '/profile/bonuses' },
+        { text: 'Premium', link: '/profile/premium' },
+        { text: 'Сообщения', link: '/profile/chat' },
+        { text: 'Сравнение товаров', link: '/profile/compare' },
+        { text: 'Купоны и сертификаты', link: '/profile/certs' }
     ]
     const navigate = useNavigate();
     return (
@@ -45,9 +46,11 @@ const IconTitleDropMenu = ({ icon, text}) => {
                         m={2}
                         onMouseEnter={() => setOnTrigger(true)}
                         onMouseLeave={() => setOnTrigger(false)}
-                        _hover={{ color: 'brand.hoverblue' }}>
-                        <Icon as={icon} boxSize={5} mx={2} mt={3} />
-                        <Text fontSize={11} fontWeight={'semibold'}>{isAuth?user.username:text}</Text>
+                        _hover={{ color: 'brand.hoverblue' }}
+                    >
+                        
+                        <Icon as={isAuth?BsEmojiGrin:icon} boxSize={5} mx={2} mt={3} />
+                        <Text fontSize={11} fontWeight={'semibold'}>{isAuth?user.firstName:text}</Text>
                         {isAuth&&notifications!=0?
                         <Box
                             boxSize={4}

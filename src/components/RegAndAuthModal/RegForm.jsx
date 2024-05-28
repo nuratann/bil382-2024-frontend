@@ -112,9 +112,6 @@ const RegForm = () => {
 
     return (
         <>
-            <ModalHeader>Регистрация</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody >
                 {isAuth ?
                     <>
                         <Flex justify={'center'} align={'center'}>
@@ -270,8 +267,6 @@ const RegForm = () => {
                         )}
                     </Formik>
                 }
-            </ModalBody>
-            <OAuthBlock />
         </>
     );
 };

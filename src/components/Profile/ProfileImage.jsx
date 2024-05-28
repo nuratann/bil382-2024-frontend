@@ -1,75 +1,80 @@
-import { Avatar, Flex, Box, Heading, Container, Text, Image, Input, IconButton, Center, Link } from '@chakra-ui/react'
+import { Avatar, Flex, Box, Heading, Container, Text, Icon, Input, IconButton, Center, Link as ChakraLink, Button, VStack } from '@chakra-ui/react'
+import { MdAddAPhoto } from 'react-icons/md';
 import { AddIcon } from '@chakra-ui/icons'
-
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import useUserStore from '../../stores/useUserStore';
+import React from 'react';
+
 
 
 function ProfileImage() {
-
-    const [profilePicture, setProfilePicture] = useState('https://media.istockphoto.com/id/1289221022/photo/beauty-natural-woman-covering-her-face-with-tropical-leaf.jpg?s=612x612&w=0&k=20&c=2ba7RFBhq5tVWoj6moHVC4k4SfKi_5naTiBoYi3wzJ8=');
-    const [showInput, setShowInput] = useState(false);
-
-    const handleFileInputChange = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onloadend = () => {
-                setProfilePicture(reader.result);
-                setShowInput(false);
-            };
-        }
+    const userState = useUserStore(state => state)
+    const fullName = userState.fullName()
+    const image = userState.user.avatarImg
+    const inputRef = React.useRef();
+  
+    const handleImageChange = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            userState.updateUser({...userState.user,avatarImg:reader.result})
+        };
+        reader.readAsDataURL(file);
+      }
     };
-
-    const handleAddIconClick = () => {
-        setShowInput(true);
+  
+    const handleImageClick = () => {
+      inputRef.current.click();
     };
     return (
-        <Box>
-            <Center flexDirection="column" alignContent="center" position="relative">
-                <Avatar src={profilePicture} size="xl" mb={4}
-                    ml="-10px"
-                    mt="30px" />
-                <IconButton
-                    icon={<AddIcon />}
-                    aria-label="Add profile picture"
-                    onClick={handleAddIconClick}
-                    position="absolute"
-                    top={0}
-                    mt="60px"
-                    ml="-10px"
-                    bgColor={"transparent"}
-                    color="gray.400"
-
-                    zIndex={1}
-                    style={{
-                        visibility: showInput ? 'hidden' : 'visible',
-                        transition: 'visibility 0.3s',
-                        ':hover': {
-                            visibility: 'visible',
-                        },
-                    }}
+        <VStack justify={'center'} mt={6}>
+            <Box textAlign="center">
+                <Box
+                    as="button"
+                    onClick={handleImageClick}
+                    p={3}
+                    borderRadius="full"
+                    display="inline-block"
+                    cursor="pointer"
+                >
+                    <Box position={'relative'}>
+                        <Avatar
+                            src={image}
+                            objectFit="cover"
+                            boxSize={24}
+                        />
+                        <Center
+                            borderRadius={'full'}
+                            position="absolute"
+                            top="0"
+                            left="0"
+                            width="100%"
+                            height="100%"
+                            opacity={0}
+                            _hover={{
+                                opacity: 1,
+                            }}
+                            backgroundColor="rgba(0, 0, 0, 0.2)"
+                            color="white"
+                        >
+                            <Icon as={MdAddAPhoto} boxSize={10} />
+                        </Center>
+                    </Box>
+                </Box>
+                <Input
+                    type="file"
+                    ref={inputRef}
+                    onChange={handleImageChange}
+                    accept="image/*"
+                    display="none"
                 />
-                {showInput && (
-                    <input
-                        type="file"
-                        accept="image/*"
-                        ml="20px"
-                        onChange={handleFileInputChange}
-                        style={{ display: 'block', margin: 'auto' }}
-                    />
-                )}
-            </Center>
-            <Box ml="60px">
-                <Link _hover={{ textDecoration: 'none' }}
-                    textDecoration="none"
-                    color="brand.blue"
-                    to='Моя учетная запись'>
-                    <Text color="brand.blue">Изменить профиль</Text>
-                    {/* Add link destination here */}
-                </Link>
             </Box>
-        </Box >
+            <Box textAlign={'center'}>
+                <Text fontSize={24}>{fullName}</Text>
+            </Box>
+        </VStack>
 
 
 

@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist, devtools } from 'zustand/middleware'
 import UserService from '../api/UserService'
 import AuthService from "../api/AuthService";
+import { Avatar } from "@chakra-ui/react";
 
 // type UserStore = {
 //     user: User
@@ -23,6 +24,7 @@ const initialUserState = {
     email: "",
     phone: "",
     gender: "",
+    avatarImg: "",
     notifications: new Int16Array(4),
     authData: null
 }
@@ -38,7 +40,6 @@ const useUserStore = create()(
                 signIn: async (username, password) => {
                     try{
                         const authData = await AuthService.signIn(username, password)
-                        console.log(authData)
                         const user = await UserService.getUser(authData.access_token);
                         return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
                     }
@@ -53,6 +54,9 @@ const useUserStore = create()(
                     await UserService.updateUser(user, authData.access_token)
                     return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
                     // set(()=>({user:{...response,isAuth:true,notifications:initialUserState.notifications}}));
+                },
+                fullName: () => {
+                    return get().user.firstName + " " + get().user.lastName
                 },
                 reset: () => set(()=>({user:{...initialUserState}})),
             }),
