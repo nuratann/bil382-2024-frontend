@@ -24,7 +24,7 @@ function ProfileMenu({active}) {
             "Мои заказы":"/profile/my-orders",            
             "Мои возвраты":"/profile/my-returns",
             "Собщения":"/profile/chat",
-            "Электронныые чеки":"/profile/electronic-receipts",
+            "Электронные чеки":"/profile/electronic-receipts",
         },
         "Отзывы и вопросы о товарах":{
             "Мои отзывы":"/profile/my-reviews",

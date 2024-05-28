@@ -20,7 +20,7 @@ const initialUserState = {
     username: "",
     firstName: "",
     lastName: "",
-    birthDay: "",
+    birthDate: "",
     email: "",
     phone: "",
     gender: "",
@@ -49,10 +49,22 @@ const useUserStore = create()(
                     
                     
                 },
-                signUp: async (user) => {
-                    const authData = await AuthService.signUp(user);
-                    await UserService.updateUser(user, authData.access_token)
-                    return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
+                signUp: async (user, type) => {
+                    try{
+                        if(type==='register'){
+                            const authData = await AuthService.signUp(user);
+                            console.log('AUthData', authData)
+                            await UserService.createUser(user, authData.access_token)
+                            return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
+                        }else{
+                            const authData = await AuthService.update(user);
+                            await UserService.updateUser(user, authData.access_token)
+                            return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
+                        }
+                    }
+                    catch (error) {
+                        throw error
+                    }
                     // set(()=>({user:{...response,isAuth:true,notifications:initialUserState.notifications}}));
                 },
                 fullName: () => {

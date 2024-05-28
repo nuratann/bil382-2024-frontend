@@ -7,6 +7,7 @@ import ProfileImage from './ProfileImage';
 import useUserStore from '../../stores/useUserStore';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import RegForm from '../RegAndAuthModal/RegForm';
 
 function PersonalAccount() {
     const userState = useUserStore((state) => state.user);
@@ -37,98 +38,15 @@ function PersonalAccount() {
             
             <Divider />
 
-
-            <Box width="800px" h="max-content" ml="50px">
+            <Flex justify={"center"}>
+            <Box w={'80%'} h="max-content" mb={6}>
                 <Box mb={8}>
                     <ProfileImage />
                 </Box>
                 
-                <Box display="flex" flexDirection="row" ml="30px" mt="20px">
-                    <Box flex="1" mr="10px">
-                        <Input
-                            placeholder="Имя"
-                            value={userState.firstName}
-                            onChange={(e) => setName(e.target.value)}
-                            mb={4}
-                            width="300px"
-                        />
-                    </Box>
-                    <Box flex="1" ml="10px">
-                        <Input
-                            placeholder="Фамилия"
-                            value={userState.lastName}
-                            onChange={(e) => setLastName(e.target.value)}
-                            mb={4}
-                            width="300px"
-                        />
-                    </Box>
-                </Box>
-
-                <Box display="flex" flexDirection="row" ml="30px" mt="20px">
-                    
-                    <Box flex="1" ml="10px">
-                        <Input
-                            type="date"
-                            placeholder="Дата рождения"
-                            value={userState.birthDay}
-                            onChange={(e) => setDateOfBirth(e.target.value)}
-                            mb={4}
-                            width="300px"
-                        />
-                    </Box>
-                </Box>
-
-                <Box display="flex" flexDirection="row" ml="30px" mt="20px">
-                    <Box flex="1" mr="10px">
-                        <Select
-                            placeholder="Пол"
-                            value={userState.gender}
-                            onChange={(e) => setGender(e.target.value)}
-                            mb={4}
-                            width="300px"
-                        >
-                            <option value="male">Мужчина</option>
-                            <option value="female">Женщина</option>
-                            <option value="nonbinary">Military Apache Helicopter</option>
-                        </Select>
-                    </Box>
-                    <Box flex="1" ml="10px">
-                        <Button colorScheme="blue" onClick={handleSubmit}>Сохранить</Button>
-                    </Box>
-                </Box>
+                <RegForm type='update'/>
             </Box>
-            <Divider mt="50px" />
-
-
-            <Text fontWeight="550" fontSize="18px" ml="30px" mt="20px">Учетные данные</Text>
-            <Box flexDirection={"row"} display={"flex"} ml="40px">
-                <Box mt="30px" >
-                    <Box ml="10px" >
-                        <Input
-                            placeholder="Email"
-                            value={userState.email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            mb={4}
-                            width="250px"
-                        />
-                    </Box>
-                </Box>
-
-                <Box display="flex" flexDirection="row" ml="30px" mt="30px">
-                    <Box mr="10px">
-                        <Input
-                            placeholder="Phone"
-                            value={userState.phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                            mb={4}
-                            width="250px"
-                        />
-                    </Box>
-                    <Box ml="10px">
-                        <Button colorScheme="blue" onClick={handleSubmit}>Сохранить</Button>
-                    </Box>
-                </Box>
-            </Box>
+            </Flex>
             </>
 
     )

@@ -13,7 +13,7 @@ const RegFormModalWrapper = () => {
         <ModalHeader>Регистрация</ModalHeader>
             <ModalCloseButton />
             <ModalBody >
-                <RegForm/>
+                <RegForm type='register'/>
             </ModalBody>
             <OAuthBlock />
         </>
