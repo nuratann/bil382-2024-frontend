@@ -49,7 +49,7 @@ function Header() {
 
 
                     <Menu placement="bottom">
-                        <MenuButton as={Flex} alignItems="center" ml={4} mt="5px">
+                        <MenuButton as={Flex} alignItems="center" ml={4} mt="5px" _hover={{ color: "brand.blue" }}>
                             <IconWithTitle icon={BsGlobe} text={t("headerlist.list1")} index={1} />
                         </MenuButton>
 

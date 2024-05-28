@@ -5,8 +5,10 @@ import {
 } from '@chakra-ui/react';
 import ProductCardForSeller from '../../ProductCard/ProductCardForSeller';
 import { CiSquarePlus } from "react-icons/ci";
+import { useNavigate } from 'react-router-dom';
 
 const MyProducts = () => {
+    const navigate = useNavigate()
   return (
     <Box p={5} shadow="md" 
             height="max-content"
@@ -25,7 +27,7 @@ const MyProducts = () => {
                 <option value="date">Сортировать по дате</option>
                 <option value="price">Сортировать по цене</option>
             </Select>
-            <Button mr={4} colorScheme="green">
+            <Button mr={4} colorScheme="green" onClick={() => navigate('/profile?init=Добавить товар')}>
                 <CiSquarePlus style={{ fontSize: '30px', color: "white", margin: "0 8px 0 0" }} />
                 Добавить товар
             </Button>

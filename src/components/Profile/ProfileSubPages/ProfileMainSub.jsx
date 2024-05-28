@@ -12,26 +12,17 @@ function ProfileMainSub() {
     };
 
     return (
-        <Box height="max-content"
-            flexDirection={"column"}
-            width="1160px"
-            bgColor="white"
-            display="flex"
-            ml="30px"
-            mt="30px"
-            mb="50px"
-            borderRadius="28px"
-            boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)">
-
-            <Box w="1080px" // Set width of the box
+        <>
+            <Box 
+                maxW={'90%'} // Set width of the box
                 h="170px" // Set height of the box
                 backgroundImage="url('https://images.pexels.com/photos/4391607/pexels-photo-4391607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')" // Set the background image
                 backgroundSize="cover" // Make sure the image covers the entire box
                 backgroundPosition="center" // Center the image
                 borderRadius={"20px"}
                 opacity="0.7"
-                ml="40px"
-                mt="20px">
+                ml="5%"
+                mt="5%">
                 <Flex direction="column" ml="200px">
                     <Text color="navy" fontSize={"40px"} fontWeight="600">Радуйте близких</Text>
                     <Text color="navy" fontSize={"28px"} fontWeight="500"> Подарите сертификат на покупку</Text>
@@ -115,11 +106,8 @@ function ProfileMainSub() {
 
             </Box >
 
+        </>
 
-
-
-
-        </Box>
     )
 }
 

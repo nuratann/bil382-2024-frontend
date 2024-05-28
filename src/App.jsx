@@ -20,6 +20,9 @@ import CategoryPage from './pages/CategoryPage/CategoryPage.jsx';
 import TestPage from './TestPage.jsx'
 import { loadStripe } from '@stripe/stripe-js';
 import PaymentPage from './pages/PaymentPage/PaymentPage.jsx';
+import ProductCardForSeller from './components/ProductCard/ProductCardForSeller.jsx';
+import AddProduct from './components/Profile/Seller/AddProduct.jsx';
+import ProfileMainSub from './components/Profile/ProfileSubPages/ProfileMainSub.jsx';
 
 const stripePromise = loadStripe('pk_test_51PJeSX08MXO6we99KRwkspzVIUmINvrHaVYHTxivEOzdqHxC1CNZrPKImHi4iUfbYFwEfVGQ91FOd7SMBSssnlKZ00Q0mVeAFH');
 
@@ -40,7 +43,7 @@ function App() {
 
                     <Route path='/search' element={<SearchPage />} />
                     <Route path='/favorites' element={<Favorites />} />
-                    <Route path='/profile' element={<ProfilePg />} />
+                    <Route path='/profile/*' element={<ProfilePg />} />
                     <Route path='/add_card' element={<AddCardPage />} />
                     <Route path='/categories/:name' element={<CategoryPage />} />
                     <Route path='/test' element={<TestPage />} />

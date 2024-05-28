@@ -143,7 +143,7 @@ const Catalog = () => {
                             <Text fontSize={48}>{active}</Text>
                             <Grid templateColumns='repeat(3, 1fr)' gap={6} mt={8}>
                                 {Object.keys(categories[active]).map((key) => (
-                                    <GridItem w='100%'>
+                                    <GridItem w='100%' key={key}>
                                         <ChakraLink as={Link} to={`/categories/${key}`} key={key}><Text fontWeight={'500'}>{key}</Text></ChakraLink>
                                         {categories[active][key].map((item) => (
                                             <ChakraLink as={Link} to={`/categories/${item}`} key={item}><Text ms={2}>{item}</Text></ChakraLink>
