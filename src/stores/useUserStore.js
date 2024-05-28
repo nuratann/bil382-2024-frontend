@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist, devtools } from 'zustand/middleware'
 import UserService from '../api/UserService'
 import AuthService from "../api/AuthService";
-import RegService from "../api/RegService";
+import { Avatar } from "@chakra-ui/react";
 
 // type UserStore = {
 //     user: User
@@ -20,10 +20,11 @@ const initialUserState = {
     username: "",
     firstName: "",
     lastName: "",
-    birthDay: "",
+    birthDate: "",
     email: "",
     phone: "",
     gender: "",
+    avatarImg: "",
     notifications: new Int16Array(4),
     authData: null
 }
@@ -33,46 +34,41 @@ const useUserStore = create()(
         persist(
             (set, get) => ({
                 user: initialUserState,
-                cart: [
-                    {
-                        "id": 1,
-                        "img": "https://login.kg/image/cache/catalog/new/Phones/Apple/IPhone%2013/Pro/1-500x400.jpg",
-                        "title": "Смартфон Apple iPhone 13",
-                        "description": "Смартфон Apple iPhone 13 – это новейшая модель от компании Apple, представленная в 2023 году. Устройство оснащено чипом A15 Bionic, который обеспечивает высокую производительность и эффективную работу. Дисплей Retina XDR с диагональю 6,1 дюйма позволяет наслаждаться яркими и четкими изображениями. Камера с тройным объективом делает превосходные фотографии и видео в 4K. iPhone 13 поддерживает 5G, Face ID для безопасного разблокирования и работает на последней версии iOS.",
-                        "specs": {
-                          "type": "смартфон",
-                          "chip": "A15 Bionic",
-                          "display": "Retina XDR 6,1 дюйма",
-                          "camera": "тройная камера 12 Мп"
-                        },
-                        "rating": 4.8,
-                        "category": "Электроника",
-                        "orders": 5000,
-                        "sells": ["скидки недели"],
-                        "quantity": 100,
-                        "price": 799,
-                        "old_price": 899,
-                        "seller": "apple_store",
-                        "is_premium_seller": true,
-                        "reviews": 1200,
-                        "delivery_date": "05-07-2024"
-                      },
-                ],
-                favorites:[],
-                updateIsAuth: (isAuth) => set(() => ({ user: {...get().user,isAuth:isAuth} })),
-                signIn: async (username, password) => {
-                    const authData = await AuthService.getJWT(username, password);
-                    const user = await UserService.getUser(authData.access_token);
-                    set(()=>({user:{...user,authData,isAuth:true,notifications:initialUserState.notifications}}));
+                updateUser: (user)=>{
+                    set(()=>({user:{...user}}));
                 },
-                signUp: async (user) => {
-                    const response = await RegService.register(user);
-                    if ('conflictField' in response){
-                        return response.conflictField
-                    }else{ 
-                        set(()=>({user:{...response,isAuth:true,notifications:initialUserState.notifications}}));
-                        return 'ok'
+                signIn: async (username, password) => {
+                    try{
+                        const authData = await AuthService.signIn(username, password)
+                        const user = await UserService.getUser(authData.access_token);
+                        return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
                     }
+                    catch (error) {
+                        throw error
+                    }
+                    
+                    
+                },
+                signUp: async (user, type) => {
+                    try{
+                        if(type==='register'){
+                            const authData = await AuthService.signUp(user);
+                            console.log('AUthData', authData)
+                            await UserService.createUser(user, authData.access_token)
+                            return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
+                        }else{
+                            const authData = await AuthService.update(user);
+                            await UserService.updateUser(user, authData.access_token)
+                            return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
+                        }
+                    }
+                    catch (error) {
+                        throw error
+                    }
+                    // set(()=>({user:{...response,isAuth:true,notifications:initialUserState.notifications}}));
+                },
+                fullName: () => {
+                    return get().user.firstName + " " + get().user.lastName
                 },
                 reset: () => set(()=>({user:{...initialUserState}})),
             }),

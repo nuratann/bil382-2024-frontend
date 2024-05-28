@@ -5,8 +5,11 @@ import { MdSecurity } from 'react-icons/md';
 import { AiOutlineShop } from 'react-icons/ai';
 import { SiTrustedshops } from "react-icons/si";
 import { PiCrownSimpleFill } from "react-icons/pi";
+import useSellersStore from '../../stores/useSellersStore';
 
 const StoreInfoBlock = (props) => {
+  const getSellerById = useSellersStore(state=>state.getSellerById)
+  const seller = getSellerById(props.sellerId)
   return (
     
     <Grid templateColumns="repeat(3, 1fr)" gap={6} p={4} border={"1px"} borderColor={"gray.200"}  borderRadius="md" w={"800px"} h={"125px"}  mb={"20px"}>
@@ -19,7 +22,7 @@ const StoreInfoBlock = (props) => {
         <Box textAlign="center" justifyContent={"space-between"} m={"auto 0"}>
             <Flex>
                 <Icon as={AiOutlineShop} boxSize={6} mr={"10px"}/>
-                <Link fontSize="sm" src="#">{props.seller}</Link>
+                <Link fontSize="sm" src="#">{seller.businessName}</Link>
             </Flex>
             <Text fontSize="xs" color="gray.500">Перейти в магазин</Text>
         </Box>
@@ -28,7 +31,7 @@ const StoreInfoBlock = (props) => {
       <VStack textAlign="center" m={"auto 0"}>
         <Flex>
             <Icon as={FaStar} color="yellow.400" mr={"10px"}/>
-            <Text fontSize="sm">{props.rating} рейтинг товаров</Text>
+            <Text fontSize="sm">{seller.rating} рейтинг товаров</Text>
         </Flex>
         <Text fontSize="xs" color="gray.500">Доставка и сервис Buyers</Text>
       </VStack>

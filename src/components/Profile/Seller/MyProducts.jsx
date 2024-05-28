@@ -5,27 +5,19 @@ import {
 } from '@chakra-ui/react';
 import ProductCardForSeller from '../../ProductCard/ProductCardForSeller';
 import { CiSquarePlus } from "react-icons/ci";
+import { useNavigate } from 'react-router-dom';
 
 const MyProducts = () => {
+    const navigate = useNavigate()
   return (
-    <Box p={5} shadow="md" 
-            height="max-content"
-            flexDirection={"column"}
-            width="1160px"
-            bgColor="white"
-            display="flex"
-            ml="30px"
-            mt="30px"
-            mb="50px"
-            borderRadius="28px"
-            boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)">
+    <>
         <Heading  fontWeight="550" fontSize="20px" ml="20px" mb="20px">Мои товары</Heading>
         <Flex justify="space-between">
             <Select w={'300px'} mb={4}>
                 <option value="date">Сортировать по дате</option>
                 <option value="price">Сортировать по цене</option>
             </Select>
-            <Button mr={4} colorScheme="green">
+            <Button mr={4} colorScheme="green" onClick={() => navigate('/profile/add-product')}>
                 <CiSquarePlus style={{ fontSize: '30px', color: "white", margin: "0 8px 0 0" }} />
                 Добавить товар
             </Button>
@@ -100,7 +92,7 @@ const MyProducts = () => {
             
         </Flex>
         
-    </Box>
+    </>
   );
 };
 

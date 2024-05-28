@@ -19,14 +19,14 @@ function Chat() {
     };
 
     return (
-        <Box height="max-content" flexDirection="row" width="1160px" bgColor="white" display="flex" ml="30px" mt="30px" mb="50px" borderRadius="28px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)">
+        <Box height="max-content" flexDirection="row" bgColor="white" display="flex" ml="30px" mt="30px" mb="50px">
 
-            <Box h="600px" width="340px" bgColor="white" mt="20px" ml="20px">
+            <Box bgColor="white" mt="20px" ml="20px">
                 <Text fontWeight="550" fontSize="20px" ml="30px" mt="20px">Сообщения</Text>
 
                 <List>
                     <ListItem onClick={() => handleChatClick('chat1')} >
-                        <Box h="70px" width="310px" bgColor={"white"} mt="20px" ml="10px" borderRadius="20px"
+                        <Box bgColor={"white"} mt="20px" borderRadius="20px"
                             boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
                         >
                             <Flex flexDirection={"row"}>
@@ -43,7 +43,7 @@ function Chat() {
                     </ListItem>
 
                     <ListItem onClick={() => handleChatClick('chat2')}>
-                        <Box h="70px" width="310px" bgColor={"white"} mt="20px" ml="10px" borderRadius="20px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)">
+                        <Box bgColor={"white"} mt="20px" borderRadius="20px" boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)">
                             <Flex flexDirection={"row"}>
                                 <Text fontWeight="500" fontSize={"16px"} ml="20px" mt="10px" color={"gray.700"} >Продавец Buyers</Text>
                                 <Text fontWeight="500" fontSize={"13px"} ml="90px" mt="10px" color={"gray.700"} >14:38</Text>

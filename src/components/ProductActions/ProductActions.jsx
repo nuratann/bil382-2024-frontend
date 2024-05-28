@@ -11,13 +11,21 @@ import {
 import { FaMinus, FaPlus, FaShoppingBasket, FaHeart, FaRegHeart, FaRegPlayCircle } from 'react-icons/fa';
 import DeliveryInfo from './DeliveryInfo';
 import FAQLinks from './FAQLinks'
+import { dateFormat } from '../../helpers/dateFormat';
+import useFavoritesStore from '../../stores/useFavoritesStore';
+import useCartStore from '../../stores/useCartStore';
 
 const ProductActions = (props) => {
+    const today = new Date();
+    const favoritesStore = useFavoritesStore(state=>state)
+    const cartStore = useCartStore(state=>state)
     const navigate = useNavigate();
-    const [isFavorited, setIsFavorited] = useState(false);
+    const [isFavorited, setIsFavorited] = useState(props.favorite);
     const handleAddToFavorites = () => {
         // Здесь может быть код для добавления в избранное
         setIsFavorited(!isFavorited);
+        if(setIsFavorited)favoritesStore.addFavorite(props.id)
+        else favoritesStore.removeFavorite(props.id)
     };
     
     // Обработчики событий будут добавлены позже
@@ -28,11 +36,14 @@ const ProductActions = (props) => {
 
     const handleAddToCart = () => {
         setInCart(true);
-        setQuantity(1); // Устанавливаем количество в 1 при добавлении в корзину
+        setQuantity(1); 
+        cartStore.addToCart({"id":props.id,"quantity":quantity})
+        // Устанавливаем количество в 1 при добавлении в корзину
     };    
     
     const increaseQuantity = () => {
         setQuantity((prev) => prev + 1);
+        cartStore.increaseQuantity(props.id)
     };
     
     const decreaseQuantity = () => {
@@ -41,6 +52,7 @@ const ProductActions = (props) => {
             return prev - 1;
           } else {
             setInCart(false);
+            cartStore.removeFromCart(props.id)
             return 0; // Это заставит компонент перерисоваться без элементов управления количеством
           }
         });
@@ -114,7 +126,7 @@ const ProductActions = (props) => {
                         }}
                     />
                 </Flex>
-                <Text m={"0 auto"} fontSize={"small"}>Доставка 18 апреля</Text>
+                <Text m={"0 auto"} fontSize={"small"}>Доставка {dateFormat(new Date(today+1000*60*60*24*props.delivery))}</Text>
             </Flex>
                 <Button
                     size="md"

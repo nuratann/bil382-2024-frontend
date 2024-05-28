@@ -5,9 +5,14 @@ import RecommendationBlock from "../../components/RecommendationBlock/Recommenda
 import { ListIconCustom } from './FavoritesData';
 import { ListIconCustomCreated } from './FavoritesData';
 import { menuItems } from './FavoritesData';
+import ProductCard from '../ProductCard/ProductCard';
+import useFavoritesStore from '../../stores/useFavoritesStore';
+import useProductStore from '../../stores/useProductStore';
 
 
 function ListInsideTovar({ bgColor }) {
+    const favorites = useFavoritesStore((state)=>state.favorites)
+    const getProductById = useProductStore((state)=>state.getProductById)
     const { isOpen: isMainModalOpen, onOpen: onMainModalOpen, onClose: onMainModalClose } = useDisclosure();
     const [buttons, setButtons] = useState([]);
     const [modalStates, setModalStates] = useState([]);
@@ -33,9 +38,9 @@ function ListInsideTovar({ bgColor }) {
     };
 
     return (
-        <Box width="1100px" ml="50px" height="max-content" mr="50px" bgColor={bgColor}>
-            <Box width="1100px" height="100vh">
-                <Text fontSize="24px" fontWeight="600">Подобрано для вас</Text>
+        <Box width="1100px" ml="50px" mr="50px" bgColor={bgColor}>
+            <Box width="1100px">
+                <Text fontSize="24px" fontWeight="600">Избранное</Text>
                 <Box>
                     <Box display="flex" flexDirection="row" alignItems="flex-start">
                         <Button onClick={onMainModalOpen} height="100px" width="100px" borderRadius="14px" borderColor="gray.400" borderWidth="1px" backgroundColor={"white"}>
@@ -114,7 +119,7 @@ function ListInsideTovar({ bgColor }) {
                     </Box>
 
 
-                    <Box borderBottomWidth={"0.01px"} borderBottomColor={"#36454F"} width="1100px" mt="50px" height='10vh' mb="30px" >
+                    <Box width="1100px" mt="50px" mb="30px" >
                         <Box display="flex">
                             <Input shadow={'xs'} type="text" value={selectedItemMenu} width="220px" backgroundColor="white" borderWidth="0.1px" borderColor={"darkgray"} _hover={{ borderColor: "brand.blue" }} />
                             <Menu>
@@ -127,14 +132,32 @@ function ListInsideTovar({ bgColor }) {
                             </Menu>
                         </Box>
                     </Box>
-                    <RecommendationBlock gridColumns={3} count={4} />
+                    <>
+
+                        {favorites && <Flex
+                            flexWrap={'wrap'}
+                            justify={'space-between'}
+                            borderBottomWidth={"0.01px"} 
+                            borderBottomColor={"#36454F"}
+                            pb={8}
+                            mb={8}
+                        >
+                            {favorites.map((productId, index) => {
+                                const product = getProductById(productId)
+                                product.isFavorite = true
+                                return(
+                                    <ProductCard
+                                    key={index}
+                                    index={index}
+                                    product={product}
+                                />
+                                )
+                            })}
+                        </Flex>}
+                    </>
+                    <RecommendationBlock />
                 </Box>
 
-            </Box>
-
-            <Box width="1100px" marginTop="80px" height="max-content" >
-                <Text fontSize="26px" fontWeight="600" p={5}>Подобрано для вас</Text>
-                <RecommendationBlock gridColumns={3} count={12} />
             </Box>
         </Box>
     );

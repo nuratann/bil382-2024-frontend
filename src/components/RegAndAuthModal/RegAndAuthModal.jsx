@@ -9,6 +9,7 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/react'
 import RegForm from './RegForm'
 import AuthForm from './AuthForm'
+import RegFormModalWrapper from './RegFormModalWrapper'
 
 const RegAndAuthModal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -39,7 +40,7 @@ const RegAndAuthModal = () => {
                             <AuthForm/>
                         </TabPanel>
                         <TabPanel>
-                            <RegForm />
+                            <RegFormModalWrapper />
                         </TabPanel>
                     </TabPanels>
                 </Tabs>

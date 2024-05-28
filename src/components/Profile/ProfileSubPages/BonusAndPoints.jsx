@@ -7,16 +7,7 @@ import { BonusIcon } from '../ProfileMainData';
 function Bonuses() {
 
     return (
-        <Box height="max-content"
-            flexDirection={"column"}
-            width="1160px"
-            bgColor="white"
-            display="flex"
-            ml="30px"
-            mt="30px"
-            mb="50px"
-            borderRadius="28px"
-            boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)">
+        <>
             <Text mt="20px" ml="40px" fontSize={"24px"} fontWeight="700">Баллы и бонусы
             </Text>
 
@@ -64,8 +55,7 @@ function Bonuses() {
                 </Tabs>
             </Box>
 
-
-        </Box>
+        </>
     )
 }
 

@@ -51,17 +51,7 @@ const SellerProfile = ({/*categories*/}) => {
   };
   return (
     
-    <Box    p={5} shadow="md" 
-            height="max-content"
-            flexDirection={"column"}
-            width="1160px"
-            bgColor="white"
-            display="flex"
-            ml="30px"
-            mt="30px"
-            mb="50px"
-            borderRadius="28px"
-            boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)">
+    <>
         <Heading  fontWeight="550" fontSize="20px" ml="20px" mb="20px">Информация продавца</Heading>
         <Box ml={"20px"}>
           <Text>ФИО(Укажите как на паспорте)</Text>
@@ -100,7 +90,7 @@ const SellerProfile = ({/*categories*/}) => {
           </Flex>  
         </Box>
 
-    </Box>
+    </>
   );
 };
 

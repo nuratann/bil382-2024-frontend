@@ -27,7 +27,8 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar" style={{ gap: '1px', display: 'flex', marginLeft: "90px", padding: '0px' }}>
+        <Flex w={'100%'} justifyContent={'center'}>
+        <Flex w={'90%'} justify={'space-between'}>
             {Object.keys(navs).map((key, index) => (
                 <Flex key={index} gap="0px" m='0px' padding={'0px'} alignItems={'stretch'}>
                     <Link  href={routes[index]} >
@@ -48,7 +49,8 @@ const Navbar = () => {
                     </Link>
                 </Flex>
             ))}
-        </div>
+        </Flex>
+        </Flex>
     );
 }
 export default Navbar;

@@ -1,6 +1,7 @@
 {
     "headerlist": {
-        "list1": "",
+        "list0":"SignIn",
+        "list1": "EN",
         "list2": "Order",
         "list3": "Favorite",
         "list4": "Basket"

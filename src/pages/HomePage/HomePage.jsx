@@ -20,7 +20,7 @@ function HomePage() {
             {/* <DiscountBlock/>
       <TopCategoryBlock/> */}
             <Flex my={8} justify={'center'} w={'100%'} >
-                <Flex w={'80%'}>
+                <Flex w={'90%'}>
                     <RecommendationBlock gridColumns={5} count={50} />
                 </Flex>
             </Flex>

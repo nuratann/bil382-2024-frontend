@@ -7,6 +7,11 @@ const useFavoritesStore = create()(
         persist(
             (set, get) => ({
                 favorites: [],
+                addFavorite: (productId) => set(() => ({ favorites: [...get().favorites,productId] })),
+                removeFavorite: (productId) => {
+                    const updatedFavorites = get().favorites.filter((id) => id !== productId);
+                    set(() => ({ favorites: updatedFavorites }));
+                  },
             }),
             {
                 name: 'favoritesStore'

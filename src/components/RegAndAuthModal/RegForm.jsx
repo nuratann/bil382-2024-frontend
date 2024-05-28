@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -16,7 +17,7 @@ import {
     Flex,
     FormErrorMessage,
     FormLabel,
-    Select
+    Select, Box
 } from '@chakra-ui/react';
 import {
     ModalHeader,
@@ -25,31 +26,37 @@ import {
 } from '@chakra-ui/react'
 import OAuthBlock from './OAuthBlock';
 import useUserStore from '../../stores/useUserStore';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import AnimatedCheckMark from '../AnimatedCheckMark/AnimatedCheckMark';
 
-const RegForm = () => {
+const RegForm = ({ type }) => {
 
     const GenderEnum = {
-        MALE: "male",
-        FEMALE: "female"
+        MALE: "Мужчина",
+        FEMALE: "Женщина",
+        UNDEFINED: 'Вертолет "Апач"',
     };
 
-    const signUp = useUserStore((state) => state.signUp)
-    const state = useUserStore.getState();
-    console.log(state)
+    const userState = useUserStore(state => state)
+    const user = userState.user
+    const [isAuth, setIsAuth] = useState(false)
     const [show, setShow] = React.useState(false);
     const handleClick = () => setShow(!show);
-
+    const p = type === 'update' ? 'code_update' : ''
     const initialValues = {
-        firstName: '',
-        lastName: '',
-        username: '',
-        birthDate: '',
-        email: '',
-        phone: '',
+        id: user.id,
+        avatarImg: user.avatarImg,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        username: user.username,
+        birthDate: user.birthDate,
+        email: user.email,
+        phone: user.phone,
+        gender: user.gender,
         password: '',
-        confirmPassword: '',
+        confirmPassword: p,
     };
-
 
 
     const validationSchema = Yup.object().shape({
@@ -65,22 +72,39 @@ const RegForm = () => {
         phone: Yup.string().required('phone is required'),
         password: Yup.string().required('Password is required'),
         confirmPassword: Yup.string()
-            .oneOf([Yup.ref('password'), null], 'Passwords must match')
+            .oneOf([Yup.ref('password'), null, 'code_update'], 'Passwords must match')
             .required('Confirm Password is required'),
     });
 
     const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
-        const response = await signUp(values)
-        if (response === 'email') {
-            setFieldError('email', 'Этот email уже занят');
-        }
-        else if (response === 'username') {
-            setFieldError('username', 'Этот логин уже занят');
-        }
-        else {
-            console.log(state)
-        }
-        setSubmitting(false);
+
+        // const response = await signUp(values)
+        // if(response==='email'){
+        //     setFieldError('email', 'Этот email уже занят');
+        // }
+        // else if(response==='username'){
+        //     setFieldError('username', 'Этот логин уже занят');
+        // }
+        // else{
+        //     console.log(state)
+        // }
+        // setSubmitting(false);
+        userState.signUp(values, type)
+            .then((user) => {
+                // Если аутентификация прошла успешно
+                setIsAuth(true)
+                setTimeout(() => {
+                    userState.updateUser(user);
+                }, 1500);
+
+                setSubmitting(false);
+            })
+            .catch(error => {
+                // Если произошла ошибка во время аутентификации
+                console.error('Authentication error:', error);
+                toast.error('Ошибка!');
+                setSubmitting(false);
+            });
     };
 
     const styles = {
@@ -92,9 +116,15 @@ const RegForm = () => {
 
     return (
         <>
-            <ModalHeader>Регистрация</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody >
+            {isAuth ?
+                <>
+                    <Flex justify={'center'} align={'center'}>
+                        <Box boxSize={24}>
+                            <AnimatedCheckMark type='success' />
+                        </Box>
+                    </Flex>
+                </>
+                :
                 <Formik
                     initialValues={initialValues}
                     onSubmit={handleSubmit}
@@ -103,7 +133,7 @@ const RegForm = () => {
                     {({ isSubmitting }) => (
                         <Form>
                             <VStack spacing={4}>
-                                <HStack spacing={2}>
+                                <HStack spacing={2} w={'100%'}>
                                     <Field name="firstName">
                                         {({ field }) => (
                                             <FormControl isInvalid={!!field.error}>
@@ -174,6 +204,8 @@ const RegForm = () => {
                                     )}
                                 </Field>
 
+
+
                                 <Field name="password">
                                     {({ field }) => (
                                         <FormControl isInvalid={!!field.error}>
@@ -195,34 +227,40 @@ const RegForm = () => {
                                         </FormControl>
                                     )}
                                 </Field>
+                                {type === 'register' &&
+                                    <>
+                                        <Field name="confirmPassword">
+                                            {({ field }) => (
+                                                <FormControl isInvalid={!!field.error}>
+                                                    <InputGroup size="md">
+                                                        <Input
+                                                            {...field}
+                                                            pr="4.5rem"
+                                                            type={show ? 'text' : 'password'}
+                                                            placeholder="Подтвердите пароль"
+                                                            sx={styles.input}
+                                                        />
+                                                        <InputRightElement width="4.5rem">
+                                                            <Button h="1.75rem" size="sm" onClick={handleClick}>
+                                                                {show ? 'Hide' : 'Show'}
+                                                            </Button>
+                                                        </InputRightElement>
+                                                    </InputGroup>
+                                                    <ErrorMessage name="confirmPassword" component={FormHelperText} color="red" />
+                                                </FormControl>
+                                            )}
+                                        </Field>
+                                    </>}
 
-                                <Field name="confirmPassword">
-                                    {({ field }) => (
-                                        <FormControl isInvalid={!!field.error}>
-                                            <InputGroup size="md">
-                                                <Input
-                                                    {...field}
-                                                    pr="4.5rem"
-                                                    type={show ? 'text' : 'password'}
-                                                    placeholder="Подтвердите пароль"
-                                                    sx={styles.input}
-                                                />
-                                                <InputRightElement width="4.5rem">
-                                                    <Button h="1.75rem" size="sm" onClick={handleClick}>
-                                                        {show ? 'Hide' : 'Show'}
-                                                    </Button>
-                                                </InputRightElement>
-                                            </InputGroup>
-                                            <ErrorMessage name="confirmPassword" component={FormHelperText} color="red" />
-                                        </FormControl>
-                                    )}
-                                </Field>
-
-                                <Text fontSize={11} my={2} fontFamily={'"Tilt Neon", sans-serif;'}>
-                                    By selecting Create personal account, you agree to our{' '}
-                                    <Link color="brand.blue">User Agreement</Link> and acknowledge reading our{' '}
-                                    <Link color="brand.blue">User Privacy Notice</Link>.
-                                </Text>
+                                {type !== 'update' ?
+                                    <Text fontSize={11} my={2} fontFamily={'"Tilt Neon", sans-serif;'}>
+                                        By selecting Create personal account, you agree to our{' '}
+                                        <Link color="brand.blue">User Agreement</Link> and acknowledge reading our{' '}
+                                        <Link color="brand.blue">User Privacy Notice</Link>.
+                                    </Text>
+                                    :
+                                    <></>
+                                }
 
                                 <Flex justify="center" w="100%" pt={2}>
                                     <Button
@@ -233,15 +271,15 @@ const RegForm = () => {
                                         rounded="2xl"
                                         w="70%"
                                     >
-                                        {isSubmitting ? 'Создание...' : 'Создать учетную запись'}
+                                        {isSubmitting ? 'Загрузка...' : type === 'update' ? 'Сохранить' : 'Создать учетную запись'}
                                     </Button>
                                 </Flex>
                             </VStack>
                         </Form>
                     )}
                 </Formik>
-            </ModalBody>
-            <OAuthBlock />
+            }
+            <ToastContainer />
         </>
     );
 };

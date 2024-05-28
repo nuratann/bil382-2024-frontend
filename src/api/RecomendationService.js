@@ -12,7 +12,7 @@ class RecomendationService{
             return products;
         } catch (error) {            
             console.error('Error:', error);
-            console.log('use mock data')
+            console.log('use mock data(get recommendations)')
             return recomendations;
         }
     }
