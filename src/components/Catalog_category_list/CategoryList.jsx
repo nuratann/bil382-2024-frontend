@@ -7,7 +7,6 @@ function CategoryList({ href, icon, children, onClick }) {
                 <Link
                     href={href}
                     onClick={onClick}
-                    // textStyle="Ro"
                     textDecoration="none"
                     lineHeight="20px"
                     fontSize="16px"
@@ -18,6 +17,7 @@ function CategoryList({ href, icon, children, onClick }) {
                     alignItems="center"
                     gap="8"
                     p="5px 8px"
+                    mr="10px"
                     borderRadius="18px"
                     _hover={{
                         textDecoration: "none",

@@ -1,6 +1,7 @@
 [
     {
         "name": "Электроника",
+        "iconKey": "Electronics",
         "items": [
             {
                 "subcategories": [
@@ -298,6 +299,7 @@
     },
     {
         "name": "Одежда",
+        "iconKey": "Clothing",
         "items": [
             {
                 "subcategories": [
@@ -595,6 +597,7 @@
     },
     {
         "name": "Дом и сад",
+        "iconKey": "homeAndGarden",
         "items": [
             {
                 "subcategories": [
@@ -682,6 +685,7 @@
     },
     {
         "name": "Детские товары",
+        "iconKey": "baby",
         "items": [
             {
                 "subcategories": [
@@ -769,6 +773,7 @@
     },
     {
         "name": "Красота и здоровье",
+        "iconKey": "HealthBeauty",
         "items": [
             {
                 "subcategories": [
@@ -856,6 +861,7 @@
     },
     {
         "name": "Бытовая техника",
+        "iconKey": "BytovayaTech",
         "items": [
             {
                 "subcategories": [
@@ -943,6 +949,7 @@
     },
     {
         "name": "Спорт и отдых",
+        "iconKey": "Sport",
         "items": [
             {
                 "subcategories": [
@@ -1030,10 +1037,12 @@
     },
     {
         "name": "Строительство и ремонт",
+        "iconKey": "Remont",
         "items": [
             {
                 "subcategories": [
                     {
+                        "iconKey": "Remont",
                         "name": "Televisions",
                         "links": [
                             {
@@ -1117,6 +1126,7 @@
     },
     {
         "name": "Продукты и питания",
+        "iconKey": "Food",
         "items": [
             {
                 "subcategories": [
@@ -1204,6 +1214,7 @@
     },
     {
         "name": "Аптека",
+        "iconKey": "Pharmacy",
         "items": [
             {
                 "subcategories": [
@@ -1291,6 +1302,7 @@
     },
     {
         "name": "Товары для животных",
+        "iconKey": "Zootovar",
         "items": [
             {
                 "subcategories": [
@@ -1378,6 +1390,7 @@
     },
     {
         "name": "Книги",
+        "iconKey": "Books",
         "items": [
             {
                 "subcategories": [
@@ -1465,6 +1478,7 @@
     },
     {
         "name": "Туризм и рыбалка",
+        "iconKey": "Tourism",
         "items": [
             {
                 "subcategories": [
@@ -1552,6 +1566,7 @@
     },
     {
         "name": "Мебель",
+        "iconKey": "Mebel",
         "items": [
             {
                 "subcategories": [
@@ -1639,6 +1654,7 @@
     },
     {
         "name": "Акцессуары",
+        "iconKey": "Accessouars",
         "items": [
             {
                 "subcategories": [
@@ -1726,6 +1742,7 @@
     },
     {
         "name": "Канцелярия",
+        "iconKey": "Shoolsupplies",
         "items": [
             {
                 "subcategories": [
@@ -1813,6 +1830,7 @@
     },
     {
         "name": "Бытовая химия и гигиена",
+        "iconKey": "Hygen",
         "items": [
             {
                 "subcategories": [
@@ -1900,6 +1918,7 @@
     },
     {
         "name": "Игры и консоли",
+        "iconKey": "GameConsole",
         "items": [
             {
                 "subcategories": [
@@ -1987,6 +2006,7 @@
     },
     {
         "name": "Автомобили",
+        "iconKey": "Auto",
         "items": [
             {
                 "subcategories": [

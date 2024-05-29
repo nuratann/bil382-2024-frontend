@@ -1,32 +1,29 @@
-import React from 'react'
-import Search from '../SearchLine/Search';
-import { Flex, Icon, Text, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
-import IconWithTitle from './IconWithTitle';
-import { BsBoxSeam, BsBasket3, BsHeart, BsEmojiSmile, BsGlobe } from "react-icons/bs";
-import Catalog from './Catalog';
-import IconTitleDropMenu from './IconTitleDropMenu';
+import React from 'react';
+import { Flex, Icon, Text, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { BsBoxSeam, BsBasket3, BsHeart, BsEmojiSmile, BsGlobe, BsTranslate } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useCartStore from '../../stores/useCartStore';
 import useFavoritesStore from '../../stores/useFavoritesStore';
-
-
-
-
-
+import Search from '../SearchLine/Search';
+import IconWithTitle from './IconWithTitle';
+import Catalog from './Catalog';
+import IconTitleDropMenu from './IconTitleDropMenu';
 
 function Header() {
-    const cart = useCartStore(state=>state.cart)
-    const favorites = useFavoritesStore(state=>state.favorites)
+    const cart = useCartStore(state => state.cart);
+    const favorites = useFavoritesStore(state => state.favorites);
     const { t, i18n } = useTranslation();
+
     const changeLanguage = (language) => {
         i18n.changeLanguage(language);
-        localStorage.setItem('nextlocal', language)
-    }
+        localStorage.setItem('nextlocal', language);
+    };
+
     return (
-        <Flex 
-            justifyContent={'center'} 
-            w={'100%'} 
+        <Flex
+            justifyContent={'center'}
+            w={'100%'}
             bg={'white'}
         >
             <Flex px={4} alignItems={'center'} w={'90%'}>
@@ -35,8 +32,9 @@ function Header() {
                 </Link>
                 <Catalog />
                 <Search />
+
                 <Flex alignItems="center">
-                    <IconTitleDropMenu icon={BsEmojiSmile} text={t("headerlist.list0")}/>
+                    <IconTitleDropMenu icon={BsEmojiSmile} text={t("headerlist.list0")} />
                     <Link to='/profile?init=Мои заказы'>
                         <IconWithTitle icon={BsBoxSeam} text={t("headerlist.list2")} index={1} />
                     </Link>
@@ -47,23 +45,22 @@ function Header() {
                         <IconWithTitle icon={BsBasket3} text={t("headerlist.list4")} notifications={cart.length} />
                     </Link>
 
-
                     <Menu placement="bottom">
                         <MenuButton as={Flex} alignItems="center" ml={4} mt="5px" _hover={{ color: "brand.blue" }}>
-                            <IconWithTitle icon={BsGlobe} text={t("headerlist.list1")} index={1} />
+                            <Icon as={BsTranslate} w={6} h={6} color="gray.400" style={{ opacity: 1 }} />
                         </MenuButton>
-
                         <MenuList>
                             <MenuItem onClick={() => changeLanguage("ru")}>Русский</MenuItem>
                             <MenuItem onClick={() => changeLanguage("kg")}>Кыргызча</MenuItem>
                             <MenuItem onClick={() => changeLanguage("en")}>English</MenuItem>
-
                         </MenuList>
                     </Menu>
+
+
                 </Flex>
             </Flex>
         </Flex>
     );
 }
 
-export default Header
+export default Header;
