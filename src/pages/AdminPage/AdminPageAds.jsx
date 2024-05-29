@@ -1,12 +1,10 @@
 import AdminPageNavbar from "../../components/AdminPageComponents/AdminPageNavbar";
 
-function AdminPageCatalog() {
+function AdminPageAds(){
     return(
         <>
-            <AdminPageNavbar />
-            
         </>
     );
 }
 
-export default AdminPageCatalog;
+export default AdminPageAds;
