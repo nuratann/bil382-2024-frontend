@@ -24,6 +24,7 @@ import PaymentPage from './pages/PaymentPage/PaymentPage.jsx';
 import AdminPage from './pages/AdminPage/AdminPage.jsx';
 import AdminPageUsers from './pages/AdminPage/AdminPageUsers.jsx';
 import AdminPageCatalog from './pages/AdminPage/AdminPageCatalog.jsx';
+import AdminPageSettings from './pages/AdminPage/AdminPageSettings.jsx';
 
 const stripePromise = loadStripe('pk_test_51PJeSX08MXO6we99KRwkspzVIUmINvrHaVYHTxivEOzdqHxC1CNZrPKImHi4iUfbYFwEfVGQ91FOd7SMBSssnlKZ00Q0mVeAFH');
 
@@ -56,7 +57,7 @@ function App() {
                     <Route path='/admin/orders' element={<AdminPageCatalog />} />
                     <Route path='/admin/returns' element={<AdminPageCatalog />} />
                     <Route path='/admin/comments' element={<AdminPageCatalog />} />
-                    <Route path='/admin/settings' element={<AdminPageCatalog />} />
+                    <Route path='/admin/settings' element={<AdminPageSettings />} />
                 </Routes>
             </BrowserRouter>
         </ChakraProvider>

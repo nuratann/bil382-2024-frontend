@@ -31,6 +31,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 const Catalog = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure()
