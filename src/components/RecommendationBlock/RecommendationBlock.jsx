@@ -6,9 +6,9 @@ import useProductStore from "../../stores/useProductStore";
 import useFavoritesStore from "../../stores/useFavoritesStore";
 
 function RecommendationBlock(props) {
-    useEffect(() => {
-        useProductStore.getState().fetchRecommendations()
-    },[])
+    // useEffect(() => {
+    //     useProductStore.getState().fetchRecommendations()
+    // },[])
     const {count} = props;
     const favorites = useFavoritesStore(state=>state.favorites)
     const recommendations = useProductStore(state => state.recommendations)
@@ -19,20 +19,27 @@ function RecommendationBlock(props) {
                     flexWrap={'wrap'}
                     justify={'space-between'}
                 >
-                    {recommendations.map((product, index) =>{
-                        const isFavorite = favorites.find(productId => productId === product.id)
+                    {recommendations.map((productId, index) =>{
+                        const isFavorite = favorites.find(pId => pId === productId)
                         if(isFavorite!==undefined){
-                            product.isFavorite=true
+                            return(
+                                <ProductCard
+                                key={index}
+                                index={index}
+                                productId={productId}
+                                isFavorite={true}
+                                />
+                            )
                         }else{
-                            product.isFavorite=false
+                            return(
+                                <ProductCard
+                                key={index}
+                                index={index}
+                                productId={productId}
+                                isFavorite={false}
+                                />
+                            )
                         }
-                        return(
-                            <ProductCard
-                            key={index}
-                            index={index}
-                            product={product}
-                            />
-                        )
                     })}
                 </Flex>}
         </>

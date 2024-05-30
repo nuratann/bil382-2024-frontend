@@ -11,7 +11,7 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 
 function BasketPage() {
     const cartItems = useCartStore(state=>state.cart)
-    const getProductById = useProductStore(state=>state.getProductById)
+    // const getProductById = useProductStore(state=>state.getProductById)
     const favorites = useFavoritesStore(state=>state.favorites)
     console.log(cartItems)
 
@@ -39,13 +39,12 @@ function BasketPage() {
               mb={8}
             >
               {favorites.map((productId, index) => {
-                const product = getProductById(productId)
-                product.isFavorite = true
                 return (
                   <ProductCard
                     key={index}
                     index={index}
-                    product={product}
+                    productId={productId}
+                    isFavorite={true}
                   />
                 )
               })}

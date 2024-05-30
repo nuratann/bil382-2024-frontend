@@ -12,7 +12,7 @@ import useProductStore from '../../stores/useProductStore';
 
 function ListInsideTovar({ bgColor }) {
     const favorites = useFavoritesStore((state)=>state.favorites)
-    const getProductById = useProductStore((state)=>state.getProductById)
+    // const getProductById = useProductStore((state)=>state.getProductById)
     const { isOpen: isMainModalOpen, onOpen: onMainModalOpen, onClose: onMainModalClose } = useDisclosure();
     const [buttons, setButtons] = useState([]);
     const [modalStates, setModalStates] = useState([]);
@@ -143,13 +143,14 @@ function ListInsideTovar({ bgColor }) {
                             mb={8}
                         >
                             {favorites.map((productId, index) => {
-                                const product = getProductById(productId)
-                                product.isFavorite = true
+                                // const product = getProductById(productId)
+                                // product.isFavorite = true
                                 return(
                                     <ProductCard
                                     key={index}
                                     index={index}
-                                    product={product}
+                                    productId={productId}
+                                    isFavorite={true}
                                 />
                                 )
                             })}

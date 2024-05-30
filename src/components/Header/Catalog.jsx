@@ -31,7 +31,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Catalog = () => {
+const Catalog = ({type, title, setFunc}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure()
     const toggleMenu = () => {
@@ -42,11 +42,11 @@ const Catalog = () => {
 
     return (
         <>
-            <Menu isLazy onClose={toggleMenu}>
+            <Menu isLazy onClose={toggleMenu} isOpen={isMenuOpen}>
                 <MenuButton
                     as={Button}
-                    pe={8}
-                    ms={4}
+                    pe={type==='catalog' ? 8 : 4}
+                    ms={type==='catalog' ? 4 : 0}
                     me={2}
                     height={'48px'}
                     display={'flex'}
@@ -63,10 +63,16 @@ const Catalog = () => {
                     onClick={toggleMenu}
                 >
                     <Flex align={'center'}>
-                    Каталог
-                    <Box>
-                        <Hamburger toggled={isMenuOpen} size={18} />
-                    </Box>
+                        {type === 'catalog' ?
+                            <>
+                                Каталог
+                                <Box>
+                                    <Hamburger toggled={isMenuOpen} size={18} />
+                                </Box>
+                            </>
+                            :
+                            <><Text>{title}</Text></>
+                        }
                     </Flex>
                 </MenuButton>
                 <MenuList 
@@ -74,12 +80,12 @@ const Catalog = () => {
                     position={'absolute'} 
                     top="-20px" 
                     left="-220px"
-                    w={'1380px'}
+                    w={type==='catalog' ? '1380px' : '800px'}
                 >
                     <Flex>
                     <VStack
-                        minW={'430px'}
-                        maxH={'730px'}
+                        minW={type==='catalog' ? '430px' : '300px'}
+                        maxH={type==='catalog' ? '730px' : '600px'}
                         overflow={'auto'}
                         p={2}
                         sx={{
@@ -108,11 +114,11 @@ const Catalog = () => {
                                 bg={active === key ? 'gray.200' : 'white'}
                                 fontWeight={'500'}
                                 borderRadius={'5px'}
-                                minW={'400px'}
-                                onClick={() => navigate(`/categories/${key}`)}
+                                minW={type==='catalog' ? '400px' : '270px'}
+                                onClick={() => type==='catalog' ? navigate(`/categories/${key}`) : setFunc(key)}
                             >
                                 <Flex align={'start'} justify={'center'}>
-                                    <Icon as={MdPhonelink} boxSize={6} mr={2} />
+                                    {type==='catalog' && <Icon as={MdPhonelink} boxSize={6} mr={2} />}
                                     {key}
                                 </Flex>
                             </MenuItem>
@@ -140,13 +146,44 @@ const Catalog = () => {
                             },
                           }}
                     >
-                            <Text fontSize={48}>{active}</Text>
-                            <Grid templateColumns='repeat(3, 1fr)' gap={6} mt={8}>
+                            <Text fontSize={type==='catalog' ? 42 : 24}>{active}</Text>
+                            <Grid templateColumns={type==='catalog' ? 'repeat(3, 1fr)':'repeat(2, 1fr)'} gap={6} mt={8}>
                                 {Object.keys(categories[active]).map((key) => (
                                     <GridItem w='100%' key={key}>
-                                        <ChakraLink as={Link} to={`/categories/${key}`} key={key}><Text fontWeight={'500'}>{key}</Text></ChakraLink>
+                                        <Text 
+                                            pl={3}
+                                            fontWeight={'500'} 
+                                            key={key} 
+                                            cursor={'pointer'} 
+                                            _hover={{bg: 'gray.100'}} 
+                                            borderRadius={'5px'}
+                                            onClick={() => {
+                                                if(type==='catalog'){
+                                                    navigate(`/categories/${key}`)
+                                                 }else{
+                                                    setFunc(active+" / "+key)
+                                                    toggleMenu()
+                                                 }}}
+                                        >
+                                            {key}
+                                        </Text>
                                         {categories[active][key].map((item) => (
-                                            <ChakraLink as={Link} to={`/categories/${item}`} key={item}><Text ms={2}>{item}</Text></ChakraLink>
+                                            <Text 
+                                                pl={5} 
+                                                key={item} 
+                                                cursor={'pointer'} 
+                                                _hover={{bg: 'gray.100'}} 
+                                                borderRadius={'5px'}
+                                                onClick={() => {
+                                                    if(type==='catalog'){
+                                                        navigate(`/categories/${item}`)
+                                                     }else{
+                                                        setFunc(active+" / "+key+" / "+item)
+                                                        toggleMenu()
+                                                     }}}
+                                            >
+                                                {item}
+                                            </Text>
                                         ))}
                                     </GridItem>
                                 ))}

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useCartStore from '../../stores/useCartStore';
 import useFavoritesStore from '../../stores/useFavoritesStore';
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -16,6 +17,7 @@ import useFavoritesStore from '../../stores/useFavoritesStore';
 
 
 function Header() {
+    const navigate = useNavigate()
     const cart = useCartStore(state=>state.cart)
     const favorites = useFavoritesStore(state=>state.favorites)
     const { t, i18n } = useTranslation();
@@ -33,11 +35,11 @@ function Header() {
                 <Link to='/'>
                     <Text color={'brand.blue'} fontFamily={'"Tilt Neon", sans-serif;'} fontSize={36} me={4}>Buyers</Text>
                 </Link>
-                <Catalog />
+                <Catalog type='catalog'/>
                 <Search />
                 <Flex alignItems="center">
                     <IconTitleDropMenu icon={BsEmojiSmile} text={t("headerlist.list0")}/>
-                    <Link to='/profile?init=Мои заказы'>
+                    <Link to='/profile/my-orders'>
                         <IconWithTitle icon={BsBoxSeam} text={t("headerlist.list2")} index={1} />
                     </Link>
                     <Link to='/favorites'>

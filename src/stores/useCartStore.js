@@ -24,8 +24,7 @@ const useCartStore = create()(
                     const cartItem = get().cart.find(item => item.id === productId);
                     cartItem.quantity=cartItem.quantity+1
                     const updatedCart = get().cart.filter((cartItem) => cartItem.id !== productId);
-                    updatedCart.add(cartItem)
-                    set(() => ({ cart: updatedCart}))
+                    set(() => ({ cart: [...updatedCart, cartItem]}))
                 },
             }),
             {
