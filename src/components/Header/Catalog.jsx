@@ -32,7 +32,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Catalog = () => {
+const Catalog = ({type, title, setFunc}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure()
     const toggleMenu = () => {
@@ -43,11 +43,11 @@ const Catalog = () => {
 
     return (
         <>
-            <Menu isLazy onClose={toggleMenu}>
+            <Menu isLazy onClose={toggleMenu} isOpen={isMenuOpen}>
                 <MenuButton
                     as={Button}
-                    pe={8}
-                    ms={4}
+                    pe={type==='catalog' ? 8 : 4}
+                    ms={type==='catalog' ? 4 : 0}
                     me={2}
                     height={'48px'}
                     display={'flex'}
@@ -64,10 +64,18 @@ const Catalog = () => {
                     onClick={toggleMenu}
                 >
                     <Flex align={'center'}>
-                        Каталог
-                        <Box>
-                            <Hamburger toggled={isMenuOpen} size={18} />
-                        </Box>
+
+                        {type === 'catalog' ?
+                            <>
+                                Каталог
+                                <Box>
+                                    <Hamburger toggled={isMenuOpen} size={18} />
+                                </Box>
+                            </>
+                            :
+                            <><Text>{title}</Text></>
+                        }
+
                     </Flex>
                 </MenuButton>
                 <MenuList
@@ -75,78 +83,112 @@ const Catalog = () => {
                     position={'absolute'}
                     top="-20px"
                     left="-220px"
-                    w={'1380px'}
+                    w={type==='catalog' ? '1380px' : '800px'}
                 >
                     <Flex>
-                        <VStack
-                            minW={'430px'}
-                            maxH={'730px'}
-                            overflow={'auto'}
-                            p={2}
-                            sx={{
-                                '::-webkit-scrollbar': {
-                                    width: '5px',
-                                },
-                                '::-webkit-scrollbar-track': {
-                                    background: '#f1f1f1',
-                                    borderRadius: '5px',
-                                },
-                                '::-webkit-scrollbar-thumb': {
-                                    background: '#888',
-                                    borderRadius: '5px',
-                                },
-                                '::-webkit-scrollbar-thumb:hover': {
-                                    background: '#555',
-                                },
-                            }}
-                        >
-                            {Object.keys(categories).map((key) => (
-                                <MenuItem
-                                    key={key}
-                                    onMouseEnter={() => { setActive(key) }}
-                                    color={active === key ? 'brand.blue' : 'black'}
-                                    bg={active === key ? 'gray.200' : 'white'}
-                                    fontWeight={'500'}
-                                    borderRadius={'5px'}
-                                    minW={'400px'}
-                                    onClick={() => navigate(`/categories/${key}`)}
-                                >
-                                    <Flex align={'start'} justify={'center'}>
-                                        <Icon as={MdPhonelink} boxSize={6} mr={2} />
-                                        {key}
-                                    </Flex>
-                                </MenuItem>
-                            ))}
-                        </VStack>
-                        <Box
-                            w={'100%'}
-                            mx={4}
-                            maxH={'730px'}
-                            overflow={'auto'}
-                            sx={{
-                                '::-webkit-scrollbar': {
-                                    width: '5px',
-                                },
-                                '::-webkit-scrollbar-track': {
-                                    background: '#f1f1f1',
-                                    borderRadius: '5px',
-                                },
-                                '::-webkit-scrollbar-thumb': {
-                                    background: '#777',
-                                    borderRadius: '5px',
-                                },
-                                '::-webkit-scrollbar-thumb:hover': {
-                                    background: '#555',
-                                },
-                            }}
-                        >
-                            <Text fontSize={28} fontWeight={"500"} ml="10px">{active}</Text>
-                            <Grid templateColumns='repeat(3, 1fr)' gap={6} mt={8}>
+
+                    <VStack
+                        minW={type==='catalog' ? '430px' : '300px'}
+                        maxH={type==='catalog' ? '730px' : '600px'}
+                        overflow={'auto'}
+                        p={2}
+                        sx={{
+                            '::-webkit-scrollbar': {
+                              width: '10px',
+                            },
+                            '::-webkit-scrollbar-track': {
+                              background: '#f1f1f1',
+                              borderRadius: '5px',
+                            },
+                            '::-webkit-scrollbar-thumb': {
+                              background: '#888',
+                              borderRadius: '5px',
+                            },
+                            '::-webkit-scrollbar-thumb:hover': {
+                              background: '#555',
+                            },
+                          }}
+                    >
+                        <Text>Основные категории</Text>
+                        {Object.keys(categories).map((key) => (
+                            <MenuItem 
+                                key={key} 
+                                onMouseEnter={() => {setActive(key)}}
+                                color={active === key ? 'brand.blue' : 'black'}
+                                bg={active === key ? 'gray.200' : 'white'}
+                                fontWeight={'500'}
+                                borderRadius={'5px'}
+                                minW={type==='catalog' ? '400px' : '270px'}
+                                onClick={() => type==='catalog' ? navigate(`/categories/${key}`) : setFunc(key)}
+                            >
+                                <Flex align={'start'} justify={'center'}>
+                                    {type==='catalog' && <Icon as={MdPhonelink} boxSize={6} mr={2} />}
+                                    {key}
+                                </Flex>
+                            </MenuItem>
+                        ))}
+                    </VStack>
+                    <Box 
+                        w={'100%'} 
+                        mx={4} 
+                        maxH={'730px'} 
+                        overflow={'auto'}
+                        sx={{
+                            '::-webkit-scrollbar': {
+                              width: '10px',
+                            },
+                            '::-webkit-scrollbar-track': {
+                              background: '#f1f1f1',
+                              borderRadius: '5px',
+                            },
+                            '::-webkit-scrollbar-thumb': {
+                              background: '#888',
+                              borderRadius: '5px',
+                            },
+                            '::-webkit-scrollbar-thumb:hover': {
+                              background: '#555',
+                            },
+                          }}
+                    >
+                            <Text fontSize={type==='catalog' ? 42 : 24}>{active}</Text>
+                            <Grid templateColumns={type==='catalog' ? 'repeat(3, 1fr)':'repeat(2, 1fr)'} gap={6} mt={8}>
                                 {Object.keys(categories[active]).map((key) => (
                                     <GridItem w='100%' key={key}>
-                                        <ChakraLink textDecoration={"none"} as={Link} to={`/categories/${key}`} key={key}><Text fontWeight={'600'} ml="10px">{key}</Text></ChakraLink>
+                                        <Text 
+                                            pl={3}
+                                            fontWeight={'500'} 
+                                            key={key} 
+                                            cursor={'pointer'} 
+                                            _hover={{bg: 'gray.100'}} 
+                                            borderRadius={'5px'}
+                                            onClick={() => {
+                                                if(type==='catalog'){
+                                                    navigate(`/categories/${key}`)
+                                                 }else{
+                                                    setFunc(active+" / "+key)
+                                                    toggleMenu()
+                                                 }}}
+                                        >
+                                            {key}
+                                        </Text>
+
                                         {categories[active][key].map((item) => (
-                                            <ChakraLink as={Link} to={`/categories/${item}`} key={item}><Text ms={2}>{item}</Text></ChakraLink>
+                                            <Text 
+                                                pl={5} 
+                                                key={item} 
+                                                cursor={'pointer'} 
+                                                _hover={{bg: 'gray.100'}} 
+                                                borderRadius={'5px'}
+                                                onClick={() => {
+                                                    if(type==='catalog'){
+                                                        navigate(`/categories/${item}`)
+                                                     }else{
+                                                        setFunc(active+" / "+key+" / "+item)
+                                                        toggleMenu()
+                                                     }}}
+                                            >
+                                                {item}
+                                            </Text>
                                         ))}
                                     </GridItem>
                                 ))}

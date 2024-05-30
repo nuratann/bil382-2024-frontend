@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Flex, Box, Heading, Container} from '@chakra-ui/react'
@@ -16,47 +17,71 @@ import ProductCommentTabs from '../../components/ProductCommentTabs/ProductComme
 import Footer from '../../components/Footer/Footer'
 import useProductStore from '../../stores/useProductStore';
 import ProductOptions from '../../components/ProductInfo/ProductOptions';
+import { recomendations } from '../../api/MockData/recommendations';
+import  ProductService  from '../../api/ProductService';
 
 
 function ProductPage(){
-  useEffect(() => {
-    window.scrollTo(0, 0); // Прокручиваем вверх страницы при монтировании компонента
-  }, []);
+  const [product, setProduct] = useState(null);
   const { productId } = useParams();
-  const product = useProductStore((state)=>state.getProductById(productId))
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        
+        const productData = await ProductService.getProduct(productId);
+        setProduct({
+          ...productData, 
+          options: JSON.parse(productData.options), 
+          specs: JSON.parse(productData.specs), 
+          mediaLinks: JSON.parse(productData.mediaLinks)});
+        console.log(product)
+      } catch (error) {
+        console.error('Failed to fetch product', error);
+      }
+    }
+    window.scrollTo(0, 0); // Прокручиваем вверх страницы при монтировании компонента
+    fetchProduct()
+  }, []);
+  
     const productPageBreadcrumbItems = [
         { text: 'Главная', href: '/' },
         { text: 'Категории', href: '/categories' },
-        { text: product.category.name, href: '/categories' }
+        { text: 'Подкатегория', href: '/categories' }
       ];
-      const imageUrls = JSON.parse(product.mediaLinks)
 
-    return(
+  return (
+    <>
+      {product === null ?
+        <p>Loading...</p>
+        :
+
         <>
-            <Header />
-            <Navbar />
-            <Breadcrumb items={productPageBreadcrumbItems} />
-            <ProductHeader rating={product.rating} title={product.title} videoCount={0} reviewCount={product.reviews.length} questionCount={0}/>
-            <Flex w={"90%"} m={"0 auto"}>
-                <ProductGallery images={imageUrls} />
-                <Flex flexDirection={'column'}>
-                  <ProductOptions options={product.options}/>
-                  <ProductInfo specs={product.specs}/>
-                </Flex>
-                <ProductActions id={product.id} price={product.price} delivery={product.deliveryDays} favorite={product.isFavorite}/>
+        {console.log(product)}
+          <Header />
+          <Navbar />
+          <Breadcrumb items={productPageBreadcrumbItems} />
+          <ProductHeader rating={product.rating} title={product.title} videoCount={0} reviewCount={product.reviews.length} questionCount={0} />
+          <Flex w={"90%"} m={"0 auto"}>
+            <ProductGallery images={product.mediaLinks} />
+            <Flex flexDirection={'column'}>
+              <ProductOptions options={product.options} />
+              <ProductInfo specs={product.specs} />
             </Flex>
-            <Container maxWidth="90vw">
-                <StoreInfoBlock sellerId={product.sellerId} rating={product.rating}/>
-                <Heading fontSize={"2xl"}>Похожие товары</Heading>
-                <RecommendationBlock gridColumns={5} count={50} />
-                <ProductDescriptionBlock 
-                  description={product.description}
-                  characteristicsString={product.specs}/>
-                <ProductCommentTabs reviews={product.reviews} questionsCount={0}/>
-            </Container>  
-            <Footer/>  
-        </>
-    )
+            <ProductActions id={product.id} price={product.price} delivery={product.deliveryDays} favorite={product.isFavorite} />
+          </Flex>
+          <Container maxWidth="90vw">
+            <StoreInfoBlock sellerId={product.sellerId} rating={product.rating} />
+            <Heading fontSize={"2xl"}>Похожие товары</Heading>
+            <RecommendationBlock gridColumns={5} count={50} />
+            <ProductDescriptionBlock
+              description={product.description}
+              specs={product.specs} />
+            <ProductCommentTabs reviews={product.reviews} questionsCount={0} />
+          </Container>
+          <Footer />
+        </>}
+    </>
+  )
 }
 
 export default ProductPage;

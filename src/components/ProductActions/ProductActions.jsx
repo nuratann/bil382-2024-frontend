@@ -37,7 +37,7 @@ const ProductActions = (props) => {
     const handleAddToCart = () => {
         setInCart(true);
         setQuantity(1); 
-        cartStore.addToCart({"id":props.id,"quantity":quantity})
+        cartStore.addToCart({"id":props.id,"quantity":1})
         // Устанавливаем количество в 1 при добавлении в корзину
     };    
     

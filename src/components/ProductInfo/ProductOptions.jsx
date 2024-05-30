@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text, Flex, Link, Button } from '@chakra-ui/react';
 
 const ProductOptions = (props) => {
-  const options = JSON.parse(props.options)
+  const {options} = props
   console.log(options)
   return (
     <Box fontSize={"14px"} width="400px"  p={5}>
@@ -11,11 +11,11 @@ const ProductOptions = (props) => {
         {options.map((option,index) => (
         <Flex justify="space-start" key={index}>
           <Text w={"200px"} color="gray.400">{option.title}:</Text>
-          <Flex>
+          {/* <Flex>
             {option.value.map((option,index)=>{
                 return <Button key={index} ms={1} fontSize={11}>{option.title}</Button>
             })}
-          </Flex>
+          </Flex> */}
 
           {/* <Text w={"200px"} fontWeight="medium" >{option.value}</Text> */}
         </Flex>

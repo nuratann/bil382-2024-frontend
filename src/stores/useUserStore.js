@@ -53,7 +53,6 @@ const useUserStore = create()(
                     try{
                         if(type==='register'){
                             const authData = await AuthService.signUp(user);
-                            console.log('AUthData', authData)
                             await UserService.createUser(user, authData.access_token)
                             return {...user,authData,isAuth:true,notifications:initialUserState.notifications}
                         }else{

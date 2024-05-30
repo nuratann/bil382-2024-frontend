@@ -8,8 +8,13 @@ import { PiCrownSimpleFill } from "react-icons/pi";
 import useSellersStore from '../../stores/useSellersStore';
 
 const StoreInfoBlock = (props) => {
-  const getSellerById = useSellersStore(state=>state.getSellerById)
-  const seller = getSellerById(props.sellerId)
+  // const getSellerById = useSellersStore(state=>state.getSellerById)
+  // const seller = getSellerById(props.sellerId)
+  const seller = {
+    "id":"1d2e3f4g-5h6i-7j8k-9l0m",
+    "businessName":"Almurut",
+    "rating":4.7
+}
   return (
     
     <Grid templateColumns="repeat(3, 1fr)" gap={6} p={4} border={"1px"} borderColor={"gray.200"}  borderRadius="md" w={"800px"} h={"125px"}  mb={"20px"}>
