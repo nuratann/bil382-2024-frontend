@@ -1,5 +1,6 @@
 import {Tabs, TabList, Tab, TabPanels, TabPanel, Text } from "@chakra-ui/react";
 import UsersListPanel from "./UsersListPanel";
+import RoleChangeRequests from "./RoleChangeRequests";
 
 function AdminUsersTabs(){
     return(
@@ -13,8 +14,7 @@ function AdminUsersTabs(){
                 <UsersListPanel/>
             </TabPanel>
             <TabPanel>
-                <Text>Здесь будет список запросов на смену роли пользователей.</Text>
-                {/* Компоненты для обработки запросов на смену роли */}
+                <RoleChangeRequests/>
             </TabPanel>
             </TabPanels>
         </Tabs>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Select, Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
+import { Box, Select, Table, Thead, Tbody, Tr, Th, Td, Icon } from '@chakra-ui/react';
+import { TriangleUpIcon, TriangleDownIcon } from '@chakra-ui/icons';
 import UserRoleSelector from './UserRoleSelector';
 
 const UserListPanel = () => {
@@ -42,6 +43,8 @@ const UserListPanel = () => {
     let direction = 'ascending';
     if (sortConfig.key === key && sortConfig.direction === 'ascending') {
       direction = 'descending';
+    } else {
+      direction = 'ascending';
     }
     setSortConfig({ key, direction });
   };
@@ -68,10 +71,18 @@ const UserListPanel = () => {
       <Table variant="simple" mt={6}>
         <Thead>
           <Tr>
-            <Th onClick={() => handleSort('name')} style={activeHeaderStyle('name')}>Имя и фамилия</Th>
-            <Th onClick={() => handleSort('username')} style={activeHeaderStyle('username')}>Логин</Th>
-            <Th onClick={() => handleSort('role')} style={activeHeaderStyle('role')}>Роль</Th>
-            <Th onClick={() => handleSort('dateRegistered')} style={activeHeaderStyle('dateRegistered')}>Дата регистрации</Th>
+            <Th onClick={() => handleSort('name')} style={activeHeaderStyle('name')}>
+              Имя и фамилия {sortConfig.key === 'name' && (sortConfig.direction === 'ascending' ? <TriangleUpIcon /> : <TriangleDownIcon />)}
+            </Th>
+            <Th onClick={() => handleSort('username')} style={activeHeaderStyle('username')}>
+              Логин {sortConfig.key === 'username' && (sortConfig.direction === 'ascending' ? <TriangleUpIcon /> : <TriangleDownIcon />)}
+            </Th>
+            <Th onClick={() => handleSort('role')} style={activeHeaderStyle('role')}>
+              Роль {sortConfig.key === 'role' && (sortConfig.direction === 'ascending' ? <TriangleUpIcon /> : <TriangleDownIcon />)}
+            </Th>
+            <Th onClick={() => handleSort('dateRegistered')} style={activeHeaderStyle('dateRegistered')}>
+              Дата регистрации {sortConfig.key === 'dateRegistered' && (sortConfig.direction === 'ascending' ? <TriangleUpIcon /> : <TriangleDownIcon />)}
+            </Th>
           </Tr>
         </Thead>
         <Tbody>
