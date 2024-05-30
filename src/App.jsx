@@ -20,9 +20,14 @@ import CategoryPage from './pages/CategoryPage/CategoryPage.jsx';
 import TestPage from './TestPage.jsx'
 import { loadStripe } from '@stripe/stripe-js';
 import PaymentPage from './pages/PaymentPage/PaymentPage.jsx';
-import ProductCardForSeller from './components/ProductCard/ProductCardForSeller.jsx';
-import AddProduct from './components/Profile/Seller/AddProduct.jsx';
-import ProfileMainSub from './components/Profile/ProfileSubPages/ProfileMainSub.jsx';
+
+import AdminPage from './pages/AdminPage/AdminPage.jsx';
+import AdminPageUsers from './pages/AdminPage/AdminPageUsers.jsx';
+import AdminPageCatalog from './pages/AdminPage/AdminPageCatalog.jsx';
+import AdminPageSettings from './pages/AdminPage/AdminPageSettings.jsx';
+import AdminPageComments from './pages/AdminPage/AdminPageComments.jsx';
+import AdminPageProductView from './pages/AdminPage/AdminPageProductView.jsx';
+import AdminPageAds from './pages/AdminPage/AdminPageAds.jsx';
 
 const stripePromise = loadStripe('pk_test_51PJeSX08MXO6we99KRwkspzVIUmINvrHaVYHTxivEOzdqHxC1CNZrPKImHi4iUfbYFwEfVGQ91FOd7SMBSssnlKZ00Q0mVeAFH');
 
@@ -43,12 +48,21 @@ function App() {
 
                     <Route path='/search' element={<SearchPage />} />
                     <Route path='/favorites' element={<Favorites />} />
-                    <Route path='/profile/*' element={<ProfilePg />} />
+                    <Route path='/profile' element={<ProfilePg />} />
                     <Route path='/add_card' element={<AddCardPage />} />
                     <Route path='/categories/:name' element={<CategoryPage />} />
                     <Route path='/test' element={<TestPage />} />
-                    <Route path='/checkout' element={<PaymentPage/>} />
+                    <Route path='/checkout' element={<PaymentPage />} />
 
+                    <Route path='/admin' element={<AdminPage />} />
+                    <Route path='/admin/users' element={<AdminPageUsers />} />
+                    <Route path='/admin/catalog' element={<AdminPageCatalog />} />
+                    <Route path='/admin/orders' element={<AdminPageCatalog />} />
+                    <Route path='/admin/returns' element={<AdminPageCatalog />} />
+                    <Route path='/admin/comments' element={<AdminPageComments />} />
+                    <Route path='/admin/product/:id' element={< AdminPageProductView />} />
+                    <Route path='/admin/settings' element={<AdminPageSettings />} />
+                    <Route path='/admin/ads' element={<AdminPageAds />} />
 
                 </Routes>
             </BrowserRouter>

@@ -31,6 +31,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 const Catalog = ({type, title, setFunc}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -55,7 +56,7 @@ const Catalog = ({type, title, setFunc}) => {
                         bg: '#458af7',
                         transform: 'scale(0.97)',
                         borderColor: '#bec3c9',
-                      }}
+                    }}
                     alignItems={'center'}
                     bg={'brand.blue'}
                     color={'white'}
@@ -63,6 +64,7 @@ const Catalog = ({type, title, setFunc}) => {
                     onClick={toggleMenu}
                 >
                     <Flex align={'center'}>
+
                         {type === 'catalog' ?
                             <>
                                 Каталог
@@ -73,16 +75,18 @@ const Catalog = ({type, title, setFunc}) => {
                             :
                             <><Text>{title}</Text></>
                         }
+
                     </Flex>
                 </MenuButton>
-                <MenuList 
-                    m={5} 
-                    position={'absolute'} 
-                    top="-20px" 
+                <MenuList
+                    m={5}
+                    position={'absolute'}
+                    top="-20px"
                     left="-220px"
                     w={type==='catalog' ? '1380px' : '800px'}
                 >
                     <Flex>
+
                     <VStack
                         minW={type==='catalog' ? '430px' : '300px'}
                         maxH={type==='catalog' ? '730px' : '600px'}
@@ -167,6 +171,7 @@ const Catalog = ({type, title, setFunc}) => {
                                         >
                                             {key}
                                         </Text>
+
                                         {categories[active][key].map((item) => (
                                             <Text 
                                                 pl={5} 
@@ -193,7 +198,7 @@ const Catalog = ({type, title, setFunc}) => {
                         </Box>
                     </Flex>
                     {/* <MainCatalog /> */}
-                    
+
                 </MenuList>
             </Menu>
         </>

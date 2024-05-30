@@ -34,67 +34,66 @@ import { AutoData } from '../../components/CategoriesCatalog/CatgegoriesData';
 function CategoryPage() {
     const { name } = useParams();
     let category;
-    if (name === 'Электроника') {
+
+    if (name === 'Электроника' || 'Electronics') {
         category = ElectronicsData;
-    } else if (name === 'Одежда') {
+    } else if (name === 'Одежда' || 'Clothing') {
         category = ClothingData;
-    } else if (name === 'Обувь') {
+    } else if (name === 'Обувь' || 'Housing') {
         category = ShoesData;
     }
-    else if (name === 'Дом и Сад') {
+    else if (name === 'Дом и Сад' || 'Child Items') {
         category = HousingData;
     }
-    else if (name === 'Детские товары') {
+    else if (name === 'Детские товары' || 'Beauty and Health') {
         category = ChildData;
     }
-    else if (name === 'Красота и здоровье') {
+    else if (name === 'Красота и здоровье' || 'Houshold Appliences') {
         category = BeatyData;
     }
-    else if (name === 'Бытовая техника') {
+    else if (name === 'Бытовая техника' || 'Sport and Outdoor') {
         category = HygienData;
     }
-    else if (name === 'Спорт и отдых') {
+    else if (name === 'Спорт и отдых' || 'Construction and Repair') {
         category = SportData;
     }
-    else if (name === 'Ремонт и строительство') {
+    else if (name === 'Ремонт и строительство' || 'Groceries and Food') {
         category = RemontData;
     }
-    else if (name === 'Продукты питания') {
+    else if (name === 'Продукты питания' || 'Pharmacy') {
         category = ProductyData;
     }
-    else if (name === 'Аптека') {
+    else if (name === 'Аптека' || 'Zoo items') {
         category = AptekaData;
     }
-    else if (name === 'Товары для животных') {
+    else if (name === 'Товары для животных' || 'Books') {
         category = ZooData;
     }
 
-    else if (name === 'Туризм, Рыбалка') {
+    else if (name === 'Туризм, Рыбалка' || 'Tourism and finshidng') {
         category = TourismData;
     }
-    else if (name === 'Мебель') {
+    else if (name === 'Мебель' || 'Furniture') {
         category = MebelData;
     }
-    else if (name === 'Аксессуары') {
+    else if (name === 'Аксессуары' || 'Accessories') {
         category = AccessouarsData;
     }
-    else if (name === 'Канцелярия') {
+    else if (name === 'Канцелярия' || 'School Supplies') {
         category = SuppliesData;
     }
-    else if (name === 'Книги') {
+    else if (name === 'Книги' || 'Books') {
         category = BooksData;
     }
-    else if (name === 'Бытовая химия и гигиена') {
+    else if (name === 'Бытовая химия и гигиена' || 'Houshold chemicals and Hygiene') {
         category = ChemData;
     }
-    else if (name === 'Игры и консоли') {
+    else if (name === 'Игры и консоли' || 'Game and Console') {
         category = GameData;
     }
-    else if (name === 'Автомобили') {
+    else if (name === 'Автомобили' || 'Auto') {
         category = AutoData;
     }
-
-
     else {
         category = null;
     }
