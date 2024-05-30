@@ -1,15 +1,15 @@
 import AdminPageNavbar from "../../components/AdminPageComponents/AdminPageNavbar";
-import AdminPageProducts from "../../components/AdminPageComponents/adminCommnetsAndProducst/adminProducts";
+import AdminProductAndComments from "../../components/AdminPageComponents/adminCommnetsAndProducst/adminComments";
 import { Flex, Box } from "@chakra-ui/react";
 
 
-function AdminPageComments() {
+function AdminPageProductView() {
     return (
         <>
             <Flex>
                 <AdminPageNavbar />
                 <Box flex="1" p="4" ml={{ base: 0, md: "200px" }}>
-                    <AdminPageProducts />
+                    <AdminProductAndComments />
                 </Box>
             </Flex>
 
@@ -17,4 +17,4 @@ function AdminPageComments() {
     );
 }
 
-export default AdminPageComments;
+export default AdminPageProductView;

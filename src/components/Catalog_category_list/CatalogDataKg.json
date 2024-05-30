@@ -1,294 +1,294 @@
 [
     {
-        "name": "Electronics",
+        "name": "Электроника",
         "iconKey": "Electronics",
         "items": [
             {
                 "subcategories": [
                     {
-                        "name": "Smartphones",
+                        "name": "Смартфондор",
                         "links": [
                             {
-                                "text": "Smartphone Accessories",
+                                "text": "Телефон жана смартфондорго аксессуарлар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Fitness Bracelets",
+                                "text": "Фитнес-браслеттер",
                                 "url": "/more-televisions"
                             },
                             {
-                                "text": "Smartwatch Bands",
+                                "text": "Смарт-саатарга жана фитнес-браслеттерге куурчалар",
                                 "url": "/more-televisions"
                             },
                             {
-                                "text": "Smartwatch and Fitness Bracelet Accessories",
+                                "text": "Смарт-саатарга жана фитнес-браслеттерге акцессуарлар",
                                 "url": "/more-televisions"
                             },
                             {
-                                "text": "Mobile Phones",
+                                "text": "Уюлдук телефондор",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Computers",
+                        "name": "Компьютерлер",
                         "links": [
                             {
-                                "text": "Monitors",
+                                "text": "Мониторлор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "System Units",
+                                "text": "Системалык блоктор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "All-in-One PCs",
+                                "text": "Моноблоктор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Accessories",
+                                "text": "Аксессуарлар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Smartwatch and Fitness Bracelet Accessories",
+                                "text": "Аксессуары для смарт-часов и фитнес барслетов",
                                 "url": "/more-televisions"
                             },
                             {
-                                "text": "Peripherals",
+                                "text": "Периферия",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Networking Equipment",
+                                "text": "Тармактык жабдык",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Nettops and Mini PCs",
-                                "url": "/more-televisions"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Smart Home",
-                        "links": [
-                            {
-                                "text": "Smart Home Management",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Smart Home Kits",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Smart Plugs",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Electric Curtains",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Climate Stations",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Accessories",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Smart Home Sensors",
+                                "text": "Неттоп жана Мини ПК",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Laptops, Tablets, E-Readers",
+                        "name": "Акылдуу үй",
                         "links": [
                             {
-                                "text": "Laptops",
+                                "text": "Акылдуу үйдү башкаруу",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Tablets",
+                                "text": "Акылдуу үйдүн комплектиси",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "E-Readers",
+                                "text": "Акылдуу розеткалар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Gaming Laptops",
+                                "text": "Электрокарниздер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Graphic Tablets",
+                                "text": "Климаттык станциялар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Cases and Stands",
+                                "text": "Аксессуарлар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Styluses",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Parts",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Chargers",
+                                "text": "Акылдуу үй датчиктери",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Photo and Video Cameras",
+                        "name": "Ноутбуктар, планшеттер, электрондук китептер",
                         "links": [
                             {
-                                "text": "Action Cameras",
+                                "text": "Ноутбуктар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Video Cameras",
+                                "text": "Планшеттер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "DSLR Cameras",
+                                "text": "Электрондук китептер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Mirrorless Cameras",
+                                "text": "Оюн ноутбуктары",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Lenses",
+                                "text": "Графикалык планшеттер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Photography Studios",
+                                "text": "Сырткы жабдыктар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Digital Photo Frames",
+                                "text": "Стилустар",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Запчасти",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Кубаттоо жабдыгы",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Office Equipment",
+                        "name": "Фото и видеокамералар",
                         "links": [
                             {
-                                "text": "System Units",
+                                "text": "Экшн-камерасы",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Monitors",
+                                "text": "Видеокамералар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "MFPs",
+                                "text": "Күзгүлүү фотоаппараттар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Printers",
+                                "text": "Күзгүсүз фотоаппараттар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Cartridges and Consumables",
+                                "text": "Обьективдер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Laptops",
+                                "text": "Фотофондор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Surveillance Cameras",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Scanners",
+                                "text": "Санариптуу фоторамкалар",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Electrical Equipment Accessories",
+                        "name": "Кеңсе техникасы",
                         "links": [
                             {
-                                "text": "Cables and Wires",
+                                "text": "Системдик блоктор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "External Batteries",
+                                "text": "Мониторлор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Batteries",
+                                "text": "МФУ",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Printers",
+                                "text": "Принтерлер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Cartridges and Consumables",
+                                "text": "Картриджи и каражаттоо материалдары",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Laptops",
+                                "text": "Ноутбуктар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Surveillance Cameras",
+                                "text": "Байкоо камерасы",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Scanners",
+                                "text": "Сканерлер",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "PC Components",
+                        "name": "Электротехника аксессуарлары",
                         "links": [
                             {
-                                "text": "System Units",
+                                "text": "Откоргучтор жана кабелдер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "RAM",
+                                "text": "Сырткы аккумуляторлор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Storage",
+                                "text": "Батарейкалар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Monitors",
+                                "text": "Принтерлер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "MFPs",
+                                "text": "Картриджи и каражаттоо материалдары",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Printers",
+                                "text": "Ноутбуктар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Cartridges and Consumables",
+                                "text": "Байкоо камерасы",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Laptops",
+                                "text": "Сканерлер",
+                                "url": "/more-televisions"
+                            }
+                        ]
+                    },
+                    {
+                        "name": " ПК комплектациясы",
+                        "links": [
+                            {
+                                "text": "Системалык блоктор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Surveillance Cameras",
+                                "text": "Оперативдүү эс",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Scanners",
+                                "text": "Кубаттагычтар",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Мониторлор",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "МФУ",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Принтерлер",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Картриджи и каражаттоо материалдары",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Ноутбуктар",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Байкоо камерасы",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Сканерлер",
                                 "url": "/more-televisions"
                             }
                         ]
@@ -298,295 +298,295 @@
         ]
     },
     {
-        "name": "Clothing",
+        "name": "Кийим-кече",
         "iconKey": "Clothing",
         "items": [
             {
                 "subcategories": [
                     {
-                        "name": "Smartphones",
+                        "name": "Смартфондор",
                         "links": [
                             {
-                                "text": "Smartphone Accessories",
+                                "text": "Телефон жана смартфондорго аксессуарлар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Fitness Bracelets",
+                                "text": "Фитнес-браслеттер",
                                 "url": "/more-televisions"
                             },
                             {
-                                "text": "Smartwatch Bands",
+                                "text": "Смарт-саатарга жана фитнес-браслеттерге куурчалар",
                                 "url": "/more-televisions"
                             },
                             {
-                                "text": "Smartwatch and Fitness Bracelet Accessories",
+                                "text": "Смарт-саатарга жана фитнес-браслеттерге акцессуарлар",
                                 "url": "/more-televisions"
                             },
                             {
-                                "text": "Mobile Phones",
+                                "text": "Уюлдук телефондор",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Computers",
+                        "name": "Компьютерлер",
                         "links": [
                             {
-                                "text": "Monitors",
+                                "text": "Мониторлор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "System Units",
+                                "text": "Системалык блоктор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "All-in-One PCs",
+                                "text": "Моноблоктор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Accessories",
+                                "text": "Аксессуарлар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Smartwatch and Fitness Bracelet Accessories",
+                                "text": "Аксессуары для смарт-часов и фитнес барслетов",
                                 "url": "/more-televisions"
                             },
                             {
-                                "text": "Peripherals",
+                                "text": "Периферия",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Networking Equipment",
+                                "text": "Тармактык жабдык",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Nettops and Mini PCs",
-                                "url": "/more-televisions"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Smart Home",
-                        "links": [
-                            {
-                                "text": "Smart Home Management",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Smart Home Kits",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Smart Plugs",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Electric Curtains",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Climate Stations",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Accessories",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Smart Home Sensors",
+                                "text": "Неттоп жана Мини ПК",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Laptops, Tablets, E-Readers",
+                        "name": "Акылдуу үй",
                         "links": [
                             {
-                                "text": "Laptops",
+                                "text": "Акылдуу үйдү башкаруу",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Tablets",
+                                "text": "Акылдуу үйдүн комплектиси",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "E-Readers",
+                                "text": "Акылдуу розеткалар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Gaming Laptops",
+                                "text": "Электрокарниздер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Graphic Tablets",
+                                "text": "Климаттык станциялар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Cases and Stands",
+                                "text": "Аксессуарлар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Styluses",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Parts",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Chargers",
+                                "text": "Акылдуу үй датчиктери",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Photo and Video Cameras",
+                        "name": "Ноутбуктар, планшеттер, электрондук китептер",
                         "links": [
                             {
-                                "text": "Action Cameras",
+                                "text": "Ноутбуктар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Video Cameras",
+                                "text": "Планшеттер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "DSLR Cameras",
+                                "text": "Электрондук китептер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Mirrorless Cameras",
+                                "text": "Оюн ноутбуктары",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Lenses",
+                                "text": "Графикалык планшеттер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Photography Studios",
+                                "text": "Сырткы жабдыктар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Digital Photo Frames",
+                                "text": "Стилустар",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Запчасти",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Кубаттоо жабдыгы",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Office Equipment",
+                        "name": "Фото и видеокамералар",
                         "links": [
                             {
-                                "text": "System Units",
+                                "text": "Экшн-камерасы",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Monitors",
+                                "text": "Видеокамералар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "MFPs",
+                                "text": "Күзгүлүү фотоаппараттар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Printers",
+                                "text": "Күзгүсүз фотоаппараттар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Cartridges and Consumables",
+                                "text": "Обьективдер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Laptops",
+                                "text": "Фотофондор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Surveillance Cameras",
-                                "url": "/televisions"
-                            },
-                            {
-                                "text": "Scanners",
+                                "text": "Санариптуу фоторамкалар",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "Electrical Equipment Accessories",
+                        "name": "Кеңсе техникасы",
                         "links": [
                             {
-                                "text": "Cables and Wires",
+                                "text": "Системдик блоктор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "External Batteries",
+                                "text": "Мониторлор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Batteries",
+                                "text": "МФУ",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Printers",
+                                "text": "Принтерлер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Cartridges and Consumables",
+                                "text": "Картриджи и каражаттоо материалдары",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Laptops",
+                                "text": "Ноутбуктар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Surveillance Cameras",
+                                "text": "Байкоо камерасы",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Scanners",
+                                "text": "Сканерлер",
                                 "url": "/more-televisions"
                             }
                         ]
                     },
                     {
-                        "name": "PC Components",
+                        "name": "Электротехника аксессуарлары",
                         "links": [
                             {
-                                "text": "System Units",
+                                "text": "Откоргучтор жана кабелдер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "RAM",
+                                "text": "Сырткы аккумуляторлор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Storage",
+                                "text": "Батарейкалар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Monitors",
+                                "text": "Принтерлер",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "MFPs",
+                                "text": "Картриджи и каражаттоо материалдары",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Printers",
+                                "text": "Ноутбуктар",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Cartridges and Consumables",
+                                "text": "Байкоо камерасы",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Laptops",
+                                "text": "Сканерлер",
+                                "url": "/more-televisions"
+                            }
+                        ]
+                    },
+                    {
+                        "name": " ПК комплектациясы",
+                        "links": [
+                            {
+                                "text": "Системалык блоктор",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Surveillance Cameras",
+                                "text": "Оперативдүү эс",
                                 "url": "/televisions"
                             },
                             {
-                                "text": "Scanners",
+                                "text": "Кубаттагычтар",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Мониторлор",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "МФУ",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Принтерлер",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Картриджи и каражаттоо материалдары",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Ноутбуктар",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Байкоо камерасы",
+                                "url": "/televisions"
+                            },
+                            {
+                                "text": "Сканерлер",
                                 "url": "/more-televisions"
                             }
                         ]
@@ -596,7 +596,7 @@
         ]
     },
     {
-        "name": "Housing",
+        "name": "Бакча жана короо",
         "iconKey": "homeAndGarden",
         "items": [
             {
@@ -684,7 +684,7 @@
         ]
     },
     {
-        "name": "Child Items",
+        "name": "Балдар буюмдары",
         "iconKey": "baby",
         "items": [
             {
@@ -772,7 +772,7 @@
         ]
     },
     {
-        "name": "Beuaty and Health",
+        "name": "Ден соолук жана сулуулук",
         "iconKey": "HealthBeauty",
         "items": [
             {
@@ -860,7 +860,7 @@
         ]
     },
     {
-        "name": "Household Appliances",
+        "name": "Үй техникасы",
         "iconKey": "BytovayaTech",
         "items": [
             {
@@ -948,7 +948,7 @@
         ]
     },
     {
-        "name": "Sport and Outdoor",
+        "name": "Спорт жана эс алуу",
         "iconKey": "Sport",
         "items": [
             {
@@ -1036,12 +1036,13 @@
         ]
     },
     {
-        "name": "Construction and Repair",
-        "iconKey": "Remont",
+        "name": "Курулуш жана ремонт",
+        "iconKey": "Food",
         "items": [
             {
                 "subcategories": [
                     {
+                        "iconKey": "Remont",
                         "name": "Televisions",
                         "links": [
                             {
@@ -1124,7 +1125,7 @@
         ]
     },
     {
-        "name": "Groceries and Food",
+        "name": "Тамак-аш",
         "iconKey": "Food",
         "items": [
             {
@@ -1212,7 +1213,7 @@
         ]
     },
     {
-        "name": "Pharmacy",
+        "name": "Аптека",
         "iconKey": "Pharmacy",
         "items": [
             {
@@ -1300,7 +1301,7 @@
         ]
     },
     {
-        "name": "Zoo items",
+        "name": "Жаныбарлар буюмдары",
         "iconKey": "Zootovar",
         "items": [
             {
@@ -1388,7 +1389,7 @@
         ]
     },
     {
-        "name": "Books",
+        "name": "Китептер",
         "iconKey": "Books",
         "items": [
             {
@@ -1476,7 +1477,7 @@
         ]
     },
     {
-        "name": "Tourism and finshing",
+        "name": "Туризм",
         "iconKey": "Tourism",
         "items": [
             {
@@ -1564,7 +1565,7 @@
         ]
     },
     {
-        "name": "Furniture",
+        "name": "Мебель",
         "iconKey": "Mebel",
         "items": [
             {
@@ -1652,7 +1653,7 @@
         ]
     },
     {
-        "name": "Accessories",
+        "name": "Акцессуарлар",
         "iconKey": "Accessouars",
         "items": [
             {
@@ -1740,7 +1741,7 @@
         ]
     },
     {
-        "name": "School Supplies",
+        "name": "Канцелярия",
         "iconKey": "Shoolsupplies",
         "items": [
             {
@@ -1828,7 +1829,7 @@
         ]
     },
     {
-        "name": "Household Chemicals and Hygiene",
+        "name": "Гигиена жана тазалоочу каржаттар",
         "iconKey": "Hygen",
         "items": [
             {
@@ -1916,7 +1917,7 @@
         ]
     },
     {
-        "name": "Game and Console",
+        "name": "Оюн-зоок жана консоль",
         "iconKey": "GameConsole",
         "items": [
             {
@@ -2004,7 +2005,7 @@
         ]
     },
     {
-        "name": "Auto",
+        "name": "Автоунаалар",
         "iconKey": "Auto",
         "items": [
             {

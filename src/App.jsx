@@ -24,6 +24,10 @@ import PaymentPage from './pages/PaymentPage/PaymentPage.jsx';
 import AdminPage from './pages/AdminPage/AdminPage.jsx';
 import AdminPageUsers from './pages/AdminPage/AdminPageUsers.jsx';
 import AdminPageCatalog from './pages/AdminPage/AdminPageCatalog.jsx';
+import AdminPageSettings from './pages/AdminPage/AdminPageSettings.jsx';
+import AdminPageComments from './pages/AdminPage/AdminPageComments.jsx';
+import AdminPageProductView from './pages/AdminPage/AdminPageProductView.jsx';
+import AdminPageAds from './pages/AdminPage/AdminPageAds.jsx';
 
 const stripePromise = loadStripe('pk_test_51PJeSX08MXO6we99KRwkspzVIUmINvrHaVYHTxivEOzdqHxC1CNZrPKImHi4iUfbYFwEfVGQ91FOd7SMBSssnlKZ00Q0mVeAFH');
 
@@ -48,15 +52,18 @@ function App() {
                     <Route path='/add_card' element={<AddCardPage />} />
                     <Route path='/categories/:name' element={<CategoryPage />} />
                     <Route path='/test' element={<TestPage />} />
-                    <Route path='/checkout' element={<PaymentPage/>} />
+                    <Route path='/checkout' element={<PaymentPage />} />
 
-                    <Route path='/admin' element={<AdminPage/>} />
-                    <Route path='/admin/users' element={<AdminPageUsers/>} />
-                    <Route path='/admin/catalog' element={<AdminPageCatalog/>} />
-                    <Route path='/admin/orders' element={<AdminPageCatalog/>} />
-                    <Route path='/admin/returns' element={<AdminPageCatalog/>} />
-                    <Route path='/admin/comments' element={<AdminPageCatalog/>} />
-                    <Route path='/admin/settings' element={<AdminPageCatalog/>} />
+                    <Route path='/admin' element={<AdminPage />} />
+                    <Route path='/admin/users' element={<AdminPageUsers />} />
+                    <Route path='/admin/catalog' element={<AdminPageCatalog />} />
+                    <Route path='/admin/orders' element={<AdminPageCatalog />} />
+                    <Route path='/admin/returns' element={<AdminPageCatalog />} />
+                    <Route path='/admin/comments' element={<AdminPageComments />} />
+                    <Route path='/admin/product/:id' element={< AdminPageProductView />} />
+                    <Route path='/admin/settings' element={<AdminPageSettings />} />
+                    <Route path='/admin/ads' element={<AdminPageAds />} />
+
                 </Routes>
             </BrowserRouter>
         </ChakraProvider>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Text, List, ListItem, Icon } from '@chakra-ui/react';
+import { Box, Flex, Text, List, ListItem, Icon, Button } from '@chakra-ui/react';
 import { useState } from 'react';
 import ListInsideTovar from './ListInsideTovar';
 import ListInsideCollections from './ListInsideCollections';
@@ -8,6 +8,7 @@ import { TovarsIcon } from './FavoritesData';
 import { MagazineIcon } from './FavoritesData';
 import { CollectionIcon } from './FavoritesData';
 import { useTranslation } from 'react-i18next';
+import RegAndAuthModal from '../RegAndAuthModal/RegAndAuthModal';
 
 
 
@@ -80,6 +81,7 @@ function FavoritesFunction() {
                                 </Flex>
                             </ListItem>
                         </List>
+
                     </Box>
                 </Box>
                 <Box>

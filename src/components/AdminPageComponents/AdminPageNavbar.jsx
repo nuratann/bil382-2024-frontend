@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Flex, IconButton, Icon, Stack, useDisclosure} from '@chakra-ui/react';
+import { Box, Heading, Flex, IconButton, Icon, Stack, useDisclosure } from '@chakra-ui/react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';// Импорт Link из react-router-dom
 
@@ -7,7 +7,7 @@ const AdminPageNavbar = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   const linkStyle = ({ isActive }) => ({
-    color: isActive ? '#ff6347' : 'white', // Терракотовый для активного, белый для обычного
+    color: isActive ? '#F56347' : 'white', // Терракотовый для активного, белый для обычного
     fontWeight: isActive ? 'bold' : 'normal'
   });
 
@@ -32,7 +32,7 @@ const AdminPageNavbar = () => {
         <Box p={5}>
           <Flex justifyContent="space-between" alignItems="center" w="100%" mb={5}>
             <Link to="/admin" >
-              <Heading size="md" color="teal.300" _hover={{ color: 'blue.500', cursor: 'pointer' }}>Админ Панель</Heading>
+              <Heading size="md" color=".300" _hover={{ color: 'blue.500', cursor: 'pointer' }}>Админ Панель</Heading>
             </Link>
 
             <IconButton
@@ -48,7 +48,7 @@ const AdminPageNavbar = () => {
             <NavLink to="/admin/ads" style={linkStyle}>Реклама</NavLink>
             <NavLink to="/admin/orders" style={linkStyle}>Заказы</NavLink>
             <NavLink to="/admin/returns" style={linkStyle}>Возвраты</NavLink>
-            <NavLink to="/admin/comments" style={linkStyle}>Комментарии</NavLink>
+            <NavLink to="/admin/comments" style={linkStyle}>Товары и Комментарии</NavLink>
             <NavLink to="/admin/settings" style={linkStyle}>Настройки</NavLink>
             {/* Добавить другие ссылки */}
           </Stack>

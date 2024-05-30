@@ -30,20 +30,20 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AnimatedCheckMark from '../AnimatedCheckMark/AnimatedCheckMark';
 
-const RegForm = ({type}) => {
-    
+const RegForm = ({ type }) => {
+
     const GenderEnum = {
         MALE: "Мужчина",
         FEMALE: "Женщина",
         UNDEFINED: 'Вертолет "Апач"',
-      };
+    };
 
-    const userState = useUserStore(state=>state)
+    const userState = useUserStore(state => state)
     const user = userState.user
     const [isAuth, setIsAuth] = useState(false)
     const [show, setShow] = React.useState(false);
     const handleClick = () => setShow(!show);
-    const p = type==='update'?'code_update':''
+    const p = type === 'update' ? 'code_update' : ''
     const initialValues = {
         id: user.id,
         avatarImg: user.avatarImg,
@@ -57,7 +57,7 @@ const RegForm = ({type}) => {
         password: '',
         confirmPassword: p,
     };
-    
+
 
     const validationSchema = Yup.object().shape({
         firstName: Yup.string().required('First Name is required'),
@@ -76,8 +76,8 @@ const RegForm = ({type}) => {
             .required('Confirm Password is required'),
     });
 
-    const handleSubmit = async (values, { setSubmitting,setFieldError }) => {
-        
+    const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
+
         // const response = await signUp(values)
         // if(response==='email'){
         //     setFieldError('email', 'Этот email уже занят');
@@ -94,9 +94,9 @@ const RegForm = ({type}) => {
                 // Если аутентификация прошла успешно
                 setIsAuth(true)
                 setTimeout(() => {
-                    userState.updateUser(user); 
+                    userState.updateUser(user);
                 }, 1500);
-                        
+
                 setSubmitting(false);
             })
             .catch(error => {
@@ -116,143 +116,143 @@ const RegForm = ({type}) => {
 
     return (
         <>
-                {isAuth ?
-                    <>
-                        <Flex justify={'center'} align={'center'}>
-                            <Box boxSize={24}>
-                                <AnimatedCheckMark type='success' />
-                            </Box>
-                        </Flex>
-                    </>
-                    :
-                    <Formik
-                        initialValues={initialValues}
-                        onSubmit={handleSubmit}
-                        validationSchema={validationSchema}
-                    >
-                        {({ isSubmitting }) => (
-                            <Form>
-                                <VStack spacing={4}>
-                                    <HStack spacing={2} w={'100%'}>
-                                        <Field name="firstName">
+            {isAuth ?
+                <>
+                    <Flex justify={'center'} align={'center'}>
+                        <Box boxSize={24}>
+                            <AnimatedCheckMark type='success' />
+                        </Box>
+                    </Flex>
+                </>
+                :
+                <Formik
+                    initialValues={initialValues}
+                    onSubmit={handleSubmit}
+                    validationSchema={validationSchema}
+                >
+                    {({ isSubmitting }) => (
+                        <Form>
+                            <VStack spacing={4}>
+                                <HStack spacing={2} w={'100%'}>
+                                    <Field name="firstName">
+                                        {({ field }) => (
+                                            <FormControl isInvalid={!!field.error}>
+                                                <Input {...field} placeholder="Имя" sx={styles.input} />
+                                                <ErrorMessage name="firstName" component={FormHelperText} color="red" />
+                                            </FormControl>
+                                        )}
+                                    </Field>
+
+                                    <Field name="lastName">
+                                        {({ field }) => (
+                                            <FormControl isInvalid={!!field.error}>
+                                                <Input {...field} placeholder="Фамилия" sx={styles.input} />
+                                                <ErrorMessage name="lastName" component={FormHelperText} color="red" />
+                                            </FormControl>
+                                        )}
+                                    </Field>
+                                </HStack>
+
+                                <Field name="username">
+                                    {({ field }) => (
+                                        <FormControl isInvalid={!!field.error}>
+                                            <Input {...field} placeholder="Придумайте логин" sx={styles.input} />
+                                            <ErrorMessage name="username" component={FormHelperText} color="red" />
+                                        </FormControl>
+                                    )}
+                                </Field>
+                                <HStack spacing={2} w={'100%'} >
+                                    <Field name="birthDate">
+                                        {({ field, form }) => (
+                                            <FormControl isInvalid={form.errors.birthdate && form.touched.birthdate}>
+                                                <Input {...field} placeholder='День рождения' type='date' sx={styles.input} />
+                                                <ErrorMessage name="birthDate" component={FormErrorMessage} />
+                                            </FormControl>
+                                        )}
+                                    </Field>
+
+                                    <Field name="gender">
+                                        {({ field }) => (
+                                            <FormControl>
+                                                <Select {...field} id="gender" placeholder="Пол" sx={styles.input}>
+                                                    {Object.values(GenderEnum).map((gender) => (
+                                                        <option key={gender} value={gender}>
+                                                            {gender}
+                                                        </option>
+                                                    ))}
+                                                </Select>
+                                                <ErrorMessage name="gender" component="div" />
+                                            </FormControl>
+                                        )}
+                                    </Field>
+                                </HStack>
+
+                                <Field name="email">
+                                    {({ field }) => (
+                                        <FormControl isInvalid={!!field.error}>
+                                            <Input {...field} placeholder="Email" sx={styles.input} />
+                                            <ErrorMessage name="email" component={FormHelperText} color="red" />
+                                        </FormControl>
+                                    )}
+                                </Field>
+                                <Field name="phone">
+                                    {({ field }) => (
+                                        <FormControl isInvalid={!!field.error}>
+                                            <Input {...field} placeholder="Телефон" sx={styles.input} />
+                                            <ErrorMessage name="phone" component={FormHelperText} color="red" />
+                                        </FormControl>
+                                    )}
+                                </Field>
+
+
+
+                                <Field name="password">
+                                    {({ field }) => (
+                                        <FormControl isInvalid={!!field.error}>
+                                            <InputGroup size="md">
+                                                <Input
+                                                    {...field}
+                                                    pr="4.5rem"
+                                                    type={show ? 'text' : 'password'}
+                                                    placeholder="Пароль"
+                                                    sx={styles.input}
+                                                />
+                                                <InputRightElement width="4.5rem">
+                                                    <Button h="1.75rem" size="sm" onClick={handleClick}>
+                                                        {show ? 'Hide' : 'Show'}
+                                                    </Button>
+                                                </InputRightElement>
+                                            </InputGroup>
+                                            <ErrorMessage name="password" component={FormHelperText} color="red" />
+                                        </FormControl>
+                                    )}
+                                </Field>
+                                {type === 'register' &&
+                                    <>
+                                        <Field name="confirmPassword">
                                             {({ field }) => (
                                                 <FormControl isInvalid={!!field.error}>
-                                                    <Input {...field} placeholder="Имя" sx={styles.input} />
-                                                    <ErrorMessage name="firstName" component={FormHelperText} color="red" />
+                                                    <InputGroup size="md">
+                                                        <Input
+                                                            {...field}
+                                                            pr="4.5rem"
+                                                            type={show ? 'text' : 'password'}
+                                                            placeholder="Подтвердите пароль"
+                                                            sx={styles.input}
+                                                        />
+                                                        <InputRightElement width="4.5rem">
+                                                            <Button h="1.75rem" size="sm" onClick={handleClick}>
+                                                                {show ? 'Hide' : 'Show'}
+                                                            </Button>
+                                                        </InputRightElement>
+                                                    </InputGroup>
+                                                    <ErrorMessage name="confirmPassword" component={FormHelperText} color="red" />
                                                 </FormControl>
                                             )}
                                         </Field>
-
-                                        <Field name="lastName">
-                                            {({ field }) => (
-                                                <FormControl isInvalid={!!field.error}>
-                                                    <Input {...field} placeholder="Фамилия" sx={styles.input} />
-                                                    <ErrorMessage name="lastName" component={FormHelperText} color="red" />
-                                                </FormControl>
-                                            )}
-                                        </Field>
-                                    </HStack>
-
-                                    <Field name="username">
-                                        {({ field }) => (
-                                            <FormControl isInvalid={!!field.error}>
-                                                <Input {...field} placeholder="Придумайте логин" sx={styles.input} />
-                                                <ErrorMessage name="username" component={FormHelperText} color="red" />
-                                            </FormControl>
-                                        )}
-                                    </Field>
-                                    <HStack spacing={2} w={'100%'} >
-                                        <Field name="birthDate">
-                                            {({ field, form }) => (
-                                                <FormControl isInvalid={form.errors.birthdate && form.touched.birthdate}>
-                                                    <Input {...field} placeholder='День рождения' type='date' sx={styles.input} />
-                                                    <ErrorMessage name="birthDate" component={FormErrorMessage} />
-                                                </FormControl>
-                                            )}
-                                        </Field>
-
-                                        <Field name="gender">
-                                            {({ field }) => (
-                                                <FormControl>
-                                                    <Select {...field} id="gender" placeholder="Пол" sx={styles.input}>
-                                                        {Object.values(GenderEnum).map((gender) => (
-                                                            <option key={gender} value={gender}>
-                                                                {gender}
-                                                            </option>
-                                                        ))}
-                                                    </Select>
-                                                    <ErrorMessage name="gender" component="div" />
-                                                </FormControl>
-                                            )}
-                                        </Field>
-                                    </HStack>
-
-                                    <Field name="email">
-                                        {({ field }) => (
-                                            <FormControl isInvalid={!!field.error}>
-                                                <Input {...field} placeholder="Email" sx={styles.input} />
-                                                <ErrorMessage name="email" component={FormHelperText} color="red" />
-                                            </FormControl>
-                                        )}
-                                    </Field>
-                                    <Field name="phone">
-                                        {({ field }) => (
-                                            <FormControl isInvalid={!!field.error}>
-                                                <Input {...field} placeholder="Телефон" sx={styles.input} />
-                                                <ErrorMessage name="phone" component={FormHelperText} color="red" />
-                                            </FormControl>
-                                        )}
-                                    </Field>
-
-                                    
-                                    
-                                    <Field name="password">
-                                        {({ field }) => (
-                                            <FormControl isInvalid={!!field.error}>
-                                                <InputGroup size="md">
-                                                    <Input
-                                                        {...field}
-                                                        pr="4.5rem"
-                                                        type={show ? 'text' : 'password'}
-                                                        placeholder="Пароль"
-                                                        sx={styles.input}
-                                                    />
-                                                    <InputRightElement width="4.5rem">
-                                                        <Button h="1.75rem" size="sm" onClick={handleClick}>
-                                                            {show ? 'Hide' : 'Show'}
-                                                        </Button>
-                                                    </InputRightElement>
-                                                </InputGroup>
-                                                <ErrorMessage name="password" component={FormHelperText} color="red" />
-                                            </FormControl>
-                                        )}
-                                    </Field>
-                                {type==='register' &&
-                                <>
-                                    <Field name="confirmPassword">
-                                        {({ field }) => (
-                                            <FormControl isInvalid={!!field.error}>
-                                                <InputGroup size="md">
-                                                    <Input
-                                                        {...field}
-                                                        pr="4.5rem"
-                                                        type={show ? 'text' : 'password'}
-                                                        placeholder="Подтвердите пароль"
-                                                        sx={styles.input}
-                                                    />
-                                                    <InputRightElement width="4.5rem">
-                                                        <Button h="1.75rem" size="sm" onClick={handleClick}>
-                                                            {show ? 'Hide' : 'Show'}
-                                                        </Button>
-                                                    </InputRightElement>
-                                                </InputGroup>
-                                                <ErrorMessage name="confirmPassword" component={FormHelperText} color="red" />
-                                            </FormControl>
-                                        )}
-                                    </Field>
                                     </>}
 
-                                    {type!=='update'?
+                                {type !== 'update' ?
                                     <Text fontSize={11} my={2} fontFamily={'"Tilt Neon", sans-serif;'}>
                                         By selecting Create personal account, you agree to our{' '}
                                         <Link color="brand.blue">User Agreement</Link> and acknowledge reading our{' '}
@@ -260,26 +260,26 @@ const RegForm = ({type}) => {
                                     </Text>
                                     :
                                     <></>
-                                    }
+                                }
 
-                                    <Flex justify="center" w="100%" pt={2}>
-                                        <Button
-                                            isLoading={isSubmitting}
-                                            type="submit"
-                                            bg="brand.blue"
-                                            color="white"
-                                            rounded="2xl"
-                                            w="70%"
-                                        >
-                                            {isSubmitting ? 'Загрузка...' : type==='update'?'Сохранить':'Создать учетную запись'}
-                                        </Button>
-                                    </Flex>
-                                </VStack>
-                            </Form>
-                        )}
-                    </Formik>
-                }
-                <ToastContainer/>
+                                <Flex justify="center" w="100%" pt={2}>
+                                    <Button
+                                        isLoading={isSubmitting}
+                                        type="submit"
+                                        bg="brand.blue"
+                                        color="white"
+                                        rounded="2xl"
+                                        w="70%"
+                                    >
+                                        {isSubmitting ? 'Загрузка...' : type === 'update' ? 'Сохранить' : 'Создать учетную запись'}
+                                    </Button>
+                                </Flex>
+                            </VStack>
+                        </Form>
+                    )}
+                </Formik>
+            }
+            <ToastContainer />
         </>
     );
 };
