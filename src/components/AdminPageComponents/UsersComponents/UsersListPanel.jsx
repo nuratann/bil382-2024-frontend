@@ -1,37 +1,55 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Select, Table, Thead, Tbody, Tr, Th, Td, Text } from '@chakra-ui/react';
+import { Box, Select, Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
+import UserRoleSelector from './UserRoleSelector';
 
 const UserListPanel = () => {
   const [roleFilter, setRoleFilter] = useState('all');
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
-  const [sortedUsers, setSortedUsers] = useState([]);
-
-  const users = [
+  const [users, setUsers] = useState([
     { id: 1, name: 'Иван Иванов', username: 'ivanivan', role: 'Продавец', dateRegistered: '2021-04-10' },
     { id: 2, name: 'Петр Петров', username: 'petrpetr', role: 'Модератор', dateRegistered: '2022-01-15' },
-    // Добавьте другие примеры
-  ];
+    // Добавьте другие примеры пользователей
+  ]);
+  const [sortedAndFilteredUsers, setSortedAndFilteredUsers] = useState(users);
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
 
-  const handleRoleChange = (event) => {
-    setRoleFilter(event.target.value);
-  };
+  const roles = ["Модератор", "Продавец", "Покупатель"]; // Варианты ролей
 
   useEffect(() => {
-    setSortedUsers(users);
-  }, [users]);
+    let updatedUsers = [...users];
 
-  const sortData = (key) => {
+    // Фильтрация пользователей по роли
+    if (roleFilter !== 'all') {
+      updatedUsers = updatedUsers.filter(user => user.role === roleFilter);
+    }
+
+    // Сортировка пользователей
+    if (sortConfig.key) {
+      updatedUsers.sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    
+    setSortedAndFilteredUsers(updatedUsers);
+  }, [users, roleFilter, sortConfig]);
+
+  const handleSort = (key) => {
     let direction = 'ascending';
     if (sortConfig.key === key && sortConfig.direction === 'ascending') {
       direction = 'descending';
     }
-    const sortedData = [...users].sort((a, b) => {
-      if (a[key] < b[key]) return direction === 'ascending' ? -1 : 1;
-      if (a[key] > b[key]) return direction === 'ascending' ? 1 : -1;
-      return 0;
-    });
     setSortConfig({ key, direction });
-    setSortedUsers(sortedData);
+  };
+
+  const handleUserRoleChange = (userId, newRole) => {
+    setUsers(users.map(user => 
+      user.id === userId ? { ...user, role: newRole } : user
+    ));
   };
 
   const activeHeaderStyle = (key) => ({
@@ -41,27 +59,29 @@ const UserListPanel = () => {
 
   return (
     <Box>
-      <Select placeholder="Выберите роль" onChange={handleRoleChange}>
+      <Select w={"30%"} value={roleFilter} onChange={(e) => setRoleFilter(e.target.value)} placeholder="Выберите роль">
         <option value="all">Все</option>
-        <option value="Модератор">Модератор</option>
-        <option value="Продавец">Продавец</option>
-        <option value="Покупатель">Покупатель</option>
+        {roles.map(role => (
+          <option key={role} value={role}>{role}</option>
+        ))}
       </Select>
-      <Table variant="simple">
+      <Table variant="simple" mt={6}>
         <Thead>
           <Tr>
-            <Th onClick={() => sortData('name')} style={activeHeaderStyle('name')}>Имя и фамилия</Th>
-            <Th onClick={() => sortData('username')} style={activeHeaderStyle('username')}>Логин</Th>
-            <Th onClick={() => sortData('role')} style={activeHeaderStyle('role')}>Роль</Th>
-            <Th onClick={() => sortData('dateRegistered')} style={activeHeaderStyle('dateRegistered')}>Дата регистрации</Th>
+            <Th onClick={() => handleSort('name')} style={activeHeaderStyle('name')}>Имя и фамилия</Th>
+            <Th onClick={() => handleSort('username')} style={activeHeaderStyle('username')}>Логин</Th>
+            <Th onClick={() => handleSort('role')} style={activeHeaderStyle('role')}>Роль</Th>
+            <Th onClick={() => handleSort('dateRegistered')} style={activeHeaderStyle('dateRegistered')}>Дата регистрации</Th>
           </Tr>
         </Thead>
         <Tbody>
-          {sortedUsers.map(user => (
+          {sortedAndFilteredUsers.map(user => (
             <Tr key={user.id}>
               <Td>{user.name}</Td>
               <Td>{user.username}</Td>
-              <Td>{user.role}</Td>
+              <Td>
+                <UserRoleSelector user={user} roles={roles} onRoleChange={(newRole) => handleUserRoleChange(user.id, newRole)}/>
+              </Td>
               <Td>{user.dateRegistered}</Td>
             </Tr>
           ))}
