@@ -55,7 +55,7 @@ const CartManager = ({ initialItems }) => {
                   />
                 ))}
               </VStack>
-              {/* <CheckoutSummary items={items} /> */}
+              <CheckoutSummary items={items} />
             </Flex>
           </> :
           <>

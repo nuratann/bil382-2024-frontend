@@ -208,6 +208,7 @@ const AddProduct = () => {
                                         <GridItem w='100%' key={index}>
                                             <Text fontWeight={"bold"}>{filter.title}</Text>
                                             <Select mb={4} onChange={(e) => setProduct({ ...product, specs: { ...product.specs, [filter.title]: e.target.value } })}>
+                                                <option>Выберите значение</option>
                                                 {filter.options.map((option, i) => (
                                                     <option key={i}>{option}</option>
                                                 ))}

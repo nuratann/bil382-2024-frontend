@@ -59,7 +59,7 @@ function Header() {
 
                     <Menu placement="bottom">
                         <MenuButton as={Flex} alignItems="center" ml={4} mt="5px" _hover={{ color: "brand.blue" }}>
-                            <Icon as={BsTranslate} w={6} h={6} color="gray.400" style={{ opacity: 1 }} />
+                            <IconWithTitle icon={BsGlobe} text={t("headerlist.list1")} />
                         </MenuButton>
                         <MenuList>
                             <MenuItem onClick={() => changeLanguage("ru")}>Русский</MenuItem>

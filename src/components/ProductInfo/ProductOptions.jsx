@@ -8,9 +8,10 @@ const ProductOptions = (props) => {
     <Box fontSize={"14px"} width="400px"  p={5}>
       
       <Flex direction="column" gap={4}>
+        <Text fontSize={24} fontWeight={'bold'}>Выберите опцию</Text>
         {options.map((option,index) => (
         <Flex justify="space-start" key={index}>
-          <Text w={"200px"} color="gray.400">{option.title}:</Text>
+          <Text w={"200px"} color="gray.400">{option.title}: {option.price}som</Text>
           {/* <Flex>
             {option.value.map((option,index)=>{
                 return <Button key={index} ms={1} fontSize={11}>{option.title}</Button>

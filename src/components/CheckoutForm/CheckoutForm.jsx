@@ -3,8 +3,10 @@ import { CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useEle
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ clientSecret, amount }) => {
+  const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -37,6 +39,9 @@ const CheckoutForm = ({ clientSecret, amount }) => {
       setSucceeded(true);
       console.log('Payment succeeded:', paymentIntent);
       toast.success("Payment succeeded!");
+      setTimeout(() => {
+        navigate('/profile/my-orders');
+      },1500)
     }
   };
 

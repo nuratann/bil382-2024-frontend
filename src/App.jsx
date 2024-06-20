@@ -26,6 +26,8 @@ import AdminPageUsers from './pages/AdminPage/AdminPageUsers.jsx';
 import AdminPageCatalog from './pages/AdminPage/AdminPageCatalog.jsx';
 import AdminPageSettings from './pages/AdminPage/AdminPageSettings.jsx';
 import AdminPageComments from './pages/AdminPage/AdminPageComments.jsx';
+import AdminPageOrders from './pages/AdminPage/AdminPageOrders.jsx';
+import AdminPageReturns from './pages/AdminPage/AdminPageReturns.jsx';
 import AdminPageProductView from './pages/AdminPage/AdminPageProductView.jsx';
 import AdminPageAds from './pages/AdminPage/AdminPageAds.jsx';
 
@@ -48,7 +50,7 @@ function App() {
 
                     <Route path='/search' element={<SearchPage />} />
                     <Route path='/favorites' element={<Favorites />} />
-                    <Route path='/profile' element={<ProfilePg />} />
+                    <Route path='/profile/*' element={<ProfilePg />} />
                     <Route path='/add_card' element={<AddCardPage />} />
                     <Route path='/categories/:name' element={<CategoryPage />} />
                     <Route path='/test' element={<TestPage />} />
@@ -57,8 +59,8 @@ function App() {
                     <Route path='/admin' element={<AdminPage />} />
                     <Route path='/admin/users' element={<AdminPageUsers />} />
                     <Route path='/admin/catalog' element={<AdminPageCatalog />} />
-                    <Route path='/admin/orders' element={<AdminPageCatalog />} />
-                    <Route path='/admin/returns' element={<AdminPageCatalog />} />
+                    <Route path='/admin/orders' element={<AdminPageOrders />} />
+                    <Route path='/admin/returns' element={<AdminPageReturns />} />
                     <Route path='/admin/comments' element={<AdminPageComments />} />
                     <Route path='/admin/product/:id' element={< AdminPageProductView />} />
                     <Route path='/admin/settings' element={<AdminPageSettings />} />

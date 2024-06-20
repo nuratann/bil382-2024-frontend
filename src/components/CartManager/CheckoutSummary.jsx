@@ -15,6 +15,7 @@ import { InfoIcon } from '@chakra-ui/icons';
 import { FaShoppingCart } from 'react-icons/fa';
 
 const CheckoutSummary = (props) => {
+  
   const navigate = useNavigate();
   const goCheckout = (total) => {
     navigate(`/checkout?amount=${total}`);
@@ -22,16 +23,16 @@ const CheckoutSummary = (props) => {
   const bg = useColorModeValue('white', 'gray.700'); // Цвет фона для светлой и темной темы
   const {items} = props
   const weight = items.reduce((accumulator, item) => {
-    return accumulator + item.weight*item.quantity;
+    return accumulator + item.quantity;
   }, 0);
   const oldTotal = items.reduce((accumulator, item) => {
-    return accumulator + item.oldPrice*item.quantity;
+    return accumulator + 125000*item.quantity;
   }, 0);
   const total = items.reduce((accumulator, item) => {
-    return accumulator + item.price*item.quantity;
+    return accumulator + 120000*item.quantity;
   }, 0);
   const sale = items.reduce((accumulator, item) => {
-    return accumulator + (item.oldPrice-item.price)*item.quantity;
+    return accumulator + (5000)*item.quantity;
   }, 0);
   return (
     <VStack

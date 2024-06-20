@@ -25,7 +25,7 @@ const useProductStore = create()(
     devtools(
         persist(
             (set, get) => ({
-                recommendations: ['b1b19efc-3de3-4531-ab80-b878ea9de44a','1b939188-6902-417b-88c7-a9ef7131b2b5'],
+                recommendations: ['b1b19efc-3de3-4531-ab80-b878ea9de44a','1b939188-6902-417b-88c7-a9ef7131b2b5','6f726e5a-9459-4507-a3ef-b6ee524f743a'],
                 product: initProduct,
                 fetchRecommendations: async () => {
                     const cart = await RecommendationService.getRecomendations();

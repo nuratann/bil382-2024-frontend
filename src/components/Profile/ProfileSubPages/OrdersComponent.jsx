@@ -36,8 +36,10 @@ const OrdersComponent = () => {
         <TabPanels>
            <TabPanel>
             {/* Содержимое для заказов ожидающих оплаты */}
+            <OrderCard status="Выполненные" productId={'6f726e5a-9459-4507-a3ef-b6ee524f743a'}/>
             <OrderCard status="Ожидают оплаты" />
             <OrderCard status="В работе" />
+            <OrderCard status="Выполненные" />
             <OrderCard status="Выполненные" />
             <OrderCard status="Отмененные" />
           </TabPanel>
@@ -54,6 +56,7 @@ const OrdersComponent = () => {
             <OrderCard status="В работе" />
           </TabPanel>
           <TabPanel>
+            <OrderCard status="Выполненные" productId={'6f726e5a-9459-4507-a3ef-b6ee524f743a'}/>
             <OrderCard status="Выполненные" />
             <OrderCard status="Выполненные" />
             <OrderCard status="Выполненные" />

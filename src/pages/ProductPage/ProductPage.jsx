@@ -76,7 +76,7 @@ function ProductPage(){
             <ProductDescriptionBlock
               description={product.description}
               specs={product.specs} />
-            <ProductCommentTabs reviews={product.reviews} questionsCount={0} />
+            <ProductCommentTabs reviews={product.reviews} questionsCount={0} productId={product.id}/>
           </Container>
           <Footer />
         </>}

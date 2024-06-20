@@ -29,9 +29,10 @@ import useUserStore from '../../stores/useUserStore';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AnimatedCheckMark from '../AnimatedCheckMark/AnimatedCheckMark';
+import { useNavigate } from 'react-router-dom';
 
 const RegForm = ({ type }) => {
-
+    const navigate = useNavigate()
     const GenderEnum = {
         MALE: "Мужчина",
         FEMALE: "Женщина",
@@ -95,8 +96,9 @@ const RegForm = ({ type }) => {
                 setIsAuth(true)
                 setTimeout(() => {
                     userState.updateUser(user);
+                    navigate('/profile/personal-account');
                 }, 1500);
-
+                
                 setSubmitting(false);
             })
             .catch(error => {
